@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Settings | V2rayNplus</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #000000;
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
+            color: white;
+            display: flex;
+            justify-content: center;
+        }
+
+        .settings-container {
+            width: 100%;
+            max-width: 450px;
+            padding: 0 16px 40px 16px;
+        }
+
+        .header {
+            font-size: 34px;
+            font-weight: 700;
+            margin: 40px 10px 15px 0;
+            text-align: right;
+        }
+
+        .section-label {
+            font-size: 13px;
+            color: #8e8e93;
+            margin: 0 15px 8px 0;
+            text-align: right;
+        }
+
+        .section-card {
+            background-color: #1c1c1e;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 30px; /* فاصله بین کادرهای اصلی */
+        }
+
+        .setting-item {
+            display: flex;
+            align-items: center;
+            padding: 12px 16px;
+            text-decoration: none;
+            color: white;
+            border-bottom: 0.5px solid #38383a;
+            transition: background 0.2s;
+        }
+
+        .setting-item:last-child { border-bottom: none; }
+        .setting-item:active { background-color: #2c2c2e; }
+
+        .icon-box {
+            width: 30px;
+            height: 30px;
+            border-radius: 7px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-left: 12px;
+            font-size: 18px;
+        }
+
+        /* رنگ‌های اورجینال آیفون */
+        .bg-android { background-color: #34c759; } 
+        .bg-ios { background-color: #007aff; }     
+        .bg-windows { background-color: #5856d6; } 
+        .bg-back { background-color: #8e8e93; }
+
+        .label { flex-grow: 1; font-size: 17px; text-align: right; }
+        .arrow { color: #c4c4c6; font-size: 20px; font-family: serif; }
+    </style>
+</head>
+<body>
+
+<div class="settings-container">
+    <div class="header">Download Center</div>
+
+    <div class="section-label">ANDROID</div>
+    <div class="section-card">
+        <a href="https://play.google.com/store/apps/details?id=com.v2ray.ang" target="_blank" class="setting-item">
+            <div class="icon-box bg-android">🛰️</div>
+            <div class="label">v2rayNG (ویتوری)</div>
+            <div class="arrow">‹</div>
+        </a>
+        <a href="https://play.google.com/store/apps/details?id=app.hiddify.com" target="_blank" class="setting-item">
+            <div class="icon-box bg-android">🚀</div>
+            <div class="label">Hiddify (هیدی‌فای)</div>
+            <div class="arrow">‹</div>
+        </a>
+        <a href="https://play.google.com/store/apps/details?id=com.happproxy" target="_blank" class="setting-item">
+            <div class="icon-box bg-android">☘️</div>
+            <div class="label">Happ Proxy (هپ)</div>
+            <div class="arrow">‹</div>
+        </a>
+        <a href="https://play.google.com/store/apps/details?id=com.napsternetlabs.napsternetv" target="_blank" class="setting-item">
+            <div class="icon-box bg-android">🎧</div>
+            <div class="label">NapsternetV (نپستر)</div>
+            <div class="arrow">‹</div>
+        </a>
+    </div>
+
+    <div class="section-label">IPHONE (iOS)</div>
+    <div class="section-card">
+        <a href="https://apps.apple.com/us/app/happ-proxy/id6475221983" target="_blank" class="setting-item">
+            <div class="icon-box bg-ios">☘️</div>
+            <div class="label">Happ Proxy (هپ)</div>
+            <div class="arrow">‹</div>
+        </a>
+        <a href="https://apps.apple.com/us/app/streisand/id6450534064" target="_blank" class="setting-item">
+            <div class="icon-box bg-ios">🎻</div>
+            <div class="label">Streisand (استیریسند)</div>
+            <div class="arrow">‹</div>
+        </a>
+        <a href="https://apps.apple.com/us/app/v2box-v2ray-client/id6446814690" target="_blank" class="setting-item">
+            <div class="icon-box bg-ios">📦</div>
+            <div class="label">V2Box (ویتوباکس)</div>
+            <div class="arrow">‹</div>
+        </a>
+        <a href="https://apps.apple.com/us/app/napsternetv/id1629465476" target="_blank" class="setting-item">
+            <div class="icon-box bg-ios">🎧</div>
+            <div class="label">NapsternetV (نپستر)</div>
+            <div class="arrow">‹</div>
+        </a>
+    </div>
+
+    <div class="section-label">WINDOWS</div>
+    <div class="section-card">
+        <a href="https://github.com/2dust/v2rayN/releases" target="_blank" class="setting-item">
+            <div class="icon-box bg-windows">💻</div>
+            <div class="label">v2rayN (ویتوراین)</div>
+            <div class="arrow">‹</div>
+        </a>
+        <a href="https://github.com/SagerNet/nekoray/releases" target="_blank" class="setting-item">
+            <div class="icon-box bg-windows">🐱</div>
+            <div class="label">NekoBox (نکوباکس)</div>
+            <div class="arrow">‹</div>
+        </a>
+    </div>
+
+    <div class="section-card">
+        <a href="index.html" class="setting-item">
+            <div class="icon-box bg-back">🔙</div>
+            <div class="label">برگشت به صفحه اصلی</div>
+            <div class="arrow">‹</div>
+        </a>
+    </div>
+</div>
+
+</body>
+</html>
