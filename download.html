@@ -8,7 +8,7 @@
         body { margin: 0; padding: 0; background-color: #000; font-family: -apple-system, sans-serif; color: white; display: flex; justify-content: center; overflow-x: hidden; }
         .container { width: 100%; max-width: 450px; padding: 0 16px 40px 16px; position: relative; }
         
-        /* منوی زبان ثابت و میخکوب در سمت چپ */
+        /* منوی زبان کاملاً ثابت و میخکوب در سمت چپ */
         .lang-picker { 
             position: fixed !important; 
             left: 20px !important; 
@@ -22,8 +22,8 @@
         .flag-btn { width: 26px; height: 26px; border-radius: 50%; cursor: pointer; border: 1.5px solid #333; transition: 0.3s; object-fit: cover; }
         .flag-btn:hover { transform: scale(1.2); border-color: #fff; }
 
-        .header { font-size: 34px; font-weight: 700; margin: 70px 10px 15px 0; text-align: right; }
-        .section-label { font-size: 13px; color: #8e8e93; margin: 0 15px 8px 0; text-align: right; }
+        .header { font-size: 34px; font-weight: 700; margin: 75px 10px 15px 0; text-align: right; }
+        .section-label { font-size: 13px; color: #8e8e93; margin: 0 15px 8px 0; text-align: right; text-transform: uppercase; }
         .section-card { background-color: #1c1c1e; border-radius: 12px; overflow: hidden; margin-bottom: 25px; border: 0.5px solid rgba(255,255,255,0.05); }
         
         .item { display: flex; align-items: center; padding: 14px 16px; text-decoration: none; color: white; border-bottom: 0.5px solid #38383a; transition: 0.2s; }
@@ -36,7 +36,7 @@
         .name { flex-grow: 1; font-size: 17px; text-align: right; }
         .arrow { color: #444; font-size: 20px; font-weight: bold; }
 
-        /* استایل برای زبان‌های چپ‌چین (English, Russian, etc.) */
+        /* فیکس کردن جهت متن برای زبان‌های LTR */
         body.ltr .header, body.ltr .section-label, body.ltr .name { text-align: left; }
         body.ltr .icon { margin-left: 0; margin-right: 12px; }
         body.ltr .arrow { transform: rotate(180deg); }
@@ -67,18 +67,28 @@
             <div class="name" id="n2">Hiddify (هیدی‌فای)</div>
             <div class="arrow">‹</div>
         </a>
+        <a href="https://play.google.com/store/apps/details?id=com.happproxy" target="_blank" class="item">
+            <div class="icon bg-g">☘️</div>
+            <div class="name" id="n3">Happ Proxy (هپ)</div>
+            <div class="arrow">‹</div>
+        </a>
+        <a href="https://play.google.com/store/apps/details?id=com.napsternetlabs.napsternetv" target="_blank" class="item">
+            <div class="icon bg-g">🎧</div>
+            <div class="name" id="n4">NapsternetV (نپستر)</div>
+            <div class="arrow">‹</div>
+        </a>
     </div>
 
     <div class="section-label" id="li">IPHONE (iOS)</div>
     <div class="section-card">
-        <a href="https://apps.apple.com/us/app/hiddify-proxy/id6473774447" target="_blank" class="item">
-            <div class="icon bg-b">🚀</div>
-            <div class="name" id="n3">Hiddify (هیدی‌فای)</div>
+        <a href="https://apps.apple.com/us/app/happ-proxy/id6475221983" target="_blank" class="item">
+            <div class="icon bg-b">☘️</div>
+            <div class="name" id="n5">Happ Proxy (هپ)</div>
             <div class="arrow">‹</div>
         </a>
-        <a href="https://apps.apple.com/us/app/foxray/id6448898396" target="_blank" class="item">
-            <div class="icon bg-b">🦊</div>
-            <div class="name" id="n4">Foxray (فاکس‌ری)</div>
+        <a href="https://apps.apple.com/us/app/hiddify-proxy/id6473774447" target="_blank" class="item">
+            <div class="icon bg-b">🚀</div>
+            <div class="name" id="n6">Hiddify (هیدی‌فای)</div>
             <div class="arrow">‹</div>
         </a>
     </div>
@@ -94,14 +104,35 @@
 
 <script>
 const tr = {
-    fa: {h:"مرکز دانلود", a:"اندروید", i:"آیفون", b:"بازگشت به اصلی", n1:"v2rayNG (ویتوری)", n2:"Hiddify (هیدی‌فای)", n3:"Hiddify (هیدی‌فای)", n4:"Foxray (فاکس‌ری)"},
-    en: {h:"Download Center", a:"ANDROID", i:"IPHONE", b:"Back to Home", n1:"v2rayNG", n2:"Hiddify Next", n3:"Hiddify Next", n4:"Foxray"},
-    ru: {h:"Центр загрузки", a:"АНДРОИД", i:"IPHONE", b:"Назад", n1:"v2rayNG", n2:"Hiddify", n3:"Hiddify", n4:"Foxray"},
-    zh: {h:"下载中心", a:"安卓系统", i:"苹果手机", b:"回到首页", n1:"v2rayNG", n2:"Hiddify", n3:"Hiddify", n4:"Foxray"},
-    ja: {h:"ダウンロード", a:"アンドロイド", i:"アイフォン", b:"戻る", n1:"v2rayNG", n2:"Hiddify", n3:"Hiddify", n4:"Foxray"}
+    fa: {
+        h: "مرکز دانلود", a: "اندروید", i: "آیفون", b: "بازگشت به اصلی",
+        n1: "v2rayNG (ویتوری)", n2: "Hiddify (هیدی‌فای)", n3: "Happ Proxy (هپ)", n4: "NapsternetV (نپستر)",
+        n5: "Happ Proxy (هپ)", n6: "Hiddify (هیدی‌فای)"
+    },
+    en: {
+        h: "Download Center", a: "ANDROID", i: "IPHONE", b: "Back to Home",
+        n1: "v2rayNG", n2: "Hiddify Next", n3: "Happ Proxy", n4: "NapsternetV",
+        n5: "Happ Proxy", n6: "Hiddify Next"
+    },
+    ru: {
+        h: "Центр загрузки", a: "АНДРОИД", i: "IPHONE", b: "Назад",
+        n1: "v2rayNG", n2: "Hiddify", n3: "Happ Proxy", n4: "NapsternetV",
+        n5: "Happ Proxy", n6: "Hiddify"
+    },
+    zh: {
+        h: "下载中心", a: "安卓系统", i: "苹果手机", b: "回到首页",
+        n1: "v2rayNG", n2: "Hiddify", n3: "Happ Proxy", n4: "NapsternetV",
+        n5: "Happ Proxy", n6: "Hiddify"
+    },
+    ja: {
+        h: "ダウンロード", a: "アンドロイド", i: "アイフォン", b: "戻る",
+        n1: "v2rayNG", n2: "Hiddify", n3: "Happ Proxy", n4: "NapsternetV",
+        n5: "Happ Proxy", n6: "Hiddify"
+    }
 };
 
 function ch(l) {
+    // تغییر تمام متن‌ها بر اساس کلید ID
     document.getElementById('th').innerText = tr[l].h;
     document.getElementById('la').innerText = tr[l].a;
     document.getElementById('li').innerText = tr[l].i;
@@ -110,10 +141,17 @@ function ch(l) {
     document.getElementById('n2').innerText = tr[l].n2;
     document.getElementById('n3').innerText = tr[l].n3;
     document.getElementById('n4').innerText = tr[l].n4;
+    document.getElementById('n5').innerText = tr[l].n5;
+    document.getElementById('n6').innerText = tr[l].n6;
 
-    document.body.dir = (l === 'fa') ? 'rtl' : 'ltr';
-    if(l === 'fa') document.body.classList.remove('ltr'); 
-    else document.body.classList.add('ltr');
+    // تغییر جهت صفحه
+    if(l === 'fa') {
+        document.body.dir = "rtl";
+        document.body.classList.remove('ltr');
+    } else {
+        document.body.dir = "ltr";
+        document.body.classList.add('ltr');
+    }
 }
 </script>
 </body>
