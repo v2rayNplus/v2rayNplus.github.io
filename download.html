@@ -6,24 +6,27 @@
     <title>مرکز دانلود | v2rayNplus</title>
     <style>
         body { margin: 0; padding: 0; background-color: #000; font-family: -apple-system, sans-serif; color: white; overflow-x: hidden; }
-        .top-nav { position: fixed; top: 0; left: 0; right: 0; height: 70px; background-color: #000; display: flex; justify-content: center; align-items: center; gap: 12px; z-index: 9999; border-bottom: 1px solid #222; }
-        .flag-btn { width: 32px; height: 32px; border-radius: 50%; cursor: pointer; border: 2px solid #333; object-fit: cover; }
-        .container { width: 100%; max-width: 450px; margin: 0 auto; padding: 85px 16px 40px 16px; box-sizing: border-box; }
-        .header { font-size: 38px; font-weight: 800; margin-bottom: 25px; text-align: right; }
-        .section-label { font-size: 13px; color: #8e8e93; margin: 0 5px 10px 0; text-align: right; font-weight: 600; }
-        .section-card { background-color: #1c1c1e; border-radius: 14px; overflow: hidden; margin-bottom: 25px; border: 0.5px solid rgba(255,255,255,0.05); }
-        .item { display: flex; align-items: center; padding: 14px 18px; text-decoration: none; color: white; border-bottom: 0.5px solid #38383a; }
+        .top-nav { position: fixed; top: 0; left: 0; right: 0; height: 60px; background-color: #000; display: flex; justify-content: center; align-items: center; gap: 12px; z-index: 9999; border-bottom: 0.5px solid #222; }
+        .flag-btn { width: 30px; height: 30px; border-radius: 50%; cursor: pointer; border: 1.5px solid #333; object-fit: cover; }
+        .container { width: 100%; max-width: 450px; margin: 0 auto; padding: 75px 16px 40px 16px; box-sizing: border-box; }
+        
+        /* تیتر رو کوچیک کردم که فضا باز بشه */
+        .header { font-size: 28px; font-weight: 700; margin-bottom: 20px; text-align: right; letter-spacing: -0.5px; }
+        
+        .section-label { font-size: 13px; color: #8e8e93; margin: 0 5px 8px 0; text-align: right; font-weight: 600; }
+        .section-card { background-color: #1c1c1e; border-radius: 12px; overflow: hidden; margin-bottom: 20px; border: 0.5px solid rgba(255,255,255,0.05); }
+        .item { display: flex; align-items: center; padding: 12px 16px; text-decoration: none; color: white; border-bottom: 0.5px solid #38383a; }
         .item:active { background-color: #2c2c2e; }
         .item:last-child { border-bottom: none; }
-        .icon { width: 34px; height: 34px; border-radius: 8px; display: flex; justify-content: center; align-items: center; font-size: 20px; flex-shrink: 0; }
+        .icon { width: 32px; height: 32px; border-radius: 7px; display: flex; justify-content: center; align-items: center; font-size: 18px; flex-shrink: 0; }
         .bg-a { background: #34c759; } .bg-i { background: #007aff; } .bg-w { background: #5856d6; } .bg-b { background: #444; }
-        .name { flex-grow: 1; font-size: 17px; font-weight: 500; text-align: right; margin-right: 15px; }
-        .arrow { color: #444; font-size: 18px; font-weight: bold; }
+        .name { flex-grow: 1; font-size: 16px; font-weight: 500; text-align: right; margin-right: 12px; }
+        .arrow { color: #444; font-size: 17px; font-weight: bold; }
         body.ltr .header, body.ltr .section-label, body.ltr .name { text-align: left; }
-        body.ltr .name { margin-right: 0; margin-left: 15px; }
+        body.ltr .name { margin-right: 0; margin-left: 12px; }
         body.ltr .item { flex-direction: row-reverse; }
         body.ltr .arrow { transform: scaleX(-1); }
-        .daily { text-align: center; font-size: 11px; color: #444; margin-top: 30px; }
+        .daily { text-align: center; font-size: 11px; color: #444; margin-top: 25px; }
     </style>
 </head>
 <body>
@@ -42,24 +45,20 @@
 const langData = {
     fa: { h: "مرکز دانلود", a: "اندروید", i: "آیفون", w: "ویندوز", b: "برگشت", n1: "ویتوری ان‌جی", n2: "هیدی‌فای", n3: "هپ پروکسی", n4: "نپستر‌نت", n7: "فاکس‌ری", n11: "نکوباکس" },
     en: { h: "Download Center", a: "ANDROID", i: "IPHONE", w: "WINDOWS", b: "Back", n1: "v2rayNG App", n2: "Hiddify Next", n3: "Happ Proxy", n4: "NapsternetV", n7: "Foxray Client", n11: "NekoBox" },
-    ru: { h: "Центр загрузки", a: "АНДРОИД", i: "АЙФОН", w: "ВИНДОВС", b: "Назад", n1: "v2rayNG Клиент", n2: "Hiddify Приложение", n3: "Happ Прокси", n4: "NapsternetV ПО", n7: "Foxray Клиент", n11: "NekoBox" },
+    ru: { h: "Центр загрузки", a: "АНДРОИД", i: "АЙФОН", w: "ВИНДОВС", b: "Назад", n1: "v2rayNG Клиент", n2: "Hiddify ПО", n3: "Happ Прокси", n4: "NapsternetV ПО", n7: "Foxray ПО", n11: "NekoBox" },
     zh: { h: "下载中心", a: "安卓系统", i: "苹果手机", w: "窗口系统", b: "返回首页", n1: "v2rayNG 客户端", n2: "Hiddify 客户端", n3: "Happ 代理", n4: "NapsternetV 软件", n7: "Foxray 软件", n11: "NekoBox 客户端" },
-    ja: { h: "ダウンロード", a: "アンドロイド", i: "アイフォン", w: "ウィンドウズ", b: "戻る", n1: "v2rayNG アプリ", n2: "Hiddify アプリ", n3: "Happ プロキシ", n4: "NapsternetV アプリ", n7: "Foxray アプリ", n11: "NekoBox アプリ" }
+    ja: { h: "ダウンロード", a: "アンドロイド", i: "アイフォン", w: "ウィンドウズ", b: "戻る", n1: "v2rayNG アプリ", n2: "Hiddify アプリ", n3: "Happ プロキシ", n4: "NapsternetV アプリ", n7: "Foxray アプリ", n11: "NekoBox アوری" }
 };
 
-// لینک‌های دانلود اختصاصی
 const dl = {
-    // Android (GitHub)
     v2ng_a: "https://github.com/2dust/v2rayNG/releases",
     hidy_a: "https://github.com/hiddify/hiddify-next/releases",
     happ_a: "https://github.com/GFW-knocker/HappProxy/releases",
     naps_a: "https://github.com/NapsternetV/NapsternetV/releases",
-    // iOS (App Store)
     happ_i: "https://apps.apple.com/app/happ-proxy/id1612454566",
     hidy_i: "https://apps.apple.com/app/hiddify-next/id6472402356",
     fox_i: "https://apps.apple.com/app/foxray/id6444898154",
     naps_i: "https://apps.apple.com/app/napsternetv/id1624131542",
-    // Windows (GitHub)
     neko_w: "https://github.com/MatsuriDayo/nekoray/releases"
 };
 
