@@ -3,85 +3,117 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Download Center</title>
+    <title>Download Center | v2rayNplus</title>
     <style>
-        body { margin: 0; background: #000; color: white; font-family: -apple-system, sans-serif; display: flex; justify-content: center; }
-        .container { width: 100%; max-width: 450px; padding: 20px; position: relative; }
+        body { margin: 0; padding: 0; background-color: #000; font-family: -apple-system, sans-serif; color: white; display: flex; justify-content: center; overflow-x: hidden; }
+        .container { width: 100%; max-width: 450px; padding: 0 16px 40px 16px; position: relative; }
         
-        /* منوی پرچم ثابت سمت چپ */
-        .lang-picker { position: fixed !important; left: 20px; top: 20px; display: flex; gap: 8px; z-index: 1000; direction: ltr !important; }
-        .flag { width: 25px; height: 25px; border-radius: 50%; cursor: pointer; border: 1px solid #333; }
+        /* منوی زبان ثابت و میخکوب در سمت چپ */
+        .lang-picker { 
+            position: fixed !important; 
+            left: 20px !important; 
+            right: auto !important; 
+            top: 20px; 
+            display: flex; 
+            gap: 10px; 
+            z-index: 1000; 
+            direction: ltr !important; 
+        }
+        .flag-btn { width: 26px; height: 26px; border-radius: 50%; cursor: pointer; border: 1.5px solid #333; transition: 0.3s; object-fit: cover; }
+        .flag-btn:hover { transform: scale(1.2); border-color: #fff; }
 
-        .header { font-size: 34px; font-weight: 700; margin: 60px 10px 20px 0; text-align: right; }
-        .label { font-size: 13px; color: #8e8e93; margin: 0 15px 8px 0; text-align: right; }
-        .card { background: #1c1c1e; border-radius: 12px; overflow: hidden; margin-bottom: 25px; }
-        .item { display: flex; align-items: center; padding: 12px 16px; text-decoration: none; color: white; border-bottom: 0.5px solid #38383a; }
+        .header { font-size: 34px; font-weight: 700; margin: 70px 10px 15px 0; text-align: right; }
+        .section-label { font-size: 13px; color: #8e8e93; margin: 0 15px 8px 0; text-align: right; }
+        .section-card { background-color: #1c1c1e; border-radius: 12px; overflow: hidden; margin-bottom: 25px; border: 0.5px solid rgba(255,255,255,0.05); }
+        
+        .item { display: flex; align-items: center; padding: 14px 16px; text-decoration: none; color: white; border-bottom: 0.5px solid #38383a; transition: 0.2s; }
+        .item:active { background-color: #2c2c2e; }
         .item:last-child { border-bottom: none; }
-        .icon { width: 30px; height: 30px; border-radius: 7px; display: flex; justify-content: center; align-items: center; margin-left: 12px; }
-        .bg-g { background: #34c759; } .bg-b { background: #007aff; } .bg-p { background: #5856d6; } .bg-gr { background: #8e8e93; }
-        .name { flex-grow: 1; text-align: right; font-size: 17px; }
-        .arrow { color: #38383a; font-size: 20px; }
+        
+        .icon { width: 32px; height: 32px; border-radius: 8px; display: flex; justify-content: center; align-items: center; margin-left: 12px; font-size: 18px; }
+        .bg-g { background-color: #34c759; } .bg-b { background-color: #007aff; } .bg-p { background-color: #5856d6; } .bg-gr { background-color: #444; }
+        
+        .name { flex-grow: 1; font-size: 17px; text-align: right; }
+        .arrow { color: #444; font-size: 20px; font-weight: bold; }
 
-        /* تراز متن برای زبان‌های مختلف */
-        body.ltr .header, body.ltr .label, body.ltr .name { text-align: left; }
+        /* استایل برای زبان‌های چپ‌چین (English, Russian, etc.) */
+        body.ltr .header, body.ltr .section-label, body.ltr .name { text-align: left; }
         body.ltr .icon { margin-left: 0; margin-right: 12px; }
         body.ltr .arrow { transform: rotate(180deg); }
     </style>
 </head>
-<body id="b">
+<body id="mainBody">
+
 <div class="container">
     <div class="lang-picker">
-        <img src="https://flagcdn.com/w40/cn.png" class="flag" onclick="ch('zh')">
-        <img src="https://flagcdn.com/w40/jp.png" class="flag" onclick="ch('ja')">
-        <img src="https://flagcdn.com/w40/ru.png" class="flag" onclick="ch('ru')">
-        <img src="https://flagcdn.com/w40/us.png" class="flag" onclick="ch('en')">
-        <img src="https://flagcdn.com/w40/ir.png" class="flag" onclick="ch('fa')">
+        <img src="https://flagcdn.com/w80/cn.png" class="flag-btn" onclick="ch('zh')">
+        <img src="https://flagcdn.com/w80/jp.png" class="flag-btn" onclick="ch('ja')">
+        <img src="https://flagcdn.com/w80/ru.png" class="flag-btn" onclick="ch('ru')">
+        <img src="https://flagcdn.com/w80/us.png" class="flag-btn" onclick="ch('en')">
+        <img src="https://flagcdn.com/w80/ir.png" class="flag-btn" onclick="ch('fa')">
     </div>
 
     <div class="header" id="th">مرکز دانلود</div>
-    
-    <div class="label" id="la">ANDROID</div>
-    <div class="card">
-        <a href="https://github.com/2dust/v2rayNG/releases" class="item"><div class="icon bg-g">📡</div><div class="name">v2rayNG (ویتوری)</div><div class="arrow">‹</div></a>
-        <a href="https://github.com/hiddify/hiddify-next/releases" class="item"><div class="icon bg-g">🚀</div><div class="name">Hiddify (هیدی‌فای)</div><div class="arrow">‹</div></a>
-        <a href="https://play.google.com/store/apps/details?id=com.happproxy" class="item"><div class="icon bg-g">☘️</div><div class="name">Happ Proxy (هپ)</div><div class="arrow">‹</div></a>
-        <a href="https://play.google.com/store/apps/details?id=com.napsternetlabs.napsternetv" class="item"><div class="icon bg-g">🎧</div><div class="name">NapsternetV (نپستر)</div><div class="arrow">‹</div></a>
+
+    <div class="section-label" id="la">ANDROID</div>
+    <div class="section-card">
+        <a href="https://github.com/2dust/v2rayNG/releases" target="_blank" class="item">
+            <div class="icon bg-g">📡</div>
+            <div class="name" id="n1">v2rayNG (ویتوری)</div>
+            <div class="arrow">‹</div>
+        </a>
+        <a href="https://github.com/hiddify/hiddify-next/releases" target="_blank" class="item">
+            <div class="icon bg-g">🚀</div>
+            <div class="name" id="n2">Hiddify (هیدی‌فای)</div>
+            <div class="arrow">‹</div>
+        </a>
     </div>
 
-    <div class="label" id="li">IPHONE (iOS)</div>
-    <div class="card">
-        <a href="https://apps.apple.com/us/app/happ-proxy/id6475221983" class="item"><div class="icon bg-b">☘️</div><div class="name">Happ Proxy (هپ)</div><div class="arrow">‹</div></a>
-        <a href="https://apps.apple.com/us/app/hiddify-proxy/id6473774447" class="item"><div class="icon bg-b">🚀</div><div class="name">Hiddify (هیدی‌فای)</div><div class="arrow">‹</div></a>
-        <a href="https://apps.apple.com/us/app/foxray/id6448898396" class="item"><div class="icon bg-b">🦊</div><div class="name">Foxray (فاکس‌ری)</div><div class="arrow">‹</div></a>
+    <div class="section-label" id="li">IPHONE (iOS)</div>
+    <div class="section-card">
+        <a href="https://apps.apple.com/us/app/hiddify-proxy/id6473774447" target="_blank" class="item">
+            <div class="icon bg-b">🚀</div>
+            <div class="name" id="n3">Hiddify (هیدی‌فای)</div>
+            <div class="arrow">‹</div>
+        </a>
+        <a href="https://apps.apple.com/us/app/foxray/id6448898396" target="_blank" class="item">
+            <div class="icon bg-b">🦊</div>
+            <div class="name" id="n4">Foxray (فاکس‌ری)</div>
+            <div class="arrow">‹</div>
+        </a>
     </div>
 
-    <div class="label" id="lw">WINDOWS</div>
-    <div class="card">
-        <a href="https://github.com/2dust/v2rayN/releases" class="item"><div class="icon bg-p">💻</div><div class="name">v2rayN (ویتورای‌ان)</div><div class="arrow">‹</div></a>
-        <a href="https://github.com/SagerNet/nekoray/releases" class="item"><div class="icon bg-p">🐱</div><div class="name">NekoBox (نکوباکس)</div><div class="arrow">‹</div></a>
-    </div>
-
-    <div class="card">
-        <a href="index.html" class="item"><div class="icon bg-gr">🔗</div><div class="name" id="tb">بازگشت به صفحه اصلی</div><div class="arrow">‹</div></a>
+    <div class="section-card">
+        <a href="index.html" class="item">
+            <div class="icon bg-gr">🔗</div>
+            <div class="name" id="tb">بازگشت به اصلی</div>
+            <div class="arrow">‹</div>
+        </a>
     </div>
 </div>
 
 <script>
 const tr = {
-    fa: {h:"مرکز دانلود", a:"ANDROID", i:"IPHONE (iOS)", w:"WINDOWS", b:"بازگشت به صفحه اصلی"},
-    en: {h:"Download Center", a:"ANDROID", i:"IPHONE (iOS)", w:"WINDOWS", b:"Back to Home"},
-    ru: {h:"Центр загрузки", a:"АНДРОИД", i:"IPHONE (iOS)", w:"WINDOWS", b:"Назад на главную"},
-    zh: {h:"下载中心", a:"安卓系统", i:"苹果手机 (iOS)", w:"窗口", b:"回到首页"},
-    ja: {h:"ダウンロードセンター", a:"アンドロイド", i:"IPHONE (iOS)", w:"WINDOWS", b:"戻る"}
+    fa: {h:"مرکز دانلود", a:"اندروید", i:"آیفون", b:"بازگشت به اصلی", n1:"v2rayNG (ویتوری)", n2:"Hiddify (هیدی‌فای)", n3:"Hiddify (هیدی‌فای)", n4:"Foxray (فاکس‌ری)"},
+    en: {h:"Download Center", a:"ANDROID", i:"IPHONE", b:"Back to Home", n1:"v2rayNG", n2:"Hiddify Next", n3:"Hiddify Next", n4:"Foxray"},
+    ru: {h:"Центр загрузки", a:"АНДРОИД", i:"IPHONE", b:"Назад", n1:"v2rayNG", n2:"Hiddify", n3:"Hiddify", n4:"Foxray"},
+    zh: {h:"下载中心", a:"安卓系统", i:"苹果手机", b:"回到首页", n1:"v2rayNG", n2:"Hiddify", n3:"Hiddify", n4:"Foxray"},
+    ja: {h:"ダウンロード", a:"アンドロイド", i:"アイフォン", b:"戻る", n1:"v2rayNG", n2:"Hiddify", n3:"Hiddify", n4:"Foxray"}
 };
+
 function ch(l) {
     document.getElementById('th').innerText = tr[l].h;
     document.getElementById('la').innerText = tr[l].a;
     document.getElementById('li').innerText = tr[l].i;
-    document.getElementById('lw').innerText = tr[l].w;
     document.getElementById('tb').innerText = tr[l].b;
+    document.getElementById('n1').innerText = tr[l].n1;
+    document.getElementById('n2').innerText = tr[l].n2;
+    document.getElementById('n3').innerText = tr[l].n3;
+    document.getElementById('n4').innerText = tr[l].n4;
+
     document.body.dir = (l === 'fa') ? 'rtl' : 'ltr';
-    if(l==='fa') document.body.classList.remove('ltr'); else document.body.classList.add('ltr');
+    if(l === 'fa') document.body.classList.remove('ltr'); 
+    else document.body.classList.add('ltr');
 }
 </script>
 </body>
