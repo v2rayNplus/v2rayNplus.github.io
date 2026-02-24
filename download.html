@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Download Center | v2rayNplus</title>
+    <title id="pageTitle">مرکز دانلود | v2rayNplus</title>
     <style>
         body { margin: 0; padding: 0; background-color: #000; font-family: -apple-system, sans-serif; color: white; display: flex; justify-content: center; overflow-x: hidden; }
         .container { width: 100%; max-width: 450px; padding: 0 16px 40px 16px; position: relative; }
@@ -17,11 +17,12 @@
         .bg-a { background: #34c759; } .bg-i { background: #007aff; } .bg-w { background: #5856d6; } .bg-b { background: #444; }
         .name { flex-grow: 1; font-size: 17px; font-weight: 500; text-align: right; margin-right: 15px; }
         .arrow { color: #444; font-size: 18px; font-weight: bold; }
+        /* استایل چرخش صفحه برای زبان‌های LTR */
         body.ltr .header, body.ltr .section-label, body.ltr .name { text-align: left; }
         body.ltr .name { margin-right: 0; margin-left: 15px; }
         body.ltr .item { flex-direction: row-reverse; }
         body.ltr .arrow { transform: scaleX(-1); }
-        .daily-update { text-align: center; font-size: 10px; color: #444; margin-top: 20px; }
+        .daily-update { text-align: center; font-size: 11px; color: #444; margin-top: 25px; }
     </style>
 </head>
 <body id="mainBody">
@@ -30,42 +31,42 @@
 <script>
 const translations = {
     fa: {
-        h: "مرکز دانلود", a: "اندروید", i: "آیفون", w: "ویندوز", b: "برگشت به اصلی",
+        t: "مرکز دانلود | v2rayNplus", h: "مرکز دانلود", a: "اندروید", i: "آیفون", w: "ویندوز", b: "برگشت به اصلی", d: "Daily Update",
         n1: "v2rayNG (ویتوری)", n2: "Hiddify (هیدی‌فای)", n3: "Happ Proxy (هپ)", n4: "NapsternetV (نپستر)",
         n5: "Happ Proxy (هپ)", n6: "Hiddify (هیدی‌فای)", n7: "Foxray (فاکس‌ری)", n8: "NapsternetV (نپستر)",
         n9: "v2rayN (ویتورای‌ان)", n10: "Hiddify (هیدی‌فای)", n11: "NekoBox (نکوباکس)"
     },
     en: {
-        h: "Downloads", a: "ANDROID", i: "IPHONE", w: "WINDOWS", b: "Back Home",
+        t: "Download Center | v2rayNplus", h: "Download Center", a: "ANDROID", i: "IPHONE", w: "WINDOWS", b: "Back Home", d: "Daily Update",
         n1: "v2rayNG App", n2: "Hiddify Next", n3: "Happ Proxy", n4: "NapsternetV",
         n5: "Happ Proxy", n6: "Hiddify Next", n7: "Foxray VPN", n8: "NapsternetV",
         n9: "v2rayN Win", n10: "Hiddify Win", n11: "NekoBox Client"
     },
     ru: {
-        h: "Загрузки", a: "АНДРОИД", i: "АЙФОН", w: "ВИНДОВС", b: "Назад",
-        n1: "Клиент v2rayNG", n2: "Хиддифай", n3: "Хапп Прокси", n4: "Напстернет",
-        n5: "Хапп Прокси", n6: "Хиддифай", n7: "Фоксрей", n8: "Напстернет",
+        t: "Центр загрузки | v2rayNplus", h: "Центр загрузки", a: "АНДРОИД", i: "АЙФОН", w: "ВИНДОВС", b: "Назад", d: "Ежедневное обновление",
+        n1: "v2rayNG клиент", n2: "Хиддифай", n3: "Хапп Прокси", n4: "Напстернет",
+        n5: "Хапп Прокси", n6: "Хиддифай", n7: "Фоکسрей", n8: "Напстернет",
         n9: "v2rayN для ПК", n10: "Хиддифай ПК", n11: "НекоБокс"
     },
     zh: {
-        h: "下载中心", a: "安卓系统", i: "苹果手机", w: "窗口系统", b: "返回首页",
-        n1: "v2rayNG 客户端", n2: "Hiddify 下一个", n3: "Happ 代理", n4: "NapsternetV 软件",
-        n5: "Happ 代理", n6: "Hiddify 下一个", n7: "Foxray 客户端", n8: "NapsternetV 软件",
-        n9: "v2rayN 窗口版", n10: "Hiddify 窗口版", n11: "NekoBox 客户端"
+        t: "下载中心 | v2rayNplus", h: "下载中心", a: "安卓系统", i: "苹果手机", w: "窗口系统", b: "返回首页", d: "每日更新",
+        n1: "v2rayNG 客户端", n2: "Hiddify 客户端", n3: "Happ 代理", n4: "NapsternetV 软件",
+        n5: "Happ 代理", n6: "Hiddify 客户端", n7: "Foxray 软件", n8: "NapsternetV 软件",
+        n9: "v2rayN 客户端", n10: "Hiddify 客户端", n11: "NekoBox 客户端"
     },
     ja: {
-        h: "ダウンロード", a: "アンドロイド", i: "アイフォン", w: "ウィンドウズ", b: "戻る",
-        n1: "v2rayNG アプリ", n2: "Hiddify 次へ", n3: "Happ プロキシ", n4: "NapsternetV",
-        n5: "Happ プロキシ", n6: "Hiddify 次へ", n7: "Foxray アプリ", n8: "NapsternetV",
-        n9: "v2rayN 窓", n10: "Hiddify 窓", n11: "NekoBox 窓"
+        t: "ダウンロード | v2rayNplus", h: "ダウンロード", a: "アンドロイド", i: "アイフォン", w: "ウィンドウズ", b: "戻る", d: "毎日更新",
+        n1: "v2rayNG アプリ", n2: "Hiddify アプリ", n3: "Happ プロキシ", n4: "NapsternetV",
+        n5: "Happ プロキシ", n6: "Hiddify アプリ", n7: "Foxray アプリ", n8: "NapsternetV",
+        n9: "v2rayN アプリ", n10: "Hiddify アプリ", n11: "NekoBox アプリ"
     }
 };
 
 function renderPage(lang) {
     const t = translations[lang];
-    const isFa = lang === 'fa';
-    document.body.className = isFa ? '' : 'ltr';
-    document.body.dir = isFa ? 'rtl' : 'ltr';
+    document.title = t.t; // تغییر تایتل بالای مرورگر
+    document.body.className = lang === 'fa' ? '' : 'ltr';
+    document.body.dir = lang === 'fa' ? 'rtl' : 'ltr';
 
     document.getElementById('app').innerHTML = `
         <div class="lang-picker">
@@ -78,26 +79,26 @@ function renderPage(lang) {
         <div class="header">${t.h}</div>
         <div class="section-label">${t.a}</div>
         <div class="section-card">
-            <a href="#" class="item"><div class="arrow">‹</div><div class="name">${t.n1}</div><div class="icon bg-a">📡</div></a>
-            <a href="#" class="item"><div class="arrow">‹</div><div class="name">${t.n2}</div><div class="icon bg-a">🚀</div></a>
-            <a href="#" class="item"><div class="arrow">‹</div><div class="name">${t.n3}</div><div class="icon bg-a">☘️</div></a>
-            <a href="#" class="item"><div class="arrow">‹</div><div class="name">${t.n4}</div><div class="icon bg-a">🎧</div></a>
+            <a href="https://github.com/2dust/v2rayNG/releases" target="_blank" class="item"><div class="arrow">‹</div><div class="name">${t.n1}</div><div class="icon bg-a">📡</div></a>
+            <a href="https://github.com/hiddify/hiddify-next/releases" target="_blank" class="item"><div class="arrow">‹</div><div class="name">${t.n2}</div><div class="icon bg-a">🚀</div></a>
+            <a href="https://play.google.com/store/apps/details?id=com.happproxy" target="_blank" class="item"><div class="arrow">‹</div><div class="name">${t.n3}</div><div class="icon bg-a">☘️</div></a>
+            <a href="https://play.google.com/store/apps/details?id=com.napsternetlabs.napsternetv" target="_blank" class="item"><div class="arrow">‹</div><div class="name">${t.n4}</div><div class="icon bg-a">🎧</div></a>
         </div>
         <div class="section-label">${t.i}</div>
         <div class="section-card">
-            <a href="#" class="item"><div class="arrow">‹</div><div class="name">${t.n5}</div><div class="icon bg-i">☘️</div></a>
-            <a href="#" class="item"><div class="arrow">‹</div><div class="name">${t.n6}</div><div class="icon bg-i">🚀</div></a>
-            <a href="#" class="item"><div class="arrow">‹</div><div class="name">${t.n7}</div><div class="icon bg-i">🦊</div></a>
-            <a href="#" class="item"><div class="arrow">‹</div><div class="name">${t.n8}</div><div class="icon bg-i">🎧</div></a>
+            <a href="https://apps.apple.com/us/app/happ-proxy/id6475221983" target="_blank" class="item"><div class="arrow">‹</div><div class="name">${t.n5}</div><div class="icon bg-i">☘️</div></a>
+            <a href="https://apps.apple.com/us/app/hiddify-proxy/id6473774447" target="_blank" class="item"><div class="arrow">‹</div><div class="name">${t.n6}</div><div class="icon bg-i">🚀</div></a>
+            <a href="https://apps.apple.com/us/app/foxray/id6448898396" target="_blank" class="item"><div class="arrow">‹</div><div class="name">${t.n7}</div><div class="icon bg-i">🦊</div></a>
+            <a href="https://apps.apple.com/us/app/napsternetv/id1629465476" target="_blank" class="item"><div class="arrow">‹</div><div class="name">${t.n8}</div><div class="icon bg-i">🎧</div></a>
         </div>
         <div class="section-label">${t.w}</div>
         <div class="section-card">
-            <a href="#" class="item"><div class="arrow">‹</div><div class="name">${t.n9}</div><div class="icon bg-w">💻</div></a>
-            <a href="#" class="item"><div class="arrow">‹</div><div class="name">${t.n10}</div><div class="icon bg-w">🚀</div></a>
-            <a href="#" class="item"><div class="arrow">‹</div><div class="name">${t.n11}</div><div class="icon bg-w">🐱</div></a>
+            <a href="https://github.com/2dust/v2rayN/releases" target="_blank" class="item"><div class="arrow">‹</div><div class="name">${t.n9}</div><div class="icon bg-w">💻</div></a>
+            <a href="https://github.com/hiddify/hiddify-next/releases" target="_blank" class="item"><div class="arrow">‹</div><div class="name">${t.n10}</div><div class="icon bg-w">🚀</div></a>
+            <a href="https://github.com/SagerNet/nekoray/releases" target="_blank" class="item"><div class="arrow">‹</div><div class="name">${t.n11}</div><div class="icon bg-w">🐱</div></a>
         </div>
         <div class="section-card"><a href="index.html" class="item"><div class="arrow">‹</div><div class="name">${t.b}</div><div class="icon bg-b">🔗</div></a></div>
-        <div class="daily-update">Daily Update</div>
+        <div class="daily-update">${t.d}</div>
     `;
 }
 renderPage('fa');
