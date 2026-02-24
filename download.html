@@ -6,27 +6,27 @@
     <title>مرکز دانلود | v2rayNplus</title>
     <style>
         body { margin: 0; padding: 0; background-color: #000; font-family: -apple-system, sans-serif; color: white; overflow-x: hidden; }
-        .top-nav { position: fixed; top: 0; left: 0; right: 0; height: 60px; background-color: #000; display: flex; justify-content: center; align-items: center; gap: 12px; z-index: 9999; border-bottom: 0.5px solid #222; }
-        .flag-btn { width: 30px; height: 30px; border-radius: 50%; cursor: pointer; border: 1.5px solid #333; object-fit: cover; }
-        .container { width: 100%; max-width: 450px; margin: 0 auto; padding: 75px 16px 40px 16px; box-sizing: border-box; }
+        .top-nav { position: fixed; top: 0; left: 0; right: 0; height: 55px; background-color: #000; display: flex; justify-content: center; align-items: center; gap: 12px; z-index: 9999; border-bottom: 0.5px solid #1a1a1a; }
+        .flag-btn { width: 28px; height: 28px; border-radius: 50%; cursor: pointer; border: 1.5px solid #333; object-fit: cover; }
+        .container { width: 100%; max-width: 450px; margin: 0 auto; padding: 65px 16px 40px 16px; box-sizing: border-box; }
         
-        /* تیتر رو کوچیک کردم که فضا باز بشه */
-        .header { font-size: 28px; font-weight: 700; margin-bottom: 20px; text-align: right; letter-spacing: -0.5px; }
+        /* اینم از کوچیک کردن تیتر که گفتی */
+        .header { font-size: 22px; font-weight: 700; margin-bottom: 15px; text-align: right; color: #fff; }
         
-        .section-label { font-size: 13px; color: #8e8e93; margin: 0 5px 8px 0; text-align: right; font-weight: 600; }
-        .section-card { background-color: #1c1c1e; border-radius: 12px; overflow: hidden; margin-bottom: 20px; border: 0.5px solid rgba(255,255,255,0.05); }
-        .item { display: flex; align-items: center; padding: 12px 16px; text-decoration: none; color: white; border-bottom: 0.5px solid #38383a; }
+        .section-label { font-size: 12px; color: #8e8e93; margin: 0 5px 6px 0; text-align: right; font-weight: 600; text-transform: uppercase; }
+        .section-card { background-color: #1c1c1e; border-radius: 10px; overflow: hidden; margin-bottom: 18px; border: 0.5px solid rgba(255,255,255,0.05); }
+        .item { display: flex; align-items: center; padding: 11px 16px; text-decoration: none; color: white; border-bottom: 0.5px solid #38383a; }
         .item:active { background-color: #2c2c2e; }
         .item:last-child { border-bottom: none; }
-        .icon { width: 32px; height: 32px; border-radius: 7px; display: flex; justify-content: center; align-items: center; font-size: 18px; flex-shrink: 0; }
+        .icon { width: 30px; height: 30px; border-radius: 7px; display: flex; justify-content: center; align-items: center; font-size: 16px; flex-shrink: 0; }
         .bg-a { background: #34c759; } .bg-i { background: #007aff; } .bg-w { background: #5856d6; } .bg-b { background: #444; }
-        .name { flex-grow: 1; font-size: 16px; font-weight: 500; text-align: right; margin-right: 12px; }
-        .arrow { color: #444; font-size: 17px; font-weight: bold; }
+        .name { flex-grow: 1; font-size: 16px; font-weight: 400; text-align: right; margin-right: 12px; }
+        .arrow { color: #3a3a3c; font-size: 16px; font-weight: bold; }
         body.ltr .header, body.ltr .section-label, body.ltr .name { text-align: left; }
         body.ltr .name { margin-right: 0; margin-left: 12px; }
         body.ltr .item { flex-direction: row-reverse; }
         body.ltr .arrow { transform: scaleX(-1); }
-        .daily { text-align: center; font-size: 11px; color: #444; margin-top: 25px; }
+        .daily { text-align: center; font-size: 10px; color: #3a3a3c; margin-top: 20px; }
     </style>
 </head>
 <body>
@@ -47,7 +47,7 @@ const langData = {
     en: { h: "Download Center", a: "ANDROID", i: "IPHONE", w: "WINDOWS", b: "Back", n1: "v2rayNG App", n2: "Hiddify Next", n3: "Happ Proxy", n4: "NapsternetV", n7: "Foxray Client", n11: "NekoBox" },
     ru: { h: "Центр загрузки", a: "АНДРОИД", i: "АЙФОН", w: "ВИНДОВС", b: "Назад", n1: "v2rayNG Клиент", n2: "Hiddify ПО", n3: "Happ Прокси", n4: "NapsternetV ПО", n7: "Foxray ПО", n11: "NekoBox" },
     zh: { h: "下载中心", a: "安卓系统", i: "苹果手机", w: "窗口系统", b: "返回首页", n1: "v2rayNG 客户端", n2: "Hiddify 客户端", n3: "Happ 代理", n4: "NapsternetV 软件", n7: "Foxray 软件", n11: "NekoBox 客户端" },
-    ja: { h: "ダウンロード", a: "アンドロイド", i: "アイフォン", w: "ウィンドウズ", b: "戻る", n1: "v2rayNG アプリ", n2: "Hiddify アプリ", n3: "Happ プロキシ", n4: "NapsternetV アプリ", n7: "Foxray アプリ", n11: "NekoBox アوری" }
+    ja: { h: "ダウンロード", a: "アンドロイド", i: "アイフォン", w: "ウィンドウズ", b: "戻る", n1: "v2rayNG アプリ", n2: "Hiddify アプリ", n3: "Happ プロキシ", n4: "NapsternetV アプリ", n7: "Foxray アプリ", n11: "NekoBox アプリ" }
 };
 
 const dl = {
