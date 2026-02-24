@@ -1,7 +1,4 @@
-renderPage('fa');
-</script>
-</body>
-</html><!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
     <meta charset="UTF-8">
@@ -58,19 +55,25 @@ const translations = {
 
 function renderPage(lang) {
     const t = translations[lang];
+    if(!t) return;
+
     document.title = t.t + " | v2rayNplus"; 
     document.body.className = lang === 'fa' ? '' : 'ltr';
     document.body.dir = lang === 'fa' ? 'rtl' : 'ltr';
 
-    document.getElementById('app').innerHTML = `
+    const app = document.getElementById('app');
+    app.innerHTML = ""; // اول خالی کن که قاطی نکنه
+
+    app.innerHTML = `
         <div class="lang-picker">
-            <img src="https://flagcdn.com/w80/cn.png" class="flag-btn" onclick="renderPage('zh')">
-            <img src="https://flagcdn.com/w80/jp.png" class="flag-btn" onclick="renderPage('ja')">
-            <img src="https://flagcdn.com/w80/ru.png" class="flag-btn" onclick="renderPage('ru')">
-            <img src="https://flagcdn.com/w80/us.png" class="flag-btn" onclick="renderPage('en')">
-            <img src="https://flagcdn.com/w80/ir.png" class="flag-btn" onclick="renderPage('fa')">
+            <img src="https://flagcdn.com/w80/cn.png" class="flag-btn" onclick="renderPage('zh')" alt="zh">
+            <img src="https://flagcdn.com/w80/jp.png" class="flag-btn" onclick="renderPage('ja')" alt="ja">
+            <img src="https://flagcdn.com/w80/ru.png" class="flag-btn" onclick="renderPage('ru')" alt="ru">
+            <img src="https://flagcdn.com/w80/us.png" class="flag-btn" onclick="renderPage('en')" alt="en">
+            <img src="https://flagcdn.com/w80/ir.png" class="flag-btn" onclick="renderPage('fa')" alt="fa">
         </div>
         <div class="header">${t.h}</div>
+        
         <div class="section-label">${t.a}</div>
         <div class="section-card">
             <a href="#" class="item"><div class="arrow">‹</div><div class="name">${t.n1}</div><div class="icon bg-a">📡</div></a>
@@ -78,6 +81,7 @@ function renderPage(lang) {
             <a href="#" class="item"><div class="arrow">‹</div><div class="name">${t.n3}</div><div class="icon bg-a">☘️</div></a>
             <a href="#" class="item"><div class="arrow">‹</div><div class="name">${t.n4}</div><div class="icon bg-a">🎧</div></a>
         </div>
+
         <div class="section-label">${t.i}</div>
         <div class="section-card">
             <a href="#" class="item"><div class="arrow">‹</div><div class="name">${t.n3}</div><div class="icon bg-i">☘️</div></a>
@@ -85,16 +89,23 @@ function renderPage(lang) {
             <a href="#" class="item"><div class="arrow">‹</div><div class="name">${t.n7}</div><div class="icon bg-i">🦊</div></a>
             <a href="#" class="item"><div class="arrow">‹</div><div class="name">${t.n4}</div><div class="icon bg-i">🎧</div></a>
         </div>
+
         <div class="section-label">${t.w}</div>
         <div class="section-card">
             <a href="#" class="item"><div class="arrow">‹</div><div class="name">${t.n1}</div><div class="icon bg-w">💻</div></a>
             <a href="#" class="item"><div class="arrow">‹</div><div class="name">${t.n2}</div><div class="icon bg-w">🚀</div></a>
             <a href="#" class="item"><div class="arrow">‹</div><div class="name">${t.n11}</div><div class="icon bg-w">🐱</div></a>
         </div>
-        <div class="section-card"><a href="index.html" class="item"><div class="arrow">‹</div><div class="name">${t.b}</div><div class="icon bg-b">🔗</div></a></div>
+
+        <div class="section-card">
+            <a href="index.html" class="item"><div class="arrow">‹</div><div class="name">${t.b}</div><div class="icon bg-b">🔗</div></a>
+        </div>
+        
         <div class="daily">${t.d}</div>
     `;
 }
+
+// شروع با فارسی
 renderPage('fa');
 </script>
 </body>
