@@ -8,93 +8,92 @@
         body { margin: 0; padding: 0; background-color: #000; font-family: -apple-system, sans-serif; color: white; display: flex; justify-content: center; overflow-x: hidden; transition: 0.3s; }
         .container { width: 100%; max-width: 450px; padding: 0 16px 40px 16px; position: relative; }
         
-        /* منوی پرچم‌ها - ثابت سمت چپ */
+        /* منوی پرچم‌ها - میخکوب در سمت چپ */
         .lang-picker { position: fixed !important; left: 20px !important; top: 20px; display: flex; gap: 10px; z-index: 1000; direction: ltr !important; }
         .flag-btn { width: 30px; height: 30px; border-radius: 50%; cursor: pointer; border: 2px solid #333; transition: 0.3s; object-fit: cover; }
         .flag-btn:hover { transform: scale(1.2); border-color: #fff; }
 
         .header { font-size: 38px; font-weight: 800; margin: 85px 10px 20px 0; text-align: right; }
-        .section-label { font-size: 13px; color: #8e8e93; margin: 0 15px 10px 0; text-align: right; font-weight: 600; }
-        .section-card { background-color: #1c1c1e; border-radius: 14px; overflow: hidden; margin-bottom: 25px; }
+        .section-label { font-size: 13px; color: #8e8e93; margin: 0 15px 10px 0; text-align: right; font-weight: 600; text-transform: uppercase; }
+        .section-card { background-color: #1c1c1e; border-radius: 14px; overflow: hidden; margin-bottom: 25px; border: 0.5px solid rgba(255,255,255,0.05); }
         
         .item { display: flex; align-items: center; padding: 14px 18px; text-decoration: none; color: white; border-bottom: 0.5px solid #38383a; }
         .item:active { background-color: #2c2c2e; }
         .item:last-child { border-bottom: none; }
         
         .icon { width: 34px; height: 34px; border-radius: 8px; display: flex; justify-content: center; align-items: center; font-size: 20px; flex-shrink: 0; }
-        .bg-android { background: #34c759; } .bg-ios { background: #007aff; } .bg-win { background: #5856d6; } .bg-back { background: #444; }
+        .bg-a { background: #34c759; } .bg-i { background: #007aff; } .bg-w { background: #5856d6; } .bg-b { background: #444; }
         
         .name { flex-grow: 1; font-size: 17px; font-weight: 500; text-align: right; margin-right: 15px; }
         .arrow { color: #444; font-size: 18px; font-weight: bold; }
 
-        /* چرخش کامل برای زبان‌های LTR */
+        /* استایل جابجایی برای زبان‌های LTR (انگلیسی، روسی، چینی، ژاپنی) */
         body.ltr .header, body.ltr .section-label, body.ltr .name { text-align: left; }
         body.ltr .name { margin-right: 0; margin-left: 15px; }
         body.ltr .item { flex-direction: row-reverse; }
         body.ltr .arrow { transform: scaleX(-1); }
+        
+        .daily-update { text-align: center; font-size: 10px; color: #444; margin-top: 20px; }
     </style>
 </head>
 <body id="mainBody">
 
-<div class="container">
-    <div class="lang-picker">
-        <img src="https://flagcdn.com/w80/cn.png" class="flag-btn" onclick="ch('zh')">
-        <img src="https://flagcdn.com/w80/jp.png" class="flag-btn" onclick="ch('ja')">
-        <img src="https://flagcdn.com/w80/ru.png" class="flag-btn" onclick="ch('ru')">
-        <img src="https://flagcdn.com/w80/us.png" class="flag-btn" onclick="ch('en')">
-        <img src="https://flagcdn.com/w80/ir.png" class="flag-btn" onclick="ch('fa')">
+<div class="container" id="app">
     </div>
-
-    <div class="header" id="th">مرکز دانلود</div>
-
-    <div class="section-label" id="la">ANDROID</div>
-    <div class="section-card">
-        <a href="https://github.com/2dust/v2rayNG/releases" class="item"><div class="arrow">‹</div><div class="name" id="n1">v2rayNG (ویتوری)</div><div class="icon bg-android">📡</div></a>
-        <a href="https://github.com/hiddify/hiddify-next/releases" class="item"><div class="arrow">‹</div><div class="name" id="n2">Hiddify (هیدی‌فای)</div><div class="icon bg-android">🚀</div></a>
-        <a href="https://play.google.com/store/apps/details?id=com.happproxy" class="item"><div class="arrow">‹</div><div class="name" id="n3">Happ Proxy (هپ)</div><div class="icon bg-android">☘️</div></a>
-        <a href="https://play.google.com/store/apps/details?id=com.napsternetlabs.napsternetv" class="item"><div class="arrow">‹</div><div class="name" id="n4">NapsternetV (نپستر)</div><div class="icon bg-android">🎧</div></a>
-    </div>
-
-    <div class="section-label" id="li">IPHONE (iOS)</div>
-    <div class="section-card">
-        <a href="https://apps.apple.com/us/app/happ-proxy/id6475221983" class="item"><div class="arrow">‹</div><div class="name" id="n5">Happ Proxy (هپ)</div><div class="icon bg-ios">☘️</div></a>
-        <a href="https://apps.apple.com/us/app/hiddify-proxy/id6473774447" class="item"><div class="arrow">‹</div><div class="name" id="n6">Hiddify (هیدی‌فای)</div><div class="icon bg-ios">🚀</div></a>
-        <a href="https://apps.apple.com/us/app/foxray/id6448898396" class="item"><div class="arrow">‹</div><div class="name" id="n7">Foxray (فاکس‌ری)</div><div class="icon bg-ios">🦊</div></a>
-        <a href="https://apps.apple.com/us/app/napsternetv/id1629465476" class="item"><div class="arrow">‹</div><div class="name" id="n8">NapsternetV (نپستر)</div><div class="icon bg-ios">🎧</div></a>
-    </div>
-
-    <div class="section-label" id="lw">WINDOWS</div>
-    <div class="section-card">
-        <a href="https://github.com/2dust/v2rayN/releases" class="item"><div class="arrow">‹</div><div class="name" id="n9">v2rayN (ویتورای‌ان)</div><div class="icon bg-win">💻</div></a>
-        <a href="https://github.com/hiddify/hiddify-next/releases" class="item"><div class="arrow">‹</div><div class="name" id="n10">Hiddify (هیدی‌فای)</div><div class="icon bg-win">🚀</div></a>
-        <a href="https://github.com/SagerNet/nekoray/releases" class="item"><div class="arrow">‹</div><div class="name" id="n11">NekoBox (نکوباکس)</div><div class="icon bg-win">🐱</div></a>
-    </div>
-
-    <div class="section-card">
-        <a href="index.html" class="item"><div class="arrow">‹</div><div class="name" id="tb">برگشت به اصلی</div><div class="icon bg-back">🔗</div></a>
-    </div>
-</div>
 
 <script>
-const tr = {
-    fa: { h:"مرکز دانلود", a:"اندروید", i:"آیفون (iOS)", w:"ویندوز", b:"برگشت به اصلی", n1:"v2rayNG (ویتوری)", n2:"Hiddify (هیدی‌فای)", n3:"Happ Proxy (هپ)", n4:"NapsternetV (نپستر)", n5:"Happ Proxy (هپ)", n6:"Hiddify (هیدی‌فای)", n7:"Foxray (فاکس‌ری)", n8:"NapsternetV (نپستر)", n9:"v2rayN (ویتورای‌ان)", n10:"Hiddify (هیدی‌فای)", n11:"NekoBox (نکوباکس)" },
-    en: { h:"Download Center", a:"ANDROID", i:"IPHONE", w:"WINDOWS", b:"Back to Home", n1:"v2rayNG", n2:"Hiddify Next", n3:"Happ Proxy", n4:"NapsternetV", n5:"Happ Proxy", n6:"Hiddify Next", n7:"Foxray", n8:"NapsternetV", n9:"v2rayN", n10:"Hiddify Next", n11:"NekoBox" },
-    ru: { h:"Загрузки", a:"АНДРОИД", i:"IPHONE", w:"WINDOWS", b:"Назад", n1:"v2rayNG", n2:"Hiddify", n3:"Happ Proxy", n4:"NapsternetV", n5:"Happ Proxy", n6:"Hiddify", n7:"Foxray", n8:"NapsternetV", n9:"v2rayN", n10:"Hiddify", n11:"NekoBox" },
-    zh: { h:"下载中心", a:"安卓系统", i:"苹果手机", w:"窗口", b:"返回首页", n1:"v2rayNG", n2:"Hiddify", n3:"Happ Proxy", n4:"NapsternetV", n5:"Happ Proxy", n6:"Hiddify", n7:"Foxray", n8:"NapsternetV", n9:"v2rayN", n10:"Hiddify", n11:"NekoBox" },
-    ja: { h:"ダウンロード", a:"アンドロイド", i:"アイフォン", w:"WINDOWS", b:"戻る", n1:"v2rayNG", n2:"Hiddify", n3:"Happ Proxy", n4:"NapsternetV", n5:"Happ Proxy", n6:"Hiddify", n7:"Foxray", n8:"NapsternetV", n9:"v2rayN", n10:"Hiddify", n11:"NekoBox" }
+const translations = {
+    fa: {
+        h: "مرکز دانلود", a: "اندروید", i: "آیفون", w: "ویندوز", b: "برگشت به اصلی",
+        n1: "v2rayNG (ویتوری)", n2: "Hiddify (هیدی‌فای)", n3: "Happ Proxy (هپ)", n4: "NapsternetV (نپستر)",
+        n5: "Happ Proxy (هپ)", n6: "Hiddify (هیدی‌فای)", n7: "Foxray (فاکس‌ری)", n8: "NapsternetV (نپستر)",
+        n9: "v2rayN (ویتورای‌ان)", n10: "Hiddify (هیدی‌فای)", n11: "NekoBox (نکوباکس)"
+    },
+    en: {
+        h: "Download Center", a: "ANDROID", i: "IPHONE (iOS)", w: "WINDOWS", b: "Back to Home",
+        n1: "v2rayNG", n2: "Hiddify Next", n3: "Happ Proxy", n4: "NapsternetV",
+        n5: "Happ Proxy", n6: "Hiddify Next", n7: "Foxray", n8: "NapsternetV",
+        n9: "v2rayN", n10: "Hiddify Next", n11: "NekoBox"
+    },
+    ru: {
+        h: "Центр загрузки", a: "АНДРОИД", i: "IPHONE", w: "WINDOWS", b: "Назад",
+        n1: "v2rayNG", n2: "Hiddify", n3: "Happ Proxy", n4: "NapsternetV",
+        n5: "Happ Proxy", n6: "Hiddify", n7: "Foxray", n8: "NapsternetV",
+        n9: "v2rayN", n10: "Hiddify", n11: "NekoBox"
+    },
+    zh: {
+        h: "下载中心", a: "安卓系统", i: "苹果手机", w: "窗口", b: "回到首页",
+        n1: "v2rayNG", n2: "Hiddify", n3: "Happ Proxy", n4: "NapsternetV",
+        n5: "Happ Proxy", n6: "Hiddify", n7: "Foxray", n8: "NapsternetV",
+        n9: "v2rayN", n10: "Hiddify", n11: "NekoBox"
+    },
+    ja: {
+        h: "ダウンロード", a: "アンドロイド", i: "アイフォン", w: "WINDOWS", b: "戻る",
+        n1: "v2rayNG", n2: "Hiddify", n3: "Happ Proxy", n4: "NapsternetV",
+        n5: "Happ Proxy", n6: "Hiddify", n7: "Foxray", n8: "NapsternetV",
+        n9: "v2rayN", n10: "Hiddify", n11: "NekoBox"
+    }
 };
 
-function ch(l) {
-    document.getElementById('th').innerText = tr[l].h;
-    document.getElementById('la').innerText = tr[l].a;
-    document.getElementById('li').innerText = tr[l].i;
-    document.getElementById('lw').innerText = tr[l].w;
-    document.getElementById('tb').innerText = tr[l].b;
-    for (let i = 1; i <= 11; i++) { if(document.getElementById('n'+i)) document.getElementById('n'+i).innerText = tr[l]['n'+i]; }
-    
-    if(l === 'fa') { document.body.dir = "rtl"; document.body.classList.remove('ltr'); }
-    else { document.body.dir = "ltr"; document.body.classList.add('ltr'); }
-}
-</script>
-</body>
-</html>
+function renderPage(lang) {
+    const t = translations[lang];
+    const isFa = lang === 'fa';
+    document.body.className = isFa ? '' : 'ltr';
+    document.body.dir = isFa ? 'rtl' : 'ltr';
+
+    const html = `
+        <div class="lang-picker">
+            <img src="https://flagcdn.com/w80/cn.png" class="flag-btn" onclick="renderPage('zh')">
+            <img src="https://flagcdn.com/w80/jp.png" class="flag-btn" onclick="renderPage('ja')">
+            <img src="https://flagcdn.com/w80/ru.png" class="flag-btn" onclick="renderPage('ru')">
+            <img src="https://flagcdn.com/w80/us.png" class="flag-btn" onclick="renderPage('en')">
+            <img src="https://flagcdn.com/w80/ir.png" class="flag-btn" onclick="renderPage('fa')">
+        </div>
+
+        <div class="header">${t.h}</div>
+
+        <div class="section-label">${t.a}</div>
+        <div class="section-card">
+            <a href="https://github.com/2dust/v2rayNG/releases" target="_blank" class="item"><div class="arrow">‹</div><div class="name">${t.n1}</div><div class="icon bg-a">📡</div></a>
+            <a href="https://github.com/hiddify/hiddify-next/releases" target="_blank" class="item"><div class="arrow">‹</div><div class="name">${t.n2}</div><div class="icon bg-a">🚀</div></a>
+            <a href="
