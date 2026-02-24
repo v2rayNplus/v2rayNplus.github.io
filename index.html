@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+https:<!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
     <meta charset="UTF-8">
@@ -11,6 +11,7 @@
             --ios-orange: #ff9500;
         }
 
+        /* انیمیشن لوتیک برای ورود دکمه‌ها */
         @keyframes fadeInUp {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
@@ -29,7 +30,7 @@
             overflow: hidden;
         }
 
-        /* منوی زبان - میخکوب شده در سمت چپ طبق عکس شما */
+        /* منوی زبان - میخکوب شده در سمت چپ */
         .lang-menu {
             position: absolute;
             top: 25px;
@@ -39,7 +40,6 @@
             gap: 12px;
             z-index: 100;
             direction: ltr !important;
-            animation: fadeInUp 0.8s ease backwards;
         }
 
         .lang-btn {
@@ -52,9 +52,7 @@
             border-radius: 50%;
             width: 32px;
             height: 32px;
-            overflow: hidden;
         }
-
         .lang-btn:hover { transform: scale(1.2); }
 
         .card {
@@ -83,33 +81,25 @@
             font-weight: 600;
             font-size: 16px;
             transition: 0.3s;
+            text-align: center;
             opacity: 0;
             animation: fadeInUp 0.5s ease forwards;
         }
 
-        .btn:active { transform: scale(0.95); }
+        /* ترتیب ظاهر شدن دکمه‌ها با انیمیشن */
+        .btn:nth-child(3) { animation-delay: 0.1s; }
+        .btn:nth-child(4) { animation-delay: 0.2s; }
+        .btn:nth-child(5) { animation-delay: 0.3s; }
+        .btn:nth-child(6) { animation-delay: 0.4s; }
+        .btn:nth-child(7) { animation-delay: 0.5s; }
 
-        /* تاخیر انیمیشن دکمه‌ها */
-        .btn:nth-child(3) { animation-delay: 0.2s; }
-        .btn:nth-child(4) { animation-delay: 0.3s; }
-        .btn:nth-child(5) { animation-delay: 0.4s; }
-        .btn:nth-child(6) { animation-delay: 0.5s; }
-        .btn:nth-child(7) { animation-delay: 0.6s; }
+        .btn:active { transform: scale(0.98); }
 
         .btn-vip { background: linear-gradient(135deg, #ffcf40, #ff9500); color: #000; }
         .btn-hiddify { background: #5856d6; color: white; }
         .btn-free { background: rgba(255,255,255,0.1); color: var(--ios-blue); border: 1px solid rgba(0,122,255,0.3); }
         .btn-orange { background: #ff3b30; color: white; }
         .btn-download { background: var(--ios-green); color: white; }
-
-        .daily-update {
-            font-size: 10px;
-            color: #444;
-            margin-top: 15px;
-            opacity: 0.6;
-            animation: fadeInUp 1s ease backwards;
-            animation-delay: 0.8s;
-        }
     </style>
 </head>
 <body>
@@ -126,27 +116,17 @@
     <h1>v2rayNplus</h1>
     <p id="subtitle">VIP SERVICE</p>
     
-    <a href="https://t.me/vpsonlineplus" target="_blank" class="btn btn-vip">
-        <span id="t1">کانفیگ اختصاصی (VIP)</span>
-    </a>
+    <a href="https://t.me/vpsonlineplus" target="_blank" class="btn btn-vip"><span id="t1">کانفیگ اختصاصی (VIP)</span></a>
     
-    <a href="clash://install-config?url=https://raw.githubusercontent.com/v2rayNplus/v2rayNplus.github.io/main/configs.txt" class="btn btn-hiddify">
-        <span id="t2">اتصال هوشمند</span>
-    </a>
+    <a href="clash://install-config?url=https://raw.githubusercontent.com/v2rayNplus/v2rayNplus.github.io/main/configs.txt" class="btn btn-hiddify"><span id="t2">اتصال هوشمند</span></a>
     
-    <a href="https://t.me/v2rayNplus" target="_blank" class="btn btn-free">
-        <span id="t3">کانال کانفیگ‌های رایگان</span>
-    </a>
+    <a href="https://t.me/v2rayNplus" target="_blank" class="btn btn-free"><span id="t3">کانال کانفیگ‌های رایگان</span></a>
     
-    <a href="https://t.me/v2rayNplus_GP" target="_blank" class="btn btn-orange">
-        <span id="t4">گروه رفع اشکال</span>
-    </a>
+    <a href="https://t.me/v2rayNplus_GP" target="_blank" class="btn btn-orange"><span id="t4">گروه رفع اشکال</span></a>
     
-    <a href="https://v2raynplus.github.io/download.html" class="btn btn-download">
-        <span id="t5">دانلود کلاینت</span>
-    </a>
+    <a href="https://v2raynplus.github.io/download.html" target="_blank" class="btn btn-download"><span id="t5">دانلود کلاینت</span></a>
 
-    <div class="daily-update">Daily Update</div>
+    <div style="font-size: 10px; color: #444; margin-top: 15px; opacity: 0.5;">Daily Update</div>
 </div>
 
 <script>
@@ -165,7 +145,6 @@ function changeLang(l) {
     document.getElementById('t3').innerText = tr[l].t3;
     document.getElementById('t4').innerText = tr[l].t4;
     document.getElementById('t5').innerText = tr[l].t5;
-    
     document.body.dir = (l === 'fa') ? 'rtl' : 'ltr';
 }
 </script>
