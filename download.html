@@ -6,27 +6,9 @@
     <title>مرکز دانلود | v2rayNplus</title>
     <style>
         body { margin: 0; padding: 0; background-color: #000; font-family: -apple-system, sans-serif; color: white; overflow-x: hidden; }
-        
-        /* نوار پرچم‌ها - کاملاً جدا و ثابت */
-        .top-nav { 
-            position: fixed; 
-            top: 0; 
-            left: 0; 
-            right: 0; 
-            height: 70px; 
-            background-color: #000; 
-            display: flex; 
-            justify-content: center; 
-            align-items: center; 
-            gap: 15px; 
-            z-index: 9999; 
-            border-bottom: 0.5px solid rgba(255,255,255,0.1);
-        }
+        .top-nav { position: fixed; top: 0; left: 0; right: 0; height: 70px; background-color: #000; display: flex; justify-content: center; align-items: center; gap: 15px; z-index: 9999; border-bottom: 0.5px solid rgba(255,255,255,0.1); }
         .flag-btn { width: 34px; height: 34px; border-radius: 50%; cursor: pointer; border: 2px solid #333; object-fit: cover; }
-
-        /* کانتینر محتوا با فاصله از سقف برای اینکه زیر پرچم نره */
         .container { width: 100%; max-width: 450px; margin: 0 auto; padding: 90px 16px 40px 16px; box-sizing: border-box; }
-
         .header { font-size: 38px; font-weight: 800; margin-bottom: 25px; text-align: right; }
         .section-label { font-size: 13px; color: #8e8e93; margin: 0 5px 10px 0; text-align: right; font-weight: 600; }
         .section-card { background-color: #1c1c1e; border-radius: 14px; overflow: hidden; margin-bottom: 25px; border: 0.5px solid rgba(255,255,255,0.05); }
@@ -37,8 +19,6 @@
         .bg-a { background: #34c759; } .bg-i { background: #007aff; } .bg-w { background: #5856d6; } .bg-b { background: #444; }
         .name { flex-grow: 1; font-size: 17px; font-weight: 500; text-align: right; margin-right: 15px; }
         .arrow { color: #444; font-size: 18px; font-weight: bold; }
-        
-        /* استایل‌های چپ‌چین برای زبان‌های غیر فارسی */
         body.ltr .header, body.ltr .section-label, body.ltr .name { text-align: left; }
         body.ltr .name { margin-right: 0; margin-left: 15px; }
         body.ltr .item { flex-direction: row-reverse; }
@@ -67,6 +47,16 @@ const dict = {
     ja: { h: "ダウンロード", a: "アンドロイド", i: "アイフォン", w: "ウィンドウズ", b: "戻る", n1: "v2rayNG アプリ", n2: "Hiddify アプリ", n3: "Happ プロキシ", n4: "NapsternetV アプリ", n7: "Foxray アプリ", n11: "NekoBox アプリ" }
 };
 
+// لینک‌های دانلود مستقیم
+const links = {
+    v2ng: "https://github.com/2dust/v2rayNG/releases",
+    hidy: "https://github.com/hiddify/hiddify-next/releases",
+    happ: "https://github.com/GFW-knocker/HappProxy/releases",
+    naps: "https://github.com/NapsternetV/NapsternetV/releases",
+    fox: "https://apps.apple.com/app/foxray/id6444898154",
+    neko: "https://github.com/MatsuriDayo/nekoray/releases"
+};
+
 function go(l) {
     const t = dict[l];
     document.body.className = l === 'fa' ? '' : 'ltr';
@@ -75,29 +65,20 @@ function go(l) {
         <div class="header">${t.h}</div>
         <div class="section-label">${t.a}</div>
         <div class="section-card">
-            <a href="#" class="item"><div class="arrow">‹</div><div class="name">${t.n1}</div><div class="icon bg-a">📡</div></a>
-            <a href="#" class="item"><div class="arrow">‹</div><div class="name">${t.n2}</div><div class="icon bg-a">🚀</div></a>
-            <a href="#" class="item"><div class="arrow">‹</div><div class="name">${t.n3}</div><div class="icon bg-a">☘️</div></a>
-            <a href="#" class="item"><div class="arrow">‹</div><div class="name">${t.n4}</div><div class="icon bg-a">🎧</div></a>
+            <a href="${links.v2ng}" class="item"><div class="arrow">‹</div><div class="name">${t.n1}</div><div class="icon bg-a">📡</div></a>
+            <a href="${links.hidy}" class="item"><div class="arrow">‹</div><div class="name">${t.n2}</div><div class="icon bg-a">🚀</div></a>
+            <a href="${links.happ}" class="item"><div class="arrow">‹</div><div class="name">${t.n3}</div><div class="icon bg-a">☘️</div></a>
+            <a href="${links.naps}" class="item"><div class="arrow">‹</div><div class="name">${t.n4}</div><div class="icon bg-a">🎧</div></a>
         </div>
         <div class="section-label">${t.i}</div>
         <div class="section-card">
-            <a href="#" class="item"><div class="arrow">‹</div><div class="name">${t.n3}</div><div class="icon bg-i">☘️</div></a>
-            <a href="#" class="item"><div class="arrow">‹</div><div class="name">${t.n2}</div><div class="icon bg-i">🚀</div></a>
-            <a href="#" class="item"><div class="arrow">‹</div><div class="name">${t.n7}</div><div class="icon bg-i">🦊</div></a>
-            <a href="#" class="item"><div class="arrow">‹</div><div class="name">${t.n4}</div><div class="icon bg-i">🎧</div></a>
+            <a href="${links.happ}" class="item"><div class="arrow">‹</div><div class="name">${t.n3}</div><div class="icon bg-i">☘️</div></a>
+            <a href="${links.hidy}" class="item"><div class="arrow">‹</div><div class="name">${t.n2}</div><div class="icon bg-i">🚀</div></a>
+            <a href="${links.fox}" class="item"><div class="arrow">‹</div><div class="name">${t.n7}</div><div class="icon bg-i">🦊</div></a>
+            <a href="${links.naps}" class="item"><div class="arrow">‹</div><div class="name">${t.n4}</div><div class="icon bg-i">🎧</div></a>
         </div>
         <div class="section-label">${t.w}</div>
         <div class="section-card">
-            <a href="#" class="item"><div class="arrow">‹</div><div class="name">${t.n1}</div><div class="icon bg-w">💻</div></a>
-            <a href="#" class="item"><div class="arrow">‹</div><div class="name">${t.n2}</div><div class="icon bg-w">🚀</div></a>
-            <a href="#" class="item"><div class="arrow">‹</div><div class="name">${t.n11}</div><div class="icon bg-w">🐱</div></a>
-        </div>
-        <div class="section-card"><a href="index.html" class="item"><div class="arrow">‹</div><div class="name">${t.b}</div><div class="icon bg-b">🔗</div></a></div>
-        <div class="daily">Daily Update</div>
-    `;
-}
-go('fa');
-</script>
-</body>
-</html>
+            <a href="${links.v2ng}" class="item"><div class="arrow">‹</div><div class="name">${t.n1}</div><div class="icon bg-w">💻</div></a>
+            <a href="${links.hidy}" class="item"><div class="arrow">‹</div><div class="name">${t.n2}</div><div class="icon bg-w">🚀</div></a>
+            <a href="${links.neko}" class="item"><div class="arrow">‹
