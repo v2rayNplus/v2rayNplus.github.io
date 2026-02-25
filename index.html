@@ -8,24 +8,34 @@
         :root { --ios-blue: #007aff; --ios-green: #34c759; --ios-orange: #ff9500; }
         @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
         
-        body { margin: 0; padding: 0; background: radial-gradient(circle at top right, #1c1c1e 0%, #000 100%); min-height: 100vh; display: flex; flex-direction: column; align-items: center; font-family: -apple-system, sans-serif; color: white; }
+        body { margin: 0; padding: 0; background: radial-gradient(circle at top right, #1c1c1e 0%, #000 100%); min-height: 100vh; display: flex; flex-direction: column; align-items: center; font-family: -apple-system, sans-serif; color: white; overflow-x: hidden; }
         
-        /* باکس پرچم‌ها - دقیقاً مطابق عکس آخرت */
-        .header-nav { margin-top: 30px; margin-bottom: 20px; }
-        .lang-menu { background: rgba(28,28,30,0.6); backdrop-filter: blur(15px); padding: 8px 15px; border-radius: 30px; display: flex; gap: 12px; border: 1px solid rgba(255,255,255,0.05); direction: ltr !important; }
-        .lang-btn { cursor: pointer; font-size: 22px; transition: 0.3s; display: flex; align-items: center; }
+        /* نوار پرچم‌ها - دقیقاً طبق استایل صفحه دانلود شما */
+        .header-nav { margin: 30px 0 10px 0; width: 100%; display: flex; justify-content: center; }
+        .lang-menu { background: rgba(28,28,30,0.6); backdrop-filter: blur(15px); padding: 10px 20px; border-radius: 30px; display: flex; gap: 15px; border: 1px solid rgba(255,255,255,0.05); direction: ltr !important; }
+        .lang-btn { cursor: pointer; font-size: 22px; transition: 0.3s; display: flex; align-items: center; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5)); }
         .lang-btn:hover { transform: scale(1.2); }
 
-        .container { width: 100%; display: flex; justify-content: center; align-items: center; padding-bottom: 40px; }
-        .card { background: rgba(28,28,30,0.8); backdrop-filter: blur(20px); padding: 35px 25px; border-radius: 40px; border: 1px solid rgba(255,255,255,0.1); text-align: center; max-width: 360px; width: 85%; animation: fadeInUp 0.8s ease; }
+        .container { flex: 1; display: flex; justify-content: center; align-items: center; width: 100%; padding: 10px 0 40px 0; }
         
-        h1 { font-size: 28px; margin: 0; }
-        p { font-size: 15px; color: #8e8e93; margin-bottom: 30px; }
+        /* کارت اصلی - با حفظ گردی لبه‌ها و تم دارک */
+        .card { background: rgba(28,28,30,0.8); backdrop-filter: blur(20px); padding: 35px 25px; border-radius: 40px; border: 1px solid rgba(255,255,255,0.1); text-align: center; max-width: 360px; width: 88%; animation: fadeInUp 0.8s ease; box-shadow: 0 20px 40px rgba(0,0,0,0.6); }
         
-        .btn { display: flex; align-items: center; justify-content: center; padding: 16px; margin: 12px 0; border-radius: 16px; text-decoration: none; font-weight: 600; font-size: 16px; transition: 0.3s; opacity: 0; animation: fadeInUp 0.5s ease forwards; border: none; cursor: pointer; font-family: inherit; width: 100%; box-sizing: border-box; }
-        .btn:active { transform: scale(0.95); }
+        h1 { font-size: 32px; margin: 0; font-weight: 700; letter-spacing: -0.5px; }
+        .subtitle { font-size: 15px; color: #8e8e93; margin: 8px 0 30px 0; text-transform: uppercase; letter-spacing: 1px; }
         
-        /* ترتیب انیمیشن‌ها */
+        .btn { display: flex; align-items: center; justify-content: center; padding: 16px; margin: 12px 0; border-radius: 18px; text-decoration: none; font-weight: 600; font-size: 16px; transition: 0.3s; opacity: 0; animation: fadeInUp 0.5s ease forwards; border: none; cursor: pointer; font-family: inherit; width: 100%; box-sizing: border-box; }
+        .btn:active { transform: scale(0.96); }
+        
+        /* رنگ‌بندی دکمه‌ها طبق سلیقه پلاس */
+        .btn-vip { background: linear-gradient(135deg, #ffcf40, #ff9500); color: #000; }
+        .btn-hiddify { background: #5856d6; color: white; }
+        .btn-copy { background: var(--ios-green); color: white; } /* دکمه جدید کپی */
+        .btn-free { background: rgba(255,255,255,0.1); color: var(--ios-blue); border: 0.5px solid rgba(0,122,255,0.3); }
+        .btn-orange { background: #ff3b30; color: white; }
+        .btn-download { background: #3a3a3c; color: white; }
+        
+        /* تاخیر انیمیشن دکمه‌ها */
         .btn:nth-child(3) { animation-delay: 0.1s; } 
         .btn:nth-child(4) { animation-delay: 0.2s; } 
         .btn:nth-child(5) { animation-delay: 0.3s; } 
@@ -33,16 +43,10 @@
         .btn:nth-child(7) { animation-delay: 0.5s; }
         .btn:nth-child(8) { animation-delay: 0.6s; }
 
-        .btn-vip { background: linear-gradient(135deg, #ffcf40, #ff9500); color: #000; }
-        .btn-hiddify { background: #5856d6; color: white; }
-        .btn-copy { background: var(--ios-green); color: white; }
-        .btn-free { background: rgba(255,255,255,0.1); color: var(--ios-blue); border: 1px solid rgba(0,122,255,0.3); }
-        .btn-orange { background: #ff3b30; color: white; }
-        .btn-download { background: #3a3a3c; color: white; }
-        
-        .daily { font-size: 10px; color: #444; margin-top: 15px; }
+        .daily { font-size: 11px; color: #444; margin-top: 20px; font-weight: 500; }
 
-        #toast { position: fixed; bottom: 40px; background: var(--ios-green); color: black; padding: 12px 25px; border-radius: 25px; font-weight: bold; display: none; z-index: 1000; }
+        /* پیغام کپی شد */
+        #toast { position: fixed; bottom: 40px; background: var(--ios-green); color: black; padding: 12px 25px; border-radius: 25px; font-weight: bold; display: none; z-index: 1000; box-shadow: 0 10px 20px rgba(0,0,0,0.4); }
     </style>
 </head>
 <body>
@@ -62,7 +66,7 @@
 <div class="container">
     <div class="card">
         <h1>v2rayNplus</h1>
-        <p id="subtitle">VIP SERVICE</p>
+        <div id="subtitle" class="subtitle">VIP SERVICE</div>
         
         <a href="https://t.me/vpsonlineplus" class="btn btn-vip"><span id="t1">کانفیگ اختصاصی (VIP)</span></a>
         
@@ -86,7 +90,7 @@ const tr = {
     en: {s:"VIP SERVICE", t1:"Buy Private Config", t2:"Quick Connect-Hiddify", t3:"Free Configs Channel", t4:"Help Center", t5:"Download Client", t6:"Copy Free Configs", done:"Copied! ✅"},
     ru: {s:"VIP СЕРВИС", t1:"Купить VIP Конфиг", t2:"Подключение-Hiddify", t3:"Бесплатные каналы", t4:"Центр помощи", t5:"Скачать клиент", t6:"Копировать конфиги", done:"Скопировано! ✅"},
     zh: {s:"VIP服务", t1:"购买专用配置", t2: "连接-Hiddify", t3:"免费频道", t4:"帮助中心", t5:"下载客户端", t6:"复制配置", done:"已复制! ✅"},
-    ja: {s:"VIPサービス", t1:"VIP設定の購入", t2:"接続-Hiddify", t3:"無料チャンネル", t4:"ヘルプセンター", t5:"ダウンロード", t6:"設定をコピー", done:"コピーしました! ✅"}
+    ja: {s:"VIPサービス", t1:"VIP設定の購入", t2:"接続-Hiddify", t3:"無料チャンネル", t4:"ヘルپセンター", t5:"ダウンロード", t6:"設定をコピー", done:"コピーしました! ✅"}
 };
 
 let currentLang = 'fa';
@@ -110,7 +114,9 @@ async function copyConfigs() {
         toast.innerText = tr[currentLang].done;
         toast.style.display = 'block';
         setTimeout(() => { toast.style.display = 'none'; }, 2000);
-    } catch (err) { alert("خطا در کپی"); }
+    } catch (err) {
+        alert("خطا در کپی");
+    }
 }
 </script>
 </body>
