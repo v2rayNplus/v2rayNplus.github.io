@@ -5,60 +5,119 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>v2rayNplus | VIP SERVICE</title>
     <style>
-        :root { --ios-blue: #007aff; --ios-green: #34c759; --ios-orange: #ff9500; }
-        @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-        body { margin: 0; padding: 0; background: radial-gradient(circle at top right, #1c1c1e 0%, #000 100%); height: 100vh; display: flex; justify-content: center; align-items: center; font-family: -apple-system, sans-serif; color: white; overflow: hidden; }
+        /* برگردوندن بک‌گراند و فونت به همون حالت لاتی اصلی */
+        body { margin: 0; padding: 0; background: radial-gradient(circle at top right, #1c1c1e 0%, #000 100%); font-family: -apple-system, sans-serif; color: white; min-height: 100vh; overflow-x: hidden; overflow-y: auto; display: flex; flex-direction: column; align-items: center; }
         
-        /* منوی زبان - ثابت در سمت چپ */
-        .lang-menu { position: absolute; top: 25px; left: 20px !important; right: auto !important; display: flex; gap: 12px; z-index: 100; direction: ltr !important; }
-        .lang-btn { cursor: pointer; font-size: 24px; transition: 0.3s; border-radius: 50%; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; }
-        .lang-btn:hover { transform: scale(1.2); }
+        /* منوی پرچم‌ها - دقیقاً طبق عکس دوم و سوم */
+        .top-nav { width: 100%; height: 65px; display: flex; justify-content: center; align-items: center; gap: 15px; flex-shrink: 0; z-index: 10; }
+        .flag-btn { width: 32px; height: 32px; border-radius: 50%; cursor: pointer; border: 1.5px solid #333; object-fit: cover; }
 
-        .card { background: rgba(28,28,30,0.8); backdrop-filter: blur(20px); padding: 35px 25px; border-radius: 40px; border: 1px solid rgba(255,255,255,0.1); text-align: center; max-width: 360px; width: 85%; animation: fadeInUp 0.8s ease; }
-        h1 { font-size: 28px; margin: 0; }
-        p { font-size: 15px; color: #8e8e93; margin-bottom: 30px; }
-        .btn { display: flex; align-items: center; justify-content: center; padding: 16px; margin: 12px 0; border-radius: 16px; text-decoration: none; font-weight: 600; font-size: 16px; transition: 0.3s; opacity: 0; animation: fadeInUp 0.5s ease forwards; }
-        .btn:active { transform: scale(0.95); }
-        .btn:nth-child(3) { animation-delay: 0.1s; } .btn:nth-child(4) { animation-delay: 0.2s; } .btn:nth-child(5) { animation-delay: 0.3s; } .btn:nth-child(6) { animation-delay: 0.4s; } .btn:nth-child(7) { animation-delay: 0.5s; }
+        .container { width: 100%; max-width: 420px; padding: 10px 20px 40px 20px; box-sizing: border-box; display: flex; flex-direction: column; align-items: center; }
+        
+        /* کارت شیشه‌ای با همون انحنا و پدینگ که دوست داشتی */
+        .card { background: rgba(28,28,30,0.6); backdrop-filter: blur(20px); padding: 35px 25px; border-radius: 40px; border: 1px solid rgba(255,255,255,0.08); text-align: center; width: 100%; box-shadow: 0 15px 35px rgba(0,0,0,0.6); }
+        
+        h1 { font-size: 30px; font-weight: 800; margin: 0; color: #fff; }
+        .subtitle { font-size: 14px; color: #8e8e93; margin: 5px 0 30px 0; }
+        
+        /* دکمه‌های تمام‌عرض با رنگ‌های فابریک پلاس */
+        .btn { display: flex; align-items: center; justify-content: center; padding: 16px; margin: 12px 0; border-radius: 18px; text-decoration: none; font-weight: 700; font-size: 16px; transition: 0.2s; text-align: center; border: none; width: 100%; cursor: pointer; font-family: inherit; }
+        .btn:active { transform: scale(0.97); }
+        
         .btn-vip { background: linear-gradient(135deg, #ffcf40, #ff9500); color: #000; }
-        .btn-hiddify { background: #5856d6; color: white; }
-        .btn-free { background: rgba(255,255,255,0.1); color: var(--ios-blue); border: 1px solid rgba(0,122,255,0.3); }
-        .btn-orange { background: #ff3b30; color: white; }
-        .btn-download { background: var(--ios-green); color: white; }
-        .daily { font-size: 10px; color: #444; margin-top: 15px; }
+        .btn-hiddy { background: #5856d6; color: white; }
+        .btn-copy { background: #34c759; color: white; }
+        .btn-free { background: #2c2c2e; color: #007aff; border: 1px solid rgba(0,122,255,0.2); }
+        .btn-dl { background: #3a3a3c; color: white; }
+
+        /* مودال راهنما */
+        .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.92); display: none; justify-content: center; align-items: center; z-index: 1000; padding: 20px; backdrop-filter: blur(8px); }
+        .modal { background: #1c1c1e; padding: 30px; border-radius: 35px; border: 1px solid #333; max-width: 320px; text-align: center; }
+        
+        /* پیام کپی شد */
+        .toast { position: fixed; bottom: 40px; left: 50%; transform: translateX(-50%); background: #34c759; color: black; padding: 12px 25px; border-radius: 25px; font-weight: 800; display: none; z-index: 2000; }
+
+        body.ltr .container { direction: ltr; }
+        .daily { margin-top: 25px; font-size: 11px; color: #2c2c2e; font-weight: 600; }
     </style>
 </head>
 <body>
-<div class="lang-menu">
-    <span onclick="changeLang('zh')" class="lang-btn">🇨🇳</span>
-    <span onclick="changeLang('ja')" class="lang-btn">🇯🇵</span>
-    <span onclick="changeLang('ru')" class="lang-btn">🇷🇺</span>
-    <span onclick="changeLang('en')" class="lang-btn">🇺🇸</span>
-    <span onclick="changeLang('fa')" class="lang-btn">🇮🇷</span>
+
+<div id="toast" class="toast">کپی شد! ✅</div>
+
+<div id="hiddyModal" class="modal-overlay">
+    <div class="modal">
+        <h2 id="mTitle" style="color:#ff9500; margin-bottom: 15px;">توجه!</h2>
+        <p id="mDesc" style="line-height: 1.6; color: #eee; margin-bottom: 25px;">برای اتصال هوشمند باید برنامه هیدی‌فای را نصب داشته باشی.</p>
+        <a href="download.html" class="btn btn-dl" id="mBtn1">برو به دانلود</a>
+        <button class="btn btn-hiddy" onclick="closeModal()" id="mBtn2">اوکی، حله</button>
+    </div>
 </div>
-<div class="card">
-    <h1>v2rayNplus</h1>
-    <p id="subtitle">VIP SERVICE</p>
-    <a href="https://t.me/vpsonlineplus" class="btn btn-vip"><span id="t1">کانفیگ اختصاصی (VIP)</span></a>
-    <a href="clash://install-config?url=https://raw.githubusercontent.com/v2rayNplus/v2rayNplus.github.io/main/configs.txt" class="btn btn-hiddify"><span id="t2">Hiddify-اتصال هوشمند</span></a>
-    <a href="https://t.me/v2rayNplus" class="btn btn-free"><span id="t3">کانال کانفیگ‌های رایگان</span></a>
-    <a href="https://t.me/v2rayNplus_GP" class="btn btn-orange"><span id="t4">گروه رفع اشکال</span></a>
-    <a href="download.html" class="btn btn-download"><span id="t5">دانلود کلاینت</span></a>
+
+<div class="top-nav">
+    <img src="https://flagcdn.com/w80/ir.png" class="flag-btn" onclick="render('fa')">
+    <img src="https://flagcdn.com/w80/us.png" class="flag-btn" onclick="render('en')">
+    <img src="https://flagcdn.com/w80/ru.png" class="flag-btn" onclick="render('ru')">
+    <img src="https://flagcdn.com/w80/jp.png" class="flag-btn" onclick="render('ja')">
+    <img src="https://flagcdn.com/w80/cn.png" class="flag-btn" onclick="render('zh')">
+</div>
+
+<div class="container">
+    <div id="content" class="card"></div>
     <div class="daily">Daily Update</div>
 </div>
+
 <script>
-const tr = {
-    fa: {s:"VIP SERVICE", t1:"کانفیگ اختصاصی (VIP)", t2:"اتصال هوشمند-Hiddify", t3:"کانال کانفیگ‌های رایگان", t4:"گروه رفع اشکال", t5:"دانلود کلاینت"},
-    en: {s:"VIP SERVICE", t1:"Buy Private Config", t2:"Quick Connect-Hiddify", t3:"Free Configs", t4:"Help Center", t5:"Download Client"},
-    ru: {s:"VIP СЕРВИС", t1:"Купить VIP Конфиг", t2:"Быстрое подключение-Hiddify", t3:"Бесплатные каналы", t4:"Центр помощи", t5:"Скачать клиент"},
-    zh: {s:"VIP服务", t1:"购买专用配置", t2:"快速连接-Hiddify", t3:"免费频道", t4:"帮助中心", t5:"下载客户端"},
-    ja: {s:"VIPサービス", t1:"VIP設定の購入", t2:"クイック接続-Hiddify", t3:"無料チャンネル", t4:"ヘルプセンター", t5:"ダウンロード"}
+const subLink = "https://raw.githubusercontent.com/v2rayNplus/v2rayNplus.github.io/main/configs.txt";
+const langData = {
+    fa: { s: "سرویس ویژه VIP", t1: "خرید کانفیگ اختصاصی (VIP)", t2: "اتصال به هیدی‌فای", t3: "کانال تلگرام", t4: "کپی کانفیگ‌های رایگان", t5: "دانلود کلاینت‌ها", mt: "توجه کن پلاس جان!", md: "برای اتصال هوشمند باید برنامه هیدی‌فای روی گوشیت نصب باشه. اگه نداری اول برو دانلودش کن!", mb1: "برو به دانلود", mb2: "اوکی، حله", done: "کپی شد! ✅" },
+    en: { s: "VIP SERVICE", t1: "Buy Private Config", t2: "Connect to Hiddify", t3: "Telegram Channel", t4: "Copy Free Configs", t5: "Download Client", mt: "Attention!", md: "You need Hiddify installed for smart connection.", mb1: "Download Now", mb2: "OK, Let's go", done: "Copied! ✅" },
+    zh: { s: "VIP 服务", t1: "购买专用配置", t2: "连接到 Hiddify", t3: "电报频道", t4: "复制免费配置", t5: "下载客户端", mt: "请注意", md: "您必须先安装 Hiddify。", mb1: "去下载", mb2: "明白", done: "已复制! ✅" },
+    ru: { s: "VIP СЕРВИС", t1: "Купить VIP", t2: "Hiddify Подключение", t3: "Telegram канал", t4: "Копировать конфиги", t5: "Скачать", mt: "Внимание!", md: "Нужен установленный Hiddify.", mb1: "Скачать", mb2: "Понятно", done: "Скопировано! ✅" },
+    ja: { s: "VIP サービス", t1: "VIP購入", t2: "Hiddify接続", t3: "テレグラム", t4: "設定をコピー", t5: "ダウンロード", mt: "注目！", md: "Hiddifyをインストールしてください。", mb1: "ダウンロードへ", mb2: "了解", done: "コピーしました! ✅" }
 };
-function changeLang(l) {
-    document.getElementById('subtitle').innerText = tr[l].s;
-    ['t1','t2','t3','t4','t5'].forEach(id => document.getElementById(id).innerText = tr[l][id]);
-    document.body.dir = (l === 'fa') ? 'rtl' : 'ltr';
+
+let currentLang = 'fa';
+
+function showHiddyInfo() { document.getElementById('hiddyModal').style.display = 'flex'; }
+function closeModal() {
+    document.getElementById('hiddyModal').style.display = 'none';
+    window.location.href = "clash://install-config?url=" + subLink;
 }
+
+async function copyConfigs() {
+    try {
+        const response = await fetch(subLink);
+        const data = await response.text();
+        await navigator.clipboard.writeText(data);
+        const toast = document.getElementById('toast');
+        toast.innerText = langData[currentLang].done;
+        toast.style.display = 'block';
+        setTimeout(() => { toast.style.display = 'none'; }, 2000);
+    } catch (err) { alert("Error!"); }
+}
+
+function render(l) {
+    currentLang = l;
+    const t = langData[l];
+    document.body.className = l === 'fa' ? '' : 'ltr';
+    document.body.dir = l === 'fa' ? 'rtl' : 'ltr';
+    document.getElementById('mTitle').innerText = t.mt;
+    document.getElementById('mDesc').innerText = t.md;
+    document.getElementById('mBtn1').innerText = t.mb1;
+    document.getElementById('mBtn2').innerText = t.mb2;
+
+    document.getElementById('content').innerHTML = `
+        <h1>v2rayNplus</h1>
+        <div class="subtitle">${t.s}</div>
+        <a href="https://t.me/v2rayNplus_admin" target="_blank" class="btn btn-vip">${t.t1}</a>
+        <button onclick="showHiddyInfo()" class="btn btn-hiddy">${t.t2}</button>
+        <button onclick="copyConfigs()" class="btn btn-copy">${t.t4}</button>
+        <a href="https://t.me/v2rayNplus" target="_blank" class="btn btn-free">${t.t3}</a>
+        <a href="download.html" class="btn btn-dl">${t.t5}</a>
+    `;
+}
+render('fa');
 </script>
 </body>
 </html>
