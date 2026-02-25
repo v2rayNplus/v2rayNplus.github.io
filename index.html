@@ -5,44 +5,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>v2rayNplus | VIP SERVICE</title>
     <style>
-        body { margin: 0; padding: 0; background: radial-gradient(circle at top right, #1c1c1e 0%, #000 100%); font-family: -apple-system, sans-serif; color: white; min-height: 100vh; overflow-x: hidden; overflow-y: auto; }
+        /* برگردوندن بک‌گراند و فونت به همون حالت لاتی اصلی */
+        body { margin: 0; padding: 0; background: radial-gradient(circle at top right, #1c1c1e 0%, #000 100%); font-family: -apple-system, sans-serif; color: white; min-height: 100vh; overflow-x: hidden; overflow-y: auto; display: flex; flex-direction: column; align-items: center; }
         
-        /* نوار پرچم‌ها - ثابت نیست که باگ ایجاد کنه */
-        .top-nav { width: 100%; height: 60px; display: flex; justify-content: center; align-items: center; gap: 12px; background: rgba(0,0,0,0.3); backdrop-filter: blur(10px); border-bottom: 0.5px solid #1a1a1a; }
-        .flag-btn { width: 28px; height: 28px; border-radius: 50%; cursor: pointer; border: 1.5px solid #333; transition: 0.2s; }
+        /* منوی پرچم‌ها - دقیقاً طبق عکس دوم و سوم */
+        .top-nav { width: 100%; height: 65px; display: flex; justify-content: center; align-items: center; gap: 15px; flex-shrink: 0; z-index: 10; }
+        .flag-btn { width: 32px; height: 32px; border-radius: 50%; cursor: pointer; border: 1.5px solid #333; object-fit: cover; }
+
+        .container { width: 100%; max-width: 420px; padding: 10px 20px 40px 20px; box-sizing: border-box; display: flex; flex-direction: column; align-items: center; }
         
-        .container { width: 100%; max-width: 400px; margin: 0 auto; padding: 20px; box-sizing: border-box; display: flex; flex-direction: column; align-items: center; }
+        /* کارت شیشه‌ای با همون انحنا و پدینگ که دوست داشتی */
+        .card { background: rgba(28,28,30,0.6); backdrop-filter: blur(20px); padding: 35px 25px; border-radius: 40px; border: 1px solid rgba(255,255,255,0.08); text-align: center; width: 100%; box-shadow: 0 15px 35px rgba(0,0,0,0.6); }
         
-        /* کارت با همون استایل شیشه‌ای اصلیت */
-        .card { background: rgba(28,28,30,0.6); backdrop-filter: blur(20px); padding: 30px 20px; border-radius: 35px; border: 1px solid rgba(255,255,255,0.1); text-align: center; width: 100%; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+        h1 { font-size: 30px; font-weight: 800; margin: 0; color: #fff; }
+        .subtitle { font-size: 14px; color: #8e8e93; margin: 5px 0 30px 0; }
         
-        h1 { font-size: 26px; font-weight: 700; margin: 0; color: #fff; }
-        .subtitle { font-size: 14px; color: #8e8e93; margin: 5px 0 25px 0; text-transform: uppercase; letter-spacing: 1px; }
+        /* دکمه‌های تمام‌عرض با رنگ‌های فابریک پلاس */
+        .btn { display: flex; align-items: center; justify-content: center; padding: 16px; margin: 12px 0; border-radius: 18px; text-decoration: none; font-weight: 700; font-size: 16px; transition: 0.2s; text-align: center; border: none; width: 100%; cursor: pointer; font-family: inherit; }
+        .btn:active { transform: scale(0.97); }
         
-        .btn { display: flex; align-items: center; justify-content: center; padding: 15px; margin: 10px 0; border-radius: 16px; text-decoration: none; font-weight: 600; font-size: 15px; transition: 0.2s; text-align: center; cursor: pointer; border: none; width: 100%; font-family: inherit; }
-        .btn:active { transform: scale(0.98); opacity: 0.8; }
-        
-        /* رنگ‌های اصلی که پلاس تایید کرده بود */
         .btn-vip { background: linear-gradient(135deg, #ffcf40, #ff9500); color: #000; }
         .btn-hiddy { background: #5856d6; color: white; }
-        .btn-free { background: rgba(255,255,255,0.1); color: #007aff; border: 1px solid rgba(0,122,255,0.3); }
         .btn-copy { background: #34c759; color: white; }
-        .btn-dl { background: #444; color: white; }
+        .btn-free { background: #2c2c2e; color: #007aff; border: 1px solid rgba(0,122,255,0.2); }
+        .btn-dl { background: #3a3a3c; color: white; }
 
-        /* پاپ‌آپ و توست کپی */
-        .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.9); display: none; justify-content: center; align-items: center; z-index: 1000; padding: 20px; }
-        .modal { background: #1c1c1e; padding: 25px; border-radius: 25px; border: 1px solid #333; max-width: 320px; text-align: center; }
-        .toast { position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%); background: #34c759; color: black; padding: 10px 20px; border-radius: 20px; font-weight: bold; display: none; z-index: 2000; }
+        /* مودال راهنما */
+        .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.92); display: none; justify-content: center; align-items: center; z-index: 1000; padding: 20px; backdrop-filter: blur(8px); }
+        .modal { background: #1c1c1e; padding: 30px; border-radius: 35px; border: 1px solid #333; max-width: 320px; text-align: center; }
+        
+        /* پیام کپی شد */
+        .toast { position: fixed; bottom: 40px; left: 50%; transform: translateX(-50%); background: #34c759; color: black; padding: 12px 25px; border-radius: 25px; font-weight: 800; display: none; z-index: 2000; }
 
         body.ltr .container { direction: ltr; }
-
-        /* حل مشکل Rotate بدون دستکاری چیدمان در حالت عادی */
-        @media (orientation: landscape) and (max-height: 500px) {
-            .container { padding: 10px; }
-            .card { padding: 15px 20px; }
-            .subtitle { margin-bottom: 10px; }
-            .btn { margin: 5px 0; padding: 12px; }
-        }
+        .daily { margin-top: 25px; font-size: 11px; color: #2c2c2e; font-weight: 600; }
     </style>
 </head>
 <body>
@@ -51,33 +47,33 @@
 
 <div id="hiddyModal" class="modal-overlay">
     <div class="modal">
-        <h2 id="mTitle" style="color:#ff9500">توجه کن پلاس جان!</h2>
-        <p id="mDesc">برای اتصال هوشمند باید برنامه هیدی‌فای نصب باشه.</p>
+        <h2 id="mTitle" style="color:#ff9500; margin-bottom: 15px;">توجه!</h2>
+        <p id="mDesc" style="line-height: 1.6; color: #eee; margin-bottom: 25px;">برای اتصال هوشمند باید برنامه هیدی‌فای را نصب داشته باشی.</p>
         <a href="download.html" class="btn btn-dl" id="mBtn1">برو به دانلود</a>
         <button class="btn btn-hiddy" onclick="closeModal()" id="mBtn2">اوکی، حله</button>
     </div>
 </div>
 
 <div class="top-nav">
-    <img src="https://flagcdn.com/w80/cn.png" class="flag-btn" onclick="render('zh')">
-    <img src="https://flagcdn.com/w80/jp.png" class="flag-btn" onclick="render('ja')">
-    <img src="https://flagcdn.com/w80/ru.png" class="flag-btn" onclick="render('ru')">
-    <img src="https://flagcdn.com/w80/us.png" class="flag-btn" onclick="render('en')">
     <img src="https://flagcdn.com/w80/ir.png" class="flag-btn" onclick="render('fa')">
+    <img src="https://flagcdn.com/w80/us.png" class="flag-btn" onclick="render('en')">
+    <img src="https://flagcdn.com/w80/ru.png" class="flag-btn" onclick="render('ru')">
+    <img src="https://flagcdn.com/w80/jp.png" class="flag-btn" onclick="render('ja')">
+    <img src="https://flagcdn.com/w80/cn.png" class="flag-btn" onclick="render('zh')">
 </div>
 
 <div class="container">
     <div id="content" class="card"></div>
-    <div style="margin-top:20px; font-size:10px; color:#333;">Daily Update</div>
+    <div class="daily">Daily Update</div>
 </div>
 
 <script>
 const subLink = "https://raw.githubusercontent.com/v2rayNplus/v2rayNplus.github.io/main/configs.txt";
 const langData = {
     fa: { s: "سرویس ویژه VIP", t1: "خرید کانفیگ اختصاصی (VIP)", t2: "اتصال به هیدی‌فای", t3: "کانال تلگرام", t4: "کپی کانفیگ‌های رایگان", t5: "دانلود کلاینت‌ها", mt: "توجه کن پلاس جان!", md: "برای اتصال هوشمند باید برنامه هیدی‌فای روی گوشیت نصب باشه. اگه نداری اول برو دانلودش کن!", mb1: "برو به دانلود", mb2: "اوکی، حله", done: "کپی شد! ✅" },
-    en: { s: "VIP SERVICE", t1: "Buy Private Config", t2: "Connect to Hiddify", t3: "Telegram Channel", t4: "Copy Free Configs", t5: "Download Client", mt: "Wait a second!", md: "To use smart connect, you must have Hiddify installed.", mb1: "Go to Download", mb2: "I understand", done: "Copied! ✅" },
-    zh: { s: "VIP 服务", t1: "购买专用配置", t2: "连接到 Hiddify", t3: "电报频道", t4: "复制免费配置", t5: "下载客户端", mt: "请注意", md: "您必须先安装 Hiddify。", mb1: "去下载", mb2: "我明白", done: "已复制! ✅" },
-    ru: { s: "VIP СЕРВИС", t1: "Купить VIP", t2: "Hiddify Подключение", t3: "Telegram канал", t4: "Копировать конфиги", t5: "Скачать", mt: "Внимание!", md: "Для умного подключения у вас должен быть установлен Hiddify.", mb1: "Скачать", mb2: "Понятно", done: "Скопировано! ✅" },
+    en: { s: "VIP SERVICE", t1: "Buy Private Config", t2: "Connect to Hiddify", t3: "Telegram Channel", t4: "Copy Free Configs", t5: "Download Client", mt: "Attention!", md: "You need Hiddify installed for smart connection.", mb1: "Download Now", mb2: "OK, Let's go", done: "Copied! ✅" },
+    zh: { s: "VIP 服务", t1: "购买专用配置", t2: "连接到 Hiddify", t3: "电报频道", t4: "复制免费配置", t5: "下载客户端", mt: "请注意", md: "您必须先安装 Hiddify。", mb1: "去下载", mb2: "明白", done: "已复制! ✅" },
+    ru: { s: "VIP СЕРВИС", t1: "Купить VIP", t2: "Hiddify Подключение", t3: "Telegram канал", t4: "Копировать конфиги", t5: "Скачать", mt: "Внимание!", md: "Нужен установленный Hiddify.", mb1: "Скачать", mb2: "Понятно", done: "Скопировано! ✅" },
     ja: { s: "VIP サービス", t1: "VIP購入", t2: "Hiddify接続", t3: "テレグラム", t4: "設定をコピー", t5: "ダウンロード", mt: "注目！", md: "Hiddifyをインストールしてください。", mb1: "ダウンロードへ", mb2: "了解", done: "コピーしました! ✅" }
 };
 
@@ -98,7 +94,7 @@ async function copyConfigs() {
         toast.innerText = langData[currentLang].done;
         toast.style.display = 'block';
         setTimeout(() => { toast.style.display = 'none'; }, 2000);
-    } catch (err) { alert("خطا!"); }
+    } catch (err) { alert("Error!"); }
 }
 
 function render(l) {
