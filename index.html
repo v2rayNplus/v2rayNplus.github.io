@@ -36,10 +36,10 @@
         #toast { position: fixed; bottom: 30px; background: var(--ios-green); color: black; padding: 10px 20px; border-radius: 20px; font-weight: bold; display: none; z-index: 2000; }
 
         /* پاپ آپ (Modal) */
-        .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.85); backdrop-filter: blur(5px); display: none; justify-content: center; align-items: center; z-index: 3000; padding: 20px; }
-        .modal { background: #1c1c1e; padding: 30px 20px; border-radius: 30px; border: 1px solid #333; max-width: 300px; text-align: center; animation: fadeInUp 0.3s ease; }
-        .modal h2 { color: #ffb300; margin-top: 0; }
-        .modal p { color: #ccc; font-size: 14px; line-height: 1.6; }
+        .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.9); backdrop-filter: blur(8px); display: none; justify-content: center; align-items: center; z-index: 3000; padding: 20px; }
+        .modal { background: #1c1c1e; padding: 35px 25px; border-radius: 35px; border: 1px solid #444; max-width: 320px; text-align: center; animation: fadeInUp 0.3s ease; box-shadow: 0 0 20px rgba(255,179,0,0.2); }
+        .modal h2 { color: #ffb300; margin-top: 0; font-size: 22px; }
+        .modal p { color: #eee; font-size: 15px; line-height: 1.8; margin: 20px 0; }
 
         @media (orientation: landscape) and (max-height: 500px) {
             .header-nav { margin-top: 10px; } .container { padding-bottom: 20px; }
@@ -54,8 +54,11 @@
 
 <div id="hiddyModal" class="modal-overlay">
     <div class="modal">
-        <h2 id="mTitle">توجه کن پلاس جان!</h2>
-        <p id="mDesc">قبل از هر چیز، باید مطمئن بشی که اپلیکیشن Hiddify رو روی گوشیت نصب کردی.</p>
+        <h2 id="mTitle">توجه کن گلب من</h2>
+        <p id="mDesc">
+            قبل از هر چیزی، باید مطمئن بشی که هیدی‌فای رو داری.<br><br>
+            اگه نصب نیس، برو قسمت دانلود و نسبت به مدل گوشی و دیوایس خودت دانلود و نصب کن.
+        </p>
         <button class="btn btn-hiddy" onclick="confirmHiddy()" id="mBtn">اوکی، حله!</button>
     </div>
 </div>
@@ -89,8 +92,32 @@
 <script>
 const subLink = "clash://install-config?url=https://raw.githubusercontent.com/v2rayNplus/v2rayNplus.github.io/main/configs.txt";
 const tr = {
-    fa: {s:"VIP SERVICE", t1:"کانفیگ اختصاصی (VIP)", t2:"اتصال هوشمند-Hiddify", t3:"کانال کانفیگ‌های رایگان", t4:"گروه رفع اشکال", t5:"دانلود کلاینت", t6:"کپی کانفیگ‌های رایگان", d:"کپی شد! ✅", mt:"توجه کن پلاس جان!", md:"قبل از هر چیز، باید مطمئن بشی که اپلیکیشن Hiddify رو روی گوشیت نصب کردی.", mb:"اوکی، حله!"},
-    en: {s:"VIP SERVICE", t1:"Buy Private Config", t2:"Connect to Hiddify", t3:"Free Configs Channel", t4:"Support Group", t5:"Download Client", t6:"Copy Free Configs", d:"Copied! ✅", mt:"Attention Plus!", md:"Make sure you have Hiddify app installed on your device first.", mb:"Got it!"}
+    fa: {
+        s:"VIP SERVICE", 
+        t1:"کانفیگ اختصاصی (VIP)", 
+        t2:"اتصال هوشمند-Hiddify", 
+        t3:"کانال کانفیگ‌های رایگان", 
+        t4:"گروه رفع اشکال", 
+        t5:"دانلود کلاینت", 
+        t6:"کپی کانفیگ‌های رایگان", 
+        d:"کپی شد! ✅", 
+        mt:"توجه کن گلب من", 
+        md:"قبل از هر چیزی، باید مطمئن بشی که هیدی‌فای رو داری. اگه نصب نیس، برو قسمت دانلود و نسبت به مدل گوشی و دیوایس خودت دانلود و نصب کن.", 
+        mb:"اوکی، حله!"
+    },
+    en: {
+        s:"VIP SERVICE", 
+        t1:"Buy Private Config", 
+        t2:"Connect to Hiddify", 
+        t3:"Free Configs Channel", 
+        t4:"Support Group", 
+        t5:"Download Client", 
+        t6:"Copy Free Configs", 
+        d:"Copied! ✅", 
+        mt:"Attention My Dear", 
+        md:"Make sure you have Hiddify installed. If not, go to the download section and install it based on your device model.", 
+        mb:"Got it!"
+    }
 };
 let cur = 'fa';
 
