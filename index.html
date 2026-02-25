@@ -6,39 +6,49 @@
     <title>v2rayNplus | VIP SERVICE</title>
     <style>
         body { margin: 0; padding: 0; background: radial-gradient(circle at top right, #1c1c1e 0%, #000 100%); font-family: -apple-system, sans-serif; color: white; overflow-x: hidden; min-height: 100vh; display: flex; flex-direction: column; }
-        .top-nav { position: fixed; top: 0; left: 0; right: 0; height: 55px; background-color: rgba(0,0,0,0.8); backdrop-filter: blur(10px); display: flex; justify-content: center; align-items: center; gap: 12px; z-index: 9999; border-bottom: 0.5px solid #1a1a1a; }
+        .top-nav { position: fixed; top: 0; left: 0; right: 0; height: 55px; background-color: rgba(0,0,0,0.8); backdrop-filter: blur(10px); display: flex; justify-content: center; align-items: center; gap: 12px; z-index: 999; border-bottom: 0.5px solid #1a1a1a; }
         .flag-btn { width: 28px; height: 28px; border-radius: 50%; cursor: pointer; border: 1.5px solid #333; object-fit: cover; transition: 0.2s; }
-        .flag-btn:active { transform: scale(0.9); }
         
         .container { width: 100%; max-width: 400px; margin: auto; padding: 80px 20px 40px 20px; box-sizing: border-box; display: flex; flex-direction: column; align-items: center; }
-        
         .card { background: rgba(28,28,30,0.6); backdrop-filter: blur(20px); padding: 30px 20px; border-radius: 35px; border: 1px solid rgba(255,255,255,0.1); text-align: center; width: 100%; }
         
         h1 { font-size: 26px; font-weight: 700; margin: 0; color: #fff; }
         .subtitle { font-size: 14px; color: #8e8e93; margin: 5px 0 25px 0; text-transform: uppercase; letter-spacing: 1px; }
         
-        .btn { display: flex; align-items: center; justify-content: center; padding: 15px; margin: 10px 0; border-radius: 16px; text-decoration: none; font-weight: 600; font-size: 15px; transition: 0.2s; text-align: center; }
+        .btn { display: flex; align-items: center; justify-content: center; padding: 15px; margin: 10px 0; border-radius: 16px; text-decoration: none; font-weight: 600; font-size: 15px; transition: 0.2s; text-align: center; cursor: pointer; border: none; width: 100%; font-family: inherit; }
         .btn:active { transform: scale(0.98); opacity: 0.8; }
         
         .btn-vip { background: linear-gradient(135deg, #ffcf40, #ff9500); color: #000; }
         .btn-hiddy { background: #5856d6; color: white; }
         .btn-free { background: rgba(255,255,255,0.1); color: #007aff; border: 1px solid rgba(0,122,255,0.3); }
-        .btn-group { background: #ff3b30; color: white; }
-        .btn-dl { background: #34c759; color: white; }
+        .btn-copy { background: #34c759; color: white; }
+        .btn-dl { background: #444; color: white; }
 
-        /* تراز کردن متن برای زبان‌های مختلف */
+        /* Modal Styles */
+        .modal-overlay { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.85); display: none; justify-content: center; align-items: center; z-index: 10000; padding: 20px; backdrop-filter: blur(5px); }
+        .modal { background: #1c1c1e; padding: 25px; border-radius: 25px; border: 1px solid #333; max-width: 320px; text-align: center; }
+        .modal h2 { font-size: 20px; margin-top: 0; color: #34c759; }
+        .modal p { font-size: 15px; color: #ccc; line-height: 1.6; }
+
+        /* Toast Style */
+        .toast { position: fixed; bottom: 30px; background: #34c759; color: black; padding: 10px 20px; border-radius: 20px; font-weight: bold; display: none; z-index: 11000; }
+
         body.ltr .container { direction: ltr; }
-        body.ltr .card { text-align: center; }
-
-        @media (max-height: 500px) {
-            .container { padding-top: 65px; }
-            .card { padding: 20px; }
-            .subtitle { margin-bottom: 15px; }
-            .btn { padding: 10px; margin: 6px 0; }
-        }
+        @media (max-height: 500px) { .container { padding-top: 65px; } .card { padding: 20px; } }
     </style>
 </head>
 <body>
+
+<div id="toast" class="toast">کپی شد! ✅</div>
+
+<div id="hiddyModal" class="modal-overlay">
+    <div class="modal">
+        <h2 id="mTitle">راهنما</h2>
+        <p id="mDesc">برای استفاده از این قابلیت، باید اول برنامه هیدی‌فای را نصب داشته باشی. اگر نداری، از بخش دانلود آن را دریافت کن.</p>
+        <a href="download.html" class="btn btn-dl" id="mBtn1">برو به دانلود</a>
+        <button class="btn btn-hiddy" onclick="closeModal()" id="mBtn2">متوجه شدم</button>
+    </div>
+</div>
 
 <div class="top-nav">
     <img src="https://flagcdn.com/w80/cn.png" class="flag-btn" onclick="render('zh')">
@@ -51,38 +61,67 @@
 <div class="container" id="content"></div>
 
 <script>
+const subLink = "https://raw.githubusercontent.com/v2rayNplus/v2rayNplus.github.io/main/configs.txt";
+
 const langData = {
-    fa: { s: "سرویس ویژه VIP", t1: "خرید کانفیگ اختصاصی (VIP)", t2: "اتصال هوشمند به هیدی‌فای", t3: "کانال کانفیگ‌های رایگان", t4: "گروه رفع اشکال", t5: "دانلود کلاینت" },
-    en: { s: "VIP SERVICE", t1: "Buy Private Config", t2: "Connect to Hiddify", t3: "Free Configs Channel", t4: "Support Group", t5: "Download Client" },
-    ru: { s: "VIP СЕРВИС", t1: "Купить VIP конфиг", t2: "Подключиться к Hiddify", t3: "Бесплатные конфиги", t4: "Группа поддержки", t5: "Скачать клиент" },
-    zh: { s: "VIP 服务", t1: "购买专用配置 (VIP)", t2: "连接到 Hiddify", t3: "免费配置频道", t4: "帮助中心", t5: "下载客户端" },
-    ja: { s: "VIP サービス", t1: "VIP設定の購入", t2: "Hiddifyに接続", t3: "無料設定チャンネル", t4: "サポートグループ", t5: "クライアントをダウンロード" }
+    fa: { s: "سرویس ویژه VIP", t1: "خرید کانفیگ اختصاصی (VIP)", t2: "اتصال به هیدی‌فای", t3: "کانال تلگرام", t4: "کپی کانفیگ‌های رایگان", t5: "دانلود کلاینت‌ها", mt: "توجه کن پلاس جان!", md: "برای اتصال هوشمند باید برنامه هیدی‌فای روی گوشیت نصب باشه. اگه نداری اول برو دانلودش کن!", mb1: "برو به دانلود", mb2: "اوکی، حله", done: "کپی شد! ✅" },
+    en: { s: "VIP SERVICE", t1: "Buy Private Config", t2: "Connect to Hiddify", t3: "Telegram Channel", t4: "Copy Free Configs", t5: "Download Client", mt: "Wait a second!", md: "To use smart connect, you must have Hiddify installed. If you don't, go to the download section first.", mb1: "Go to Download", mb2: "I understand", done: "Copied! ✅" },
+    zh: { s: "VIP 服务", t1: "购买专用配置", t2: "连接到 Hiddify", t3: "电报频道", t4: "复制免费配置", t5: "下载客户端", mt: "请注意", md: "要使用智能连接，您必须先安装 Hiddify。如果没有，请先进入下载部分。", mb1: "去下载", mb2: "我明白", done: "已复制! ✅" },
+    ru: { s: "VIP СЕРВИС", t1: "Купить VIP", t2: "Hiddify Подключение", t3: "Telegram канал", t4: "Копировать конфиги", t5: "Скачать", mt: "Внимание!", md: "Для умного подключения у вас должен быть установлен Hiddify. Если нет, сначала скачайте его.", mb1: "Скачать", mb2: "Понятно", done: "Скопировано! ✅" },
+    ja: { s: "VIP サービス", t1: "VIP購入", t2: "Hiddify接続", t3: "テレグラム", t4: "設定をコピー", t5: "ダウンロード", mt: "注目！", md: "スマート接続を使用するには、まず Hiddify をインストールする必要があります。お持ちでない場合は、ダウンロード セクションに移動してください。", mb1: "ダウンロードへ", mb2: "了解", done: "コピーしました! ✅" }
 };
 
+let currentLang = 'fa';
+
+function showHiddyInfo() {
+    document.getElementById('hiddyModal').style.display = 'flex';
+}
+
+function closeModal() {
+    document.getElementById('hiddyModal').style.display = 'none';
+    window.location.href = "clash://install-config?url=" + subLink;
+}
+
+async function copyConfigs() {
+    try {
+        const response = await fetch(subLink);
+        const data = await response.text();
+        await navigator.clipboard.writeText(data);
+        const toast = document.getElementById('toast');
+        toast.innerText = langData[currentLang].done;
+        toast.style.display = 'block';
+        setTimeout(() => { toast.style.display = 'none'; }, 2000);
+    } catch (err) {
+        alert("خطا در کپی! مجدد تلاش کنید.");
+    }
+}
+
 function render(l) {
+    currentLang = l;
     const t = langData[l];
     document.body.className = l === 'fa' ? '' : 'ltr';
     document.body.dir = l === 'fa' ? 'rtl' : 'ltr';
     
+    // بروزرسانی متون مودال
+    document.getElementById('mTitle').innerText = t.mt;
+    document.getElementById('mDesc').innerText = t.md;
+    document.getElementById('mBtn1').innerText = t.mb1;
+    document.getElementById('mBtn2').innerText = t.mb2;
+
     document.getElementById('content').innerHTML = `
         <div class="card">
             <h1>v2rayNplus</h1>
             <div class="subtitle">${t.s}</div>
-            
             <a href="https://t.me/v2rayNplus_admin" target="_blank" class="btn btn-vip">${t.t1}</a>
-            
-            <a href="clash://install-config?url=https://raw.githubusercontent.com/v2rayNplus/v2rayNplus.github.io/main/configs.txt" class="btn btn-hiddy">${t.t2}</a>
-            
+            <button onclick="showHiddyInfo()" class="btn btn-hiddy">${t.t2}</button>
+            <button onclick="copyConfigs()" class="btn btn-copy">${t.t4}</button>
             <a href="https://t.me/v2rayNplus" target="_blank" class="btn btn-free">${t.t3}</a>
-            
-            <a href="https://t.me/v2rayNplus_chat" target="_blank" class="btn btn-group">${t.t4}</a>
-            
             <a href="download.html" class="btn btn-dl">${t.t5}</a>
         </div>
+        <div style="margin-top:20px; font-size:10px; color:#333;">Daily Update</div>
     `;
 }
 
-// اجرای اولیه برای زبان فارسی
 render('fa');
 </script>
 
