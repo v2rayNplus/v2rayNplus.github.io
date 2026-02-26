@@ -10,14 +10,14 @@
 
         body { margin: 0; padding: 0; background: #000; min-height: 100vh; display: flex; flex-direction: column; align-items: center; font-family: -apple-system, sans-serif; color: white; overflow-x: hidden; }
         
-        /* منوی پرچم‌های شناور - مطابق با Index */
-        .header-nav { position: fixed; top: 20px; width: 100%; display: flex; justify-content: center; z-index: 10000; }
+        /* منوی پرچم‌ها - دقیقا مطابق با صفحه اول */
+        .header-nav { position: fixed; top: 20px; width: 100%; display: flex; justify-content: center; z-index: 10000; transition: 0.3s; }
         .lang-menu { background: rgba(40,40,42,0.8); backdrop-filter: blur(15px); padding: 8px 15px; border-radius: 25px; display: flex; gap: 12px; border: 1px solid rgba(255,255,255,0.1); direction: ltr !important; box-shadow: 0 4px 15px rgba(0,0,0,0.5); }
-        .flag-btn { cursor: pointer; font-size: 22px; transition: 0.2s; display: flex; align-items: center; justify-content: center; width: 30px; height: 30px; }
-        .flag-btn svg, .flag-btn img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
-        .flag-btn:active { transform: scale(0.9); }
+        .lang-btn { cursor: pointer; font-size: 22px; transition: 0.2s; display: flex; align-items: center; }
+        .lang-btn svg { width: 24px; height: 24px; border-radius: 50%; object-fit: cover; }
+        .lang-btn:active { transform: scale(0.9); }
 
-        .container { width: 100%; max-width: 450px; margin: 0 auto; padding: 100px 16px 40px 16px; box-sizing: border-box; animation: fadeInUp 0.6s ease; }
+        .container { width: 100%; max-width: 450px; margin: 0 auto; padding: 110px 16px 40px 16px; box-sizing: border-box; animation: fadeInUp 0.6s ease; }
         
         .header { font-size: 26px; font-weight: 800; margin-bottom: 25px; text-align: center; color: #fff; }
         .section-label { font-size: 13px; color: #8e8e93; margin: 0 5px 8px 0; text-align: right; font-weight: 700; text-transform: uppercase; }
@@ -42,15 +42,19 @@
         body.ltr .item { flex-direction: row-reverse; }
         body.ltr .arrow { transform: scaleX(-1); }
         
-        .daily-tag { text-align: center; font-size: 11px; color: #444; margin-top: 30px; font-weight: bold; letter-spacing: 1px; }
+        .daily-tag { text-align: center; font-size: 11px; color: #444; margin-top: 30px; font-weight: bold; }
 
-        /* اصلاح حالت مانیتوری (افقی) برای رفع همپوشانی */
+        /* --- فیکس نهایی حالت مانیتوری (افقی) --- */
         @media (orientation: landscape) and (max-height: 500px) {
-            .container { max-width: 92%; display: grid; grid-template-columns: 1fr 1fr; gap: 15px; padding-top: 85px; }
-            .header { grid-column: span 2; font-size: 22px; margin-bottom: 10px; }
-            .section-label { margin-top: 5px; }
-            .section-card:last-of-type { grid-column: span 2; max-width: 300px; margin: 10px auto; }
-            .header-nav { top: 10px; }
+            .header-nav { top: 10px; transform: scale(0.9); } /* کوچک‌تر کردن منو در حالت افقی */
+            .container { max-width: 95%; display: grid; grid-template-columns: 1fr 1fr; gap: 15px; padding-top: 75px; }
+            .header { grid-column: span 2; font-size: 20px; margin-bottom: 10px; }
+            .section-label { margin-top: 5px; font-size: 11px; }
+            .section-card { margin-bottom: 10px; }
+            .section-card:last-of-type { grid-column: span 2; max-width: 320px; margin: 10px auto; }
+            .item { padding: 12px 15px; }
+            .icon { width: 32px; height: 32px; font-size: 18px; }
+            .name { font-size: 15px; }
         }
     </style>
 </head>
@@ -58,20 +62,13 @@
 
 <div class="header-nav">
     <div class="lang-menu">
-        <span onclick="render('zh')" class="flag-btn">🇨🇳</span>
-        <span onclick="render('ja')" class="flag-btn">🇯🇵</span>
-        <span onclick="render('ru')" class="flag-btn">🇷🇺</span>
-        <span onclick="render('en')" class="flag-btn">🇺🇸</span>
-        <div class="flag-btn" onclick="render('fa')">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 32">
-                <rect width="48" height="10.6" fill="#228b22"/>
-                <rect y="10.6" width="48" height="10.8" fill="#fff"/>
-                <rect y="21.4" width="48" height="10.6" fill="#da291c"/>
-                <path d="M26 18.5c.3 0 .5-.2.5-.5s-.2-.5-.5-.5-1.1.2-1.1.8c0 .4.3.7.6.7s.5-.2.5-.5z" fill="#b8860b"/>
-                <path d="M23 18.5c0-3.5 3-4.5 3-4.5s-1.5-1-3.5-1-4 2-4 5.5 2 5.5 4.5 5.5h6l-3-3.5h-3c-1.5 0-2.5-1-2.5-2z" fill="#b8860b"/>
-                <path d="M25 12.5c0-1.5 1-2.5 2.5-2.5s2.5 1 2.5 2.5-1 2.5-2.5 2.5-2.5-1-2.5-2.5z" fill="#ffd700"/>
-            </svg>
-        </div>
+        <span onclick="render('zh')" class="lang-btn">🇨🇳</span>
+        <span onclick="render('ja')" class="lang-btn">🇯🇵</span>
+        <span onclick="render('ru')" class="lang-btn">🇷🇺</span>
+        <span onclick="render('en')" class="lang-btn">🇺🇸</span>
+        <span onclick="render('fa')" class="lang-btn">
+            <svg viewBox="0 0 48 32"><rect width="48" height="10.6" fill="#228b22"/><rect y="10.6" width="48" height="10.8" fill="#fff"/><rect y="21.4" width="48" height="10.6" fill="#da291c"/><path d="M26 18.5c.3 0 .5-.2.5-.5s-.2-.5-.5-.5-1.1.2-1.1.8c0 .4.3.7.6.7s.5-.2.5-.5z" fill="#b8860b"/><path d="M23 18.5c0-3.5 3-4.5 3-4.5s-1.5-1-3.5-1-4 2-4 5.5 2 5.5 4.5 5.5h6l-3-3.5h-3c-1.5 0-2.5-1-2.5-2z" fill="#b8860b"/><path d="M25 12.5c0-1.5 1-2.5 2.5-2.5s2.5 1 2.5 2.5-1 2.5-2.5 2.5-2.5-1-2.5-2.5z" fill="#ffd700"/></svg>
+        </span>
     </div>
 </div>
 
@@ -81,7 +78,7 @@
 const langData = {
     fa: { h: "مرکز دریافت برنامه", a: "اندروید", i: "آیفون (iOS)", w: "ویندوز", b: "بازگشت به خانه", n1: "v2rayNG", n2: "هیدی‌فای", n3: "هپ پروکسی", n4: "نپسترنت", n5: "فوکس‌ری", n6: "نکوباکس", n7: "v2rayN" },
     en: { h: "Download Center", a: "ANDROID", i: "IPHONE (iOS)", w: "WINDOWS", b: "Back Home", n1: "v2rayNG", n2: "Hiddify Next", n3: "Happ Proxy", n4: "NapsternetV", n5: "Foxray", n6: "NekoBox", n7: "v2rayN" },
-    ru: { h: "Скачать", a: "АНДРОИД", i: "АЙФОН (iOS)", w: "ВИНДОВС", b: "Назад", n1: "v2rayNG", n2: "Хидифай", n3: "Хэп Прокси", n4: "Напстернет", n5: "Фоксрей", n6: "НекоБокс", n7: "v2rayN" },
+    ru: { h: "Скачать", a: "АНДРОИД", i: "АЙФОН", w: "ВИНДОВС", b: "Назад", n1: "v2rayNG", n2: "Хидифай", n3: "Хэп Проکسی", n4: "Напسترнет", n5: "Фоکسрей", n6: "НекоБокс", n7: "v2rayN" },
     zh: { h: "下载中心", a: "安卓系统", i: "苹果手机", w: "窗口系统", b: "返回", n1: "v2rayNG", n2: "Hiddify 客户端", n3: "Happ 代理", n4: "NapsternetV", n5: "Foxray", n6: "NekoBox", n7: "v2rayN" },
     ja: { h: "ダウンロード", a: "アンドロイド", i: "アイフォン", w: "ウィンドウズ", b: "戻る", n1: "v2rayNG", n2: "Hiddify", n3: "Happ Proxy", n4: "NapsternetV", n5: "フォクスレイ", n6: "NekoBox", n7: "v2rayN" }
 };
