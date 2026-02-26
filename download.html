@@ -14,7 +14,6 @@
             display: flex; flex-direction: column; align-items: center; min-height: 100vh;
         }
 
-        /* منوی زبان - بدون تداخل */
         .nav-bar { width: 100%; display: flex; justify-content: center; padding: 15px 0; background: #000; }
         .lang-box { 
             background: #2c2c2e; padding: 8px 18px; border-radius: 25px; 
@@ -27,7 +26,7 @@
             display: flex; flex-direction: column; gap: 15px;
         }
 
-        .header-title { font-size: 24px; font-weight: 800; text-align: center; margin: 5px 0 15px 0; }
+        .header-title { font-size: 24px; font-weight: 800; text-align: center; margin: 10px 0 20px 0; }
         .label { font-size: 13px; color: var(--sub); font-weight: 700; margin-bottom: 5px; display: block; }
 
         .card-list { background: var(--card); border-radius: 22px; overflow: hidden; border: 1px solid rgba(255,255,255,0.05); margin-bottom: 10px; }
@@ -38,7 +37,6 @@
         }
         .btn-item:active { background: rgba(255,255,255,0.1); }
 
-        /* آیکون‌های ایموجی - بازگشت به سبک مورد علاقه پلاس */
         .icon-emoji { 
             width: 36px; height: 36px; border-radius: 10px; flex-shrink: 0; 
             display: flex; justify-content: center; align-items: center; 
@@ -48,7 +46,6 @@
         .item-name { flex-grow: 1; font-size: 16px; font-weight: 600; margin: 0 15px; }
         .chevron { color: #48484a; font-size: 14px; }
 
-        /* اصلاح چرخش گوشی */
         @media (orientation: landscape) {
             .container { max-width: 90%; display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
             .header-title, .back-section { grid-column: span 2; }
@@ -57,7 +54,8 @@
 
         body.ltr { direction: ltr; text-align: left; }
         body.rtl { direction: rtl; text-align: right; }
-        body.ltr .chevron { transform: scaleX(-1); }
+        /* چرخش جهت فلش در زبان‌های مختلف */
+        body.ltr .chevron { transform: rotate(180deg); }
 
         .daily { text-align: center; color: #333; font-size: 10px; margin-top: 20px; font-weight: bold; }
     </style>
@@ -78,11 +76,71 @@
 
 <script>
 const translations = {
-    fa: { title: "مرکز دانلود", android: "اندروید", ios: "آیفون", win: "ویندوز", back: "بازگشت به خانه", hid: "هیدی‌فای", nap: "نپسترنت" },
-    en: { title: "Download Center", android: "ANDROID", ios: "iOS / IPHONE", win: "WINDOWS", back: "Back to Home", hid: "Hiddify Next", nap: "NapsternetV" },
-    ru: { title: "Центр загрузки", android: "АНДРОИД", ios: "АЙФОН (iOS)", win: "ВИНДОВС", back: "На главную", hid: "Hiddify Next", nap: "NapsternetV" },
-    zh: { title: "下载中心", android: "安卓系统", ios: "苹果手机", win: "电脑视窗", back: "返回首页", hid: "Hiddify 客户端", nap: "NapsternetV" },
-    ja: { title: "ダウンロード", android: "アンドロイド", ios: "アイフォン", win: "ウィンドウズ", back: "ホームに戻る", hid: "Hiddify", nap: "NapsternetV" }
+    fa: { 
+        title: "مرکز دانلود", 
+        android: "اندروید", 
+        ios: "آیفون (iOS)", 
+        win: "ویندوز", 
+        back: "بازگشت به خانه", 
+        hid: "هیدی‌فای", 
+        nap: "نپسترنت",
+        fox: "فوکس‌ری",
+        v2ng: "v2rayNG",
+        v2n: "v2rayN",
+        neko: "نکوباکس"
+    },
+    en: { 
+        title: "Download Center", 
+        android: "ANDROID", 
+        ios: "iOS / IPHONE", 
+        win: "WINDOWS", 
+        back: "Back Home", 
+        hid: "Hiddify", 
+        nap: "NapsternetV",
+        fox: "Foxray",
+        v2ng: "v2rayNG",
+        v2n: "v2rayN",
+        neko: "NekoBox"
+    },
+    ru: { 
+        title: "Центр загрузки", 
+        android: "АНДРОИД", 
+        ios: "АЙФОН (iOS)", 
+        win: "ВИНДОВС", 
+        back: "На главную", 
+        hid: "Хиддифай", 
+        nap: "Напстернет",
+        fox: "Фоксрей",
+        v2ng: "v2rayNG",
+        v2n: "v2rayN",
+        neko: "Некобокс"
+    },
+    zh: { 
+        title: "下载中心", 
+        android: "安卓系统", 
+        ios: "苹果手机", 
+        win: "电脑视窗", 
+        back: "返回首页", 
+        hid: "Hiddify 客户端", 
+        nap: "NapsternetV",
+        fox: "Foxray",
+        v2ng: "v2rayNG",
+        v2n: "v2rayN",
+        neko: "NekoBox"
+    },
+    ja: { 
+        title: "ダウンロード", 
+        android: "アンドロイド", 
+        ios: "アイフォン", 
+        win: "ウィンドウズ", 
+        back: "ホームに戻る", 
+        hid: "Hiddify", 
+        nap: "NapsternetV",
+        fox: "Foxray",
+        v2ng: "v2rayNG",
+        v2n: "v2rayN",
+        neko: "NekoBox"
+    }
 };
 
 function changeLang(lang) {
@@ -97,13 +155,13 @@ function changeLang(lang) {
             <span class="label">${t.android}</span>
             <div class="card-list">
                 <a href="https://github.com/2dust/v2rayNG/releases" class="btn-item">
-                    <div class="icon-emoji">📡</div><div class="item-name">v2rayNG</div><div class="chevron">❯</div>
+                    <div class="icon-emoji">📡</div><div class="item-name">${t.v2ng}</div><div class="chevron">‹</div>
                 </a>
                 <a href="https://github.com/hiddify/hiddify-next/releases" class="btn-item">
-                    <div class="icon-emoji">🚀</div><div class="item-name">${t.hid}</div><div class="chevron">❯</div>
+                    <div class="icon-emoji">🚀</div><div class="item-name">${t.hid}</div><div class="chevron">‹</div>
                 </a>
                 <a href="https://play.google.com/store/apps/details?id=com.napsternetlabs.napsternetv" class="btn-item">
-                    <div class="icon-emoji">🎧</div><div class="item-name">${t.nap}</div><div class="chevron">❯</div>
+                    <div class="icon-emoji">🎧</div><div class="item-name">${t.nap}</div><div class="chevron">‹</div>
                 </a>
             </div>
         </div>
@@ -112,13 +170,13 @@ function changeLang(lang) {
             <span class="label">${t.ios}</span>
             <div class="card-list">
                 <a href="https://apps.apple.com/app/hiddify-proxy/id6473774447" class="btn-item">
-                    <div class="icon-emoji">🚀</div><div class="item-name">${t.hid}</div><div class="chevron">❯</div>
+                    <div class="icon-emoji">🚀</div><div class="item-name">${t.hid}</div><div class="chevron">‹</div>
                 </a>
                 <a href="https://apps.apple.com/app/foxray/id6448898396" class="btn-item">
-                    <div class="icon-emoji">🦊</div><div class="item-name">Foxray</div><div class="chevron">❯</div>
+                    <div class="icon-emoji">🦊</div><div class="item-name">${t.fox}</div><div class="chevron">‹</div>
                 </a>
                 <a href="https://apps.apple.com/app/napsternetv/id1629465476" class="btn-item">
-                    <div class="icon-emoji">🎧</div><div class="item-name">${t.nap}</div><div class="chevron">❯</div>
+                    <div class="icon-emoji">🎧</div><div class="item-name">${t.nap}</div><div class="chevron">‹</div>
                 </a>
             </div>
         </div>
@@ -127,13 +185,13 @@ function changeLang(lang) {
             <span class="label">${t.win}</span>
             <div class="card-list">
                 <a href="https://github.com/2dust/v2rayN/releases" class="btn-item">
-                    <div class="icon-emoji">💻</div><div class="item-name">v2rayN</div><div class="chevron">❯</div>
+                    <div class="icon-emoji">💻</div><div class="item-name">${t.v2n}</div><div class="chevron">‹</div>
                 </a>
                 <a href="https://github.com/hiddify/hiddify-next/releases" class="btn-item">
-                    <div class="icon-emoji">🚀</div><div class="item-name">${t.hid}</div><div class="chevron">❯</div>
+                    <div class="icon-emoji">🚀</div><div class="item-name">${t.hid}</div><div class="chevron">‹</div>
                 </a>
                 <a href="https://github.com/SagerNet/nekoray/releases" class="btn-item">
-                    <div class="icon-emoji">🐱</div><div class="item-name">NekoBox</div><div class="chevron">❯</div>
+                    <div class="icon-emoji">🐱</div><div class="item-name">${t.neko}</div><div class="chevron">‹</div>
                 </a>
             </div>
         </div>
