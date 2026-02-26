@@ -6,55 +6,40 @@
     <title>v2rayNplus | Download Center</title>
     <style>
         body { margin: 0; padding: 0; background: radial-gradient(circle at top right, #1c1c1e 0%, #000 100%); font-family: -apple-system, sans-serif; color: white; overflow-x: hidden; min-height: 100vh; display: flex; flex-direction: column; }
-        
-        /* نوار بالای صفحه با پرچم‌ها */
         .top-nav { position: fixed; top: 0; left: 0; right: 0; height: 60px; background-color: rgba(0,0,0,0.85); backdrop-filter: blur(15px); display: flex; justify-content: center; align-items: center; gap: 15px; z-index: 9999; border-bottom: 0.5px solid rgba(255,255,255,0.1); }
-        .flag-btn { width: 32px; height: 32px; border-radius: 50%; cursor: pointer; border: 1.5px solid #444; object-fit: cover; transition: 0.3s; }
+        .flag-btn { width: 32px; height: 32px; border-radius: 50%; cursor: pointer; border: 1.5px solid #444; object-fit: cover; transition: 0.3s; background: #222; }
         .flag-btn:hover { border-color: #888; transform: translateY(-2px); }
         .flag-btn:active { transform: scale(0.9); }
-        
         .container { width: 100%; max-width: 450px; margin: 0 auto; padding: 85px 16px 40px 16px; box-sizing: border-box; }
-        
         .header { font-size: 26px; font-weight: 800; margin-bottom: 20px; text-align: right; color: #fff; letter-spacing: -0.5px; }
         .section-label { font-size: 13px; color: #8e8e93; margin: 0 5px 8px 0; text-align: right; font-weight: 700; text-transform: uppercase; }
-        
         .section-card { background-color: rgba(28,28,30,0.7); backdrop-filter: blur(20px); border-radius: 16px; overflow: hidden; margin-bottom: 25px; border: 1px solid rgba(255,255,255,0.08); box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
-        
         .item { display: flex; align-items: center; padding: 14px 18px; text-decoration: none; color: white; border-bottom: 0.5px solid rgba(255,255,255,0.05); transition: 0.2s; }
         .item:active { background-color: rgba(255,255,255,0.1); }
         .item:last-child { border-bottom: none; }
-        
         .icon { width: 36px; height: 36px; border-radius: 10px; display: flex; justify-content: center; align-items: center; font-size: 20px; flex-shrink: 0; }
-        .bg-a { background: linear-gradient(135deg, #2ecc71, #27ae60); } /* Android */
-        .bg-i { background: linear-gradient(135deg, #007aff, #0056b3); } /* iOS */
-        .bg-w { background: linear-gradient(135deg, #5856d6, #4240a6); } /* Windows */
-        .bg-b { background: #333; } /* Back */
-        
+        .bg-a { background: linear-gradient(135deg, #2ecc71, #27ae60); }
+        .bg-i { background: linear-gradient(135deg, #007aff, #0056b3); }
+        .bg-w { background: linear-gradient(135deg, #5856d6, #4240a6); }
+        .bg-b { background: #333; }
         .name { flex-grow: 1; font-size: 17px; font-weight: 500; text-align: right; margin-right: 14px; }
         .arrow { color: #48484a; font-size: 18px; font-weight: bold; transition: 0.3s; }
-        
-        /* استایل‌های مخصوص زبان‌های چپ‌چین (LTR) */
         body.ltr .header, body.ltr .section-label, body.ltr .name { text-align: left; }
         body.ltr .name { margin-right: 0; margin-left: 14px; }
         body.ltr .item { flex-direction: row-reverse; }
         body.ltr .arrow { transform: scaleX(-1); }
-        
-        .daily-tag { text-align: center; font-size: 12px; color: #444; margin-top: 30px; font-weight: bold; letter-spacing: 1px; }
-
-        @media (max-height: 500px) {
-            .container { padding-top: 75px; }
-            .header { font-size: 22px; }
-        }
+        .daily-tag { text-align: center; font-size: 12px; color: #444; margin-top: 30px; font-weight: bold; }
     </style>
 </head>
 <body class="rtl" dir="rtl">
 
 <div class="top-nav">
-    <img src="https://flagcdn.com/w80/cn.png" class="flag-btn" onclick="render('zh')" title="China">
-    <img src="https://flagcdn.com/w80/jp.png" class="flag-btn" onclick="render('ja')" title="Japan">
-    <img src="https://flagcdn.com/w80/ru.png" class="flag-btn" onclick="render('ru')" title="Russia">
-    <img src="https://flagcdn.com/w80/us.png" class="flag-btn" onclick="render('en')" title="USA">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Lion_and_Sun_Flag_of_Iran.svg/80px-Lion_and_Sun_Flag_of_Iran.svg.png" class="flag-btn" onclick="render('fa')" title="Iran">
+    <img src="https://flagcdn.com/w80/cn.png" class="flag-btn" onclick="render('zh')">
+    <img src="https://flagcdn.com/w80/jp.png" class="flag-btn" onclick="render('ja')">
+    <img src="https://flagcdn.com/w80/ru.png" class="flag-btn" onclick="render('ru')">
+    <img src="https://flagcdn.com/w80/us.png" class="flag-btn" onclick="render('en')">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAACXBIWXMAAAsTAAALEwEAmpwYAAABy0lEQVR4nO2Zz0rDQRDGf7XWixZ68CKIePZofP838S0I9uAtiN6869GDF0H6BMZ7H0OfwXvvwYMPID2I9/6pTfOZZDe7mw0C9SMMfCzZ7M7OfpPZ7CSKSCQS6X8wF+AeeALuwN6pXGvL/Y5p2z9Xn2v+A1SBy/L5A7ACbMAtYf6XvAnv9vA9oK0p0Y4Y9r6D7x5wVp6fK2H/T58Xo9/pG73r9rTvxH8AnIDT8vwL8AhMAyvAGrCmr9vW3mXG9m9pS09176NfS78XfSeCvxj6/N7T9729L8X6YvxEon9OAn6fF99j6Ptz8X0m1uejZ8L8vHicXvF6WryfK8afO+D65I8S4An4XjL9AByX86Y+UeK5A68+SULvV/D808/8A/8I8I8A/wjwjwD/CPCPAP8I8I8A/wjwjwD/CPCPAP8I8I8A/wjwr9uA/2rO6/T3f0Vv2v/2Nfx7e9P+v6/h39ub9v99Df/e3rT/72v49/am/X9fw7+3N+3/+xr+vb1p/9/X8O/tTfv/voZ/b2/a//f9uX9v+tYV5Xmrf6eG6/C/Y037f60p0fG9Y037fy/f8WpYm/58hD8hXmDCOx7WpY8j8v4rSjzAnuP/yK9f9B0mEonUa9wA59U7+X+Yf3pC1pZ7pY6p1+oY+4u/U/1B9X9D8O9u/D9rIpH+N34BnKjT2T7eC2MAAAAASUVORK5CYII=" 
+         class="flag-btn" onclick="render('fa')" title="Persian">
 </div>
 
 <div class="container" id="main-content"></div>
@@ -85,10 +70,8 @@ function render(l) {
     const t = langData[l];
     document.body.className = l === 'fa' ? 'rtl' : 'ltr';
     document.body.dir = l === 'fa' ? 'rtl' : 'ltr';
-    
     document.getElementById('main-content').innerHTML = `
         <div class="header">${t.h}</div>
-        
         <div class="section-label">${t.a}</div>
         <div class="section-card">
             <a href="${links.v2_a}" class="item"><div class="arrow">‹</div><div class="name">${t.n1}</div><div class="icon bg-a">📡</div></a>
@@ -96,7 +79,6 @@ function render(l) {
             <a href="${links.ha_a}" class="item"><div class="arrow">‹</div><div class="name">${t.n3}</div><div class="icon bg-a">☘️</div></a>
             <a href="${links.na_a}" class="item"><div class="arrow">‹</div><div class="name">${t.n4}</div><div class="icon bg-a">🎧</div></a>
         </div>
-        
         <div class="section-label">${t.i}</div>
         <div class="section-card">
             <a href="${links.ha_i}" class="item"><div class="arrow">‹</div><div class="name">${t.n3}</div><div class="icon bg-i">☘️</div></a>
@@ -104,28 +86,18 @@ function render(l) {
             <a href="${links.fo_i}" class="item"><div class="arrow">‹</div><div class="name">${t.n5}</div><div class="icon bg-i">🦊</div></a>
             <a href="${links.na_i}" class="item"><div class="arrow">‹</div><div class="name">${t.n4}</div><div class="icon bg-i">🎧</div></a>
         </div>
-        
         <div class="section-label">${t.w}</div>
         <div class="section-card">
             <a href="${links.v2_w}" class="item"><div class="arrow">‹</div><div class="name">${t.n7}</div><div class="icon bg-w">💻</div></a>
             <a href="${links.hi_a}" class="item"><div class="arrow">‹</div><div class="name">${t.n2}</div><div class="icon bg-w">🚀</div></a>
             <a href="${links.ne_w}" class="item"><div class="arrow">‹</div><div class="name">${t.n6}</div><div class="icon bg-w">🐱</div></a>
         </div>
-        
-        <div class="section-card">
-            <a href="index.html" class="item"><div class="arrow">‹</div><div class="name">${t.b}</div><div class="icon bg-b">🔙</div></a>
-        </div>
-        
+        <div class="section-card"><a href="index.html" class="item"><div class="arrow">‹</div><div class="name">${t.b}</div><div class="icon bg-b">🔙</div></a></div>
         <div class="daily-tag">Daily Update</div>
     `;
     localStorage.setItem('prefLang', l);
 }
-
-// لود کردن زبان ذخیره شده یا پیش‌فرض
-window.onload = () => {
-    const savedLang = localStorage.getItem('prefLang') || 'fa';
-    render(savedLang);
-};
+window.onload = () => { render(localStorage.getItem('prefLang') || 'fa'); };
 </script>
 </body>
 </html>
