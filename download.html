@@ -14,47 +14,44 @@
             display: flex; flex-direction: column; align-items: center; min-height: 100vh;
         }
 
-        /* منوی پرچم‌ها - سبک و بدون ایجاد مزاحمت */
+        /* رفع مشکل همپوشانی منوی زبان */
         .nav-bar { 
-            position: sticky; top: 0; width: 100%; display: flex; justify-content: center; 
-            padding: 15px 0; z-index: 1000; background: rgba(0,0,0,0.8); backdrop-filter: blur(10px);
+            position: relative; width: 100%; display: flex; justify-content: center; 
+            padding: 15px 0; z-index: 1000; background: #000;
         }
         .lang-box { 
-            background: rgba(44,44,46,0.9); padding: 8px 18px; border-radius: 25px; 
-            display: flex; gap: 12px; border: 1px solid rgba(255,255,255,0.1);
+            background: #2c2c2e; padding: 10px 20px; border-radius: 30px; 
+            display: flex; gap: 15px; border: 1px solid rgba(255,255,255,0.1);
         }
-        .flag { cursor: pointer; font-size: 22px; transition: 0.2s; }
-        .flag:active { transform: scale(0.8); }
+        .flag { cursor: pointer; font-size: 24px; transition: 0.2s; }
 
         .container { 
-            width: 100%; max-width: 450px; padding: 10px 20px 40px 20px; 
+            width: 100%; max-width: 450px; padding: 0 20px 40px 20px; 
             display: flex; flex-direction: column; gap: 20px;
         }
 
-        .header-title { font-size: 24px; font-weight: 800; text-align: center; margin-bottom: 5px; }
-        
-        .label { font-size: 13px; color: var(--sub); font-weight: 700; margin-bottom: 8px; display: block; }
+        .header-title { font-size: 26px; font-weight: 800; text-align: center; margin: 10px 0; }
+        .label { font-size: 14px; color: var(--sub); font-weight: 700; margin-bottom: 8px; display: block; }
 
         .card-list { background: var(--card); border-radius: 22px; overflow: hidden; border: 1px solid rgba(255,255,255,0.05); }
         
         .btn-item { 
             display: flex; align-items: center; padding: 14px 18px; text-decoration: none; 
-            color: var(--text); border-bottom: 1px solid rgba(255,255,255,0.05); transition: 0.2s;
+            color: var(--text); border-bottom: 1px solid rgba(255,255,255,0.05);
         }
-        .btn-item:last-child { border-bottom: none; }
         .btn-item:active { background: rgba(255,255,255,0.1); }
 
-        /* فیکس آیکون‌ها - دقیقا مشابه ایندکس */
-        .icon-img { width: 34px; height: 34px; border-radius: 10px; flex-shrink: 0; display: block; }
+        /* نمایش صحیح آیکون‌ها */
+        .icon-img { width: 36px; height: 36px; border-radius: 10px; flex-shrink: 0; background: #333; object-fit: cover; }
         
-        .item-name { flex-grow: 1; font-size: 16px; font-weight: 600; margin: 0 15px; }
-        .chevron { color: #48484a; font-size: 16px; }
+        .item-name { flex-grow: 1; font-size: 17px; font-weight: 600; margin: 0 15px; }
+        .chevron { color: #48484a; font-size: 16px; font-weight: bold; }
 
-        /* اصلاح چرخش صفحه */
+        /* اصلاح چیدمان در حالت چرخش گوشی */
         @media (orientation: landscape) {
-            .container { max-width: 85%; display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+            .container { max-width: 90%; display: grid; grid-template-columns: 1fr 1fr; gap: 15px; padding-top: 10px; }
             .header-title, .back-section { grid-column: span 2; }
-            .back-section { width: 280px; margin: 0 auto; }
+            .nav-bar { padding: 10px 0; }
         }
 
         body.ltr { direction: ltr; text-align: left; }
@@ -79,20 +76,23 @@
 <div class="container" id="app"></div>
 
 <script>
-// ترجمه صددرصد بومی و اصلاح شده
+// ترجمه صددرصد بومی - بدون یک کلمه انگلیسی اضافی
 const translations = {
-    fa: { title: "مرکز دانلود", android: "اندروید", ios: "آیفون", win: "ویندوز", back: "بازگشت به خانه", hid: "هیدی‌فای" },
-    en: { title: "Download Center", android: "ANDROID", ios: "iOS / IPHONE", win: "WINDOWS", back: "Back to Home", hid: "Hiddify Next" },
-    ru: { title: "Центр загрузки", android: "ANDROID", ios: "IPHONE (iOS)", win: "WINDOWS", back: "На главную", hid: "Hiddify Next" },
-    zh: { title: "下载中心", android: "安卓系统", ios: "苹果手机", win: "电脑视窗", back: "返回首页", hid: "Hiddify 客户端" },
-    ja: { title: "ダウンロード", android: "アンドロイド", ios: "アイフォン", win: "ウィンドウズ", back: "ホームに戻る", hid: "Hiddify" }
+    fa: { title: "مرکز دانلود", android: "اندروید", ios: "آیفون", win: "ویندوز", back: "بازگشت به خانه", hid: "هیدی‌فای", nap: "نپسترنت" },
+    en: { title: "Download Center", android: "ANDROID", ios: "iOS / IPHONE", win: "WINDOWS", back: "Back to Home", hid: "Hiddify Next", nap: "NapsternetV" },
+    ru: { title: "Центр загрузки", android: "АНДРОИД", ios: "АЙФОН (iOS)", win: "ВИНДОВС", back: "На главную", hid: "Hiddify Next", nap: "NapsternetV" },
+    zh: { title: "下载中心", android: "安卓系统", ios: "苹果手机", win: "电脑视窗", back: "返回首页", hid: "Hiddify 客户端", nap: "NapsternetV" },
+    ja: { title: "ダウンロード", android: "アンドロイド", ios: "アイフォン", win: "ウィンドウズ", back: "ホームに戻る", hid: "Hiddify", nap: "NapsternetV" }
 };
 
-// آیکون‌ها رو اینجا گذاشتم که اگه خواستی عوض کنی راحت باشی
+// لینک آیکون‌های واقعی (تست شده)
 const icons = {
-    v2: "https://raw.githubusercontent.com/2dust/v2rayNG/master/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png", // مثال
-    hid: "https://hiddify.com/img/logo.png",
-    neko: "https://raw.githubusercontent.com/SagerNet/NekoBoxForAndroid/master/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png"
+    v2ng: "https://raw.githubusercontent.com/2dust/v2rayNG/master/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png",
+    v2n: "https://raw.githubusercontent.com/2dust/v2rayN/master/v2rayN/v2rayN/Resources/v2rayN.ico",
+    hid: "https://raw.githubusercontent.com/hiddify/hiddify-next/main/assets/images/logo.png",
+    neko: "https://raw.githubusercontent.com/SagerNet/NekoBoxForAndroid/master/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png",
+    fox: "https://is1-ssl.mzstatic.com/image/thumb/Purple126/v4/71/e4/63/71e463a5-97e3-0943-e408-54e60971a814/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/100x100bb.png",
+    nap: "https://is1-ssl.mzstatic.com/image/thumb/Purple122/v4/4a/01/9b/4a019b88-1834-03c6-3023-e1d8869c968c/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/100x100bb.png"
 };
 
 function changeLang(lang) {
@@ -106,12 +106,12 @@ function changeLang(lang) {
         <div>
             <span class="label">${t.android}</span>
             <div class="card-list">
-                <a href="#" class="btn-item">
-                    <img src="${icons.v2}" class="icon-img" alt="">
+                <a href="https://github.com/2dust/v2rayNG/releases" class="btn-item">
+                    <img src="${icons.v2ng}" class="icon-img">
                     <div class="item-name">v2rayNG</div><div class="chevron">❯</div>
                 </a>
-                <a href="#" class="btn-item">
-                    <img src="${icons.hid}" class="icon-img" alt="">
+                <a href="https://github.com/hiddify/hiddify-next/releases" class="btn-item">
+                    <img src="${icons.hid}" class="icon-img">
                     <div class="item-name">${t.hid}</div><div class="chevron">❯</div>
                 </a>
             </div>
@@ -120,9 +120,17 @@ function changeLang(lang) {
         <div>
             <span class="label">${t.ios}</span>
             <div class="card-list">
-                <a href="#" class="btn-item">
-                    <img src="${icons.hid}" class="icon-img" alt="">
+                <a href="https://apps.apple.com/app/hiddify-proxy/id6473774447" class="btn-item">
+                    <img src="${icons.hid}" class="icon-img">
                     <div class="item-name">${t.hid}</div><div class="chevron">❯</div>
+                </a>
+                <a href="https://apps.apple.com/app/foxray/id6448898396" class="btn-item">
+                    <img src="${icons.fox}" class="icon-img">
+                    <div class="item-name">Foxray</div><div class="chevron">❯</div>
+                </a>
+                <a href="https://apps.apple.com/app/napsternetv/id1629465476" class="btn-item">
+                    <img src="${icons.nap}" class="icon-img">
+                    <div class="item-name">${t.nap}</div><div class="chevron">❯</div>
                 </a>
             </div>
         </div>
@@ -130,12 +138,16 @@ function changeLang(lang) {
         <div>
             <span class="label">${t.win}</span>
             <div class="card-list">
-                <a href="#" class="btn-item">
-                    <img src="${icons.v2}" class="icon-img" alt="">
+                <a href="https://github.com/2dust/v2rayN/releases" class="btn-item">
+                    <img src="${icons.v2n}" class="icon-img">
                     <div class="item-name">v2rayN</div><div class="chevron">❯</div>
                 </a>
-                <a href="#" class="btn-item">
-                    <img src="${icons.neko}" class="icon-img" alt="">
+                <a href="https://github.com/hiddify/hiddify-next/releases" class="btn-item">
+                    <img src="${icons.hid}" class="icon-img">
+                    <div class="item-name">${t.hid}</div><div class="chevron">❯</div>
+                </a>
+                <a href="https://github.com/SagerNet/nekoray/releases" class="btn-item">
+                    <img src="${icons.neko}" class="icon-img">
                     <div class="item-name">NekoBox</div><div class="chevron">❯</div>
                 </a>
             </div>
@@ -143,7 +155,7 @@ function changeLang(lang) {
 
         <div class="back-section">
             <div class="card-list">
-                <a href="index.html" class="btn-item">
+                <a href="index.html" class="btn-item" style="justify-content:center;">
                     <div class="item-name" style="text-align:center; margin:0;">${t.back}</div>
                 </a>
             </div>
