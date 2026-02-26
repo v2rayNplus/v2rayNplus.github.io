@@ -7,72 +7,61 @@
     <style>
         :root { --bg: #000; --card: #1c1c1e; --text: #fff; --sub: #8e8e93; }
         * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
-        @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-
+        
         body { 
             margin: 0; padding: 0; background: var(--bg); color: var(--text);
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-family: -apple-system, system-ui, sans-serif;
             display: flex; flex-direction: column; align-items: center; min-height: 100vh;
         }
 
-        /* منوی پرچم‌ها - دقیقا مثل ایندکس */
+        /* منوی پرچم‌ها - سبک و بدون ایجاد مزاحمت */
         .nav-bar { 
             position: sticky; top: 0; width: 100%; display: flex; justify-content: center; 
-            padding: 20px 0; z-index: 1000; background: linear-gradient(to bottom, #000 60%, transparent);
+            padding: 15px 0; z-index: 1000; background: rgba(0,0,0,0.8); backdrop-filter: blur(10px);
         }
         .lang-box { 
-            background: rgba(44,44,46,0.8); backdrop-filter: blur(20px); 
-            padding: 10px 20px; border-radius: 30px; display: flex; gap: 15px;
-            border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            background: rgba(44,44,46,0.9); padding: 8px 18px; border-radius: 25px; 
+            display: flex; gap: 12px; border: 1px solid rgba(255,255,255,0.1);
         }
-        .flag { cursor: pointer; font-size: 24px; transition: transform 0.2s; display: flex; align-items: center; }
-        .flag:active { transform: scale(0.9); }
-        .flag svg { width: 28px; height: 28px; border-radius: 50%; object-fit: cover; }
+        .flag { cursor: pointer; font-size: 22px; transition: 0.2s; }
+        .flag:active { transform: scale(0.8); }
 
         .container { 
-            width: 100%; max-width: 450px; padding: 10px 20px 50px 20px; 
-            animation: fadeInUp 0.6s ease; display: flex; flex-direction: column; gap: 25px;
+            width: 100%; max-width: 450px; padding: 10px 20px 40px 20px; 
+            display: flex; flex-direction: column; gap: 20px;
         }
 
-        .header-title { font-size: 28px; font-weight: 800; text-align: center; margin-bottom: 5px; }
+        .header-title { font-size: 24px; font-weight: 800; text-align: center; margin-bottom: 5px; }
         
-        .section-group { display: flex; flex-direction: column; gap: 10px; }
-        .label { font-size: 13px; color: var(--sub); font-weight: 700; margin: 0 10px; text-transform: uppercase; }
+        .label { font-size: 13px; color: var(--sub); font-weight: 700; margin-bottom: 8px; display: block; }
 
-        .card-list { background: var(--card); border-radius: 24px; overflow: hidden; border: 1px solid rgba(255,255,255,0.05); }
+        .card-list { background: var(--card); border-radius: 22px; overflow: hidden; border: 1px solid rgba(255,255,255,0.05); }
         
         .btn-item { 
-            display: flex; align-items: center; padding: 16px 20px; text-decoration: none; 
+            display: flex; align-items: center; padding: 14px 18px; text-decoration: none; 
             color: var(--text); border-bottom: 1px solid rgba(255,255,255,0.05); transition: 0.2s;
         }
         .btn-item:last-child { border-bottom: none; }
-        .btn-item:active { background: rgba(255,255,255,0.05); }
+        .btn-item:active { background: rgba(255,255,255,0.1); }
 
-        .icon-box { 
-            width: 40px; height: 40px; border-radius: 12px; display: flex; 
-            justify-content: center; align-items: center; font-size: 22px; flex-shrink: 0;
-        }
-        .blue { background: linear-gradient(135deg, #007aff, #0056b3); }
-        .green { background: linear-gradient(135deg, #34c759, #248a3d); }
-        .purple { background: linear-gradient(135deg, #5856d6, #3e3b9e); }
-        .gray { background: #3a3a3c; }
+        /* فیکس آیکون‌ها - دقیقا مشابه ایندکس */
+        .icon-img { width: 34px; height: 34px; border-radius: 10px; flex-shrink: 0; display: block; }
+        
+        .item-name { flex-grow: 1; font-size: 16px; font-weight: 600; margin: 0 15px; }
+        .chevron { color: #48484a; font-size: 16px; }
 
-        .item-name { flex-grow: 1; font-size: 17px; font-weight: 600; margin: 0 15px; }
-        .chevron { color: #48484a; font-size: 18px; font-weight: bold; }
-
-        /* فیکس چرخشی مانیتوری */
+        /* اصلاح چرخش صفحه */
         @media (orientation: landscape) {
-            .container { max-width: 900px; display: grid; grid-template-columns: 1fr 1fr; padding-top: 0; }
-            .header-title { grid-column: span 2; font-size: 22px; }
-            .back-section { grid-column: span 2; width: 320px; margin: 0 auto; }
-            .nav-bar { padding: 10px 0; }
+            .container { max-width: 85%; display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+            .header-title, .back-section { grid-column: span 2; }
+            .back-section { width: 280px; margin: 0 auto; }
         }
 
-        body.ltr { direction: ltr; }
-        body.rtl { direction: rtl; }
+        body.ltr { direction: ltr; text-align: left; }
+        body.rtl { direction: rtl; text-align: right; }
         body.ltr .chevron { transform: scaleX(-1); }
 
-        .daily { text-align: center; color: #333; font-size: 11px; margin-top: 20px; font-weight: bold; }
+        .daily { text-align: center; color: #333; font-size: 10px; margin-top: 30px; font-weight: bold; }
     </style>
 </head>
 <body class="rtl">
@@ -83,32 +72,27 @@
         <div class="flag" onclick="changeLang('ja')">🇯🇵</div>
         <div class="flag" onclick="changeLang('ru')">🇷🇺</div>
         <div class="flag" onclick="changeLang('en')">🇺🇸</div>
-        <div class="flag" onclick="changeLang('fa')">
-            <svg viewBox="0 0 48 32"><rect width="48" height="10.6" fill="#228b22"/><rect y="10.6" width="48" height="10.8" fill="#fff"/><rect y="21.4" width="48" height="10.6" fill="#da291c"/><circle cx="24" cy="16" r="3" fill="#da291c"/></svg>
-        </div>
+        <div class="flag" onclick="changeLang('fa')">🇮🇷</div>
     </div>
 </div>
 
 <div class="container" id="app"></div>
 
 <script>
+// ترجمه صددرصد بومی و اصلاح شده
 const translations = {
-    fa: { title: "مرکز دریافت برنامه", android: "اندروید", ios: "آیفون (iOS)", win: "ویندوز", back: "بازگشت به خانه", hid: "هیدی‌فای" },
-    en: { title: "Download Center", android: "ANDROID", ios: "IPHONE (iOS)", win: "WINDOWS", back: "Back to Home", hid: "Hiddify Next" },
-    ru: { title: "Центр загрузки", android: "АНДРОИД", ios: "АЙФОН (iOS)", win: "ВИНДОВС", back: "На главную", hid: "Hiddify Next" },
-    zh: { title: "下载中心", android: "安卓系统", ios: "苹果手机 (iOS)", win: "电脑视窗", back: "返回首页", hid: "Hiddify 客户端" },
-    ja: { title: "ダウンロード", android: "アンドロイド", ios: "アイフォン (iOS)", win: "ウィンドウズ", back: "ホームに戻る", hid: "Hiddify" }
+    fa: { title: "مرکز دانلود", android: "اندروید", ios: "آیفون", win: "ویندوز", back: "بازگشت به خانه", hid: "هیدی‌فای" },
+    en: { title: "Download Center", android: "ANDROID", ios: "iOS / IPHONE", win: "WINDOWS", back: "Back to Home", hid: "Hiddify Next" },
+    ru: { title: "Центр загрузки", android: "ANDROID", ios: "IPHONE (iOS)", win: "WINDOWS", back: "На главную", hid: "Hiddify Next" },
+    zh: { title: "下载中心", android: "安卓系统", ios: "苹果手机", win: "电脑视窗", back: "返回首页", hid: "Hiddify 客户端" },
+    ja: { title: "ダウンロード", android: "アンドロイド", ios: "アイフォン", win: "ウィンドウズ", back: "ホームに戻る", hid: "Hiddify" }
 };
 
-const links = {
-    v2_a: "https://github.com/2dust/v2rayNG/releases",
-    hi_all: "https://github.com/hiddify/hiddify-next/releases",
-    ha_a: "https://play.google.com/store/apps/details?id=com.happproxy",
-    ha_i: "https://apps.apple.com/app/happ-proxy/id6475221983",
-    fo_i: "https://apps.apple.com/app/foxray/id6448898396",
-    na_i: "https://apps.apple.com/app/napsternetv/id1629465476",
-    v2_w: "https://github.com/2dust/v2rayN/releases",
-    ne_w: "https://github.com/SagerNet/nekoray/releases"
+// آیکون‌ها رو اینجا گذاشتم که اگه خواستی عوض کنی راحت باشی
+const icons = {
+    v2: "https://raw.githubusercontent.com/2dust/v2rayNG/master/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png", // مثال
+    hid: "https://hiddify.com/img/logo.png",
+    neko: "https://raw.githubusercontent.com/SagerNet/NekoBoxForAndroid/master/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png"
 };
 
 function changeLang(lang) {
@@ -119,36 +103,49 @@ function changeLang(lang) {
     document.getElementById('app').innerHTML = `
         <div class="header-title">${t.title}</div>
         
-        <div class="section-group">
-            <div class="label">${t.android}</div>
+        <div>
+            <span class="label">${t.android}</span>
             <div class="card-list">
-                <a href="${links.v2_a}" class="btn-item"><div class="icon-box green">📡</div><div class="item-name">v2rayNG</div><div class="chevron">‹</div></a>
-                <a href="${links.hi_all}" class="btn-item"><div class="icon-box green">🚀</div><div class="item-name">${t.hid}</div><div class="chevron">‹</div></a>
-                <a href="${links.ha_a}" class="btn-item"><div class="icon-box green">☘️</div><div class="item-name">Happ Proxy</div><div class="chevron">‹</div></a>
+                <a href="#" class="btn-item">
+                    <img src="${icons.v2}" class="icon-img" alt="">
+                    <div class="item-name">v2rayNG</div><div class="chevron">❯</div>
+                </a>
+                <a href="#" class="btn-item">
+                    <img src="${icons.hid}" class="icon-img" alt="">
+                    <div class="item-name">${t.hid}</div><div class="chevron">❯</div>
+                </a>
             </div>
         </div>
 
-        <div class="section-group">
-            <div class="label">${t.ios}</div>
+        <div>
+            <span class="label">${t.ios}</span>
             <div class="card-list">
-                <a href="${links.hi_all}" class="btn-item"><div class="icon-box blue">🚀</div><div class="item-name">${t.hid}</div><div class="chevron">‹</div></a>
-                <a href="${links.ha_i}" class="btn-item"><div class="icon-box blue">☘️</div><div class="item-name">Happ Proxy</div><div class="chevron">‹</div></a>
-                <a href="${links.fo_i}" class="btn-item"><div class="icon-box blue">🦊</div><div class="item-name">Foxray</div><div class="chevron">‹</div></a>
+                <a href="#" class="btn-item">
+                    <img src="${icons.hid}" class="icon-img" alt="">
+                    <div class="item-name">${t.hid}</div><div class="chevron">❯</div>
+                </a>
             </div>
         </div>
 
-        <div class="section-group">
-            <div class="label">${t.win}</div>
+        <div>
+            <span class="label">${t.win}</span>
             <div class="card-list">
-                <a href="${links.hi_all}" class="btn-item"><div class="icon-box purple">🚀</div><div class="item-name">${t.hid}</div><div class="chevron">‹</div></a>
-                <a href="${links.v2_w}" class="item-name btn-item"><div class="icon-box purple">💻</div><div class="item-name">v2rayN</div><div class="chevron">‹</div></a>
-                <a href="${links.ne_w}" class="btn-item"><div class="icon-box purple">🐱</div><div class="item-name">NekoBox</div><div class="chevron">‹</div></a>
+                <a href="#" class="btn-item">
+                    <img src="${icons.v2}" class="icon-img" alt="">
+                    <div class="item-name">v2rayN</div><div class="chevron">❯</div>
+                </a>
+                <a href="#" class="btn-item">
+                    <img src="${icons.neko}" class="icon-img" alt="">
+                    <div class="item-name">NekoBox</div><div class="chevron">❯</div>
+                </a>
             </div>
         </div>
 
-        <div class="section-group back-section">
+        <div class="back-section">
             <div class="card-list">
-                <a href="index.html" class="btn-item"><div class="icon-box gray">🔙</div><div class="item-name">${t.back}</div><div class="chevron">‹</div></a>
+                <a href="index.html" class="btn-item">
+                    <div class="item-name" style="text-align:center; margin:0;">${t.back}</div>
+                </a>
             </div>
         </div>
         
