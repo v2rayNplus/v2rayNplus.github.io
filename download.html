@@ -48,22 +48,22 @@
 <body>
 
 <div class="top-nav">
-    <img src="https://flagcdn.com/w80/cn.png" class="flag-btn" onclick="render('zh')">
-    <img src="https://flagcdn.com/w80/jp.png" class="flag-btn" onclick="render('ja')">
-    <img src="https://flagcdn.com/w80/ru.png" class="flag-btn" onclick="render('ru')">
-    <img src="https://flagcdn.com/w80/us.png" class="flag-btn" onclick="render('en')">
-    <img src="https://flagcdn.com/w80/ir.png" class="flag-btn" onclick="render('fa')">
+    <img src="https://flagcdn.com/w80/cn.png" class="flag-btn" onclick="render('zh')" title="China">
+    <img src="https://flagcdn.com/w80/jp.png" class="flag-btn" onclick="render('ja')" title="Japan">
+    <img src="https://flagcdn.com/w80/ru.png" class="flag-btn" onclick="render('ru')" title="Russia">
+    <img src="https://flagcdn.com/w80/us.png" class="flag-btn" onclick="render('en')" title="English">
+    <img src="https://flagcdn.com/w80/ir.png" class="flag-btn" onclick="render('fa')" title="Persian">
 </div>
 
 <div class="container" id="main-content"></div>
 
 <script>
 const langData = {
-    fa: { h: "مرکز دانلود کلاینت", a: "اندروید", i: "آیفون (iOS)", w: "ویندوز", b: "برگشت به صفحه اصلی", n1: "v2rayNG", n2: "Hiddify Next", n3: "Happ Proxy", n4: "NapsternetV", n5: "Foxray", n6: "NekoBox" },
-    en: { h: "Download Center", a: "ANDROID", i: "IPHONE (iOS)", w: "WINDOWS", b: "Back to Home", n1: "v2rayNG", n2: "Hiddify Next", n3: "Happ Proxy", n4: "NapsternetV", n5: "Foxray", n6: "NekoBox" },
-    ru: { h: "Центр загрузки", a: "АНДРОИД", i: "АЙФОН (iOS)", w: "ВИНДОВС", b: "На главную", n1: "v2rayNG", n2: "Hiddify Next", n3: "Happ Proxy", n4: "NapsternetV", n5: "Foxray", n6: "NekoBox" },
-    zh: { h: "下载中心", a: "安卓系统", i: "苹果手机", w: "窗口系统", b: "返回首页", n1: "v2rayNG", n2: "Hiddify 客户端", n3: "Happ 代理", n4: "NapsternetV", n5: "Foxray", n6: "NekoBox" },
-    ja: { h: "ダウンロード", a: "アンドロイド", i: "アイフォン", w: "ウィンドウズ", b: "戻る", n1: "v2rayNG", n2: "Hiddify", n3: "Happ Proxy", n4: "NapsternetV", n5: "Foxray", n6: "NekoBox" }
+    fa: { h: "مرکز دانلود کلاینت", a: "اندروید", i: "آیفون (iOS)", w: "ویندوز", b: "برگشت به صفحه اصلی", n1: "v2rayNG", n2: "Hiddify Next", n3: "Happ Proxy", n4: "NapsternetV", n5: "Foxray", n6: "NekoBox", n7: "v2rayN" },
+    en: { h: "Download Center", a: "ANDROID", i: "IPHONE (iOS)", w: "WINDOWS", b: "Back to Home", n1: "v2rayNG", n2: "Hiddify Next", n3: "Happ Proxy", n4: "NapsternetV", n5: "Foxray", n6: "NekoBox", n7: "v2rayN" },
+    ru: { h: "Центр загрузки", a: "АНДРОИД", i: "АЙФОН (iOS)", w: "ВИНДОВС", b: "На главную", n1: "v2rayNG", n2: "Хидифай", n3: "Happ Proxy", n4: "Напسترнет", n5: "Фоکسрей", n6: "НекоБокс", n7: "v2rayN" },
+    zh: { h: "下载中心", a: "安卓系统", i: "苹果手机", w: "窗口系统", b: "返回首页", n1: "v2rayNG", n2: "Hiddify 客户端", n3: "Happ 代理", n4: "NapsternetV", n5: "Foxray", n6: "NekoBox", n7: "v2rayN" },
+    ja: { h: "ダウンロード", a: "アンドロイド", i: "アイフォン", w: "ウィンドウズ", b: "戻る", n1: "v2rayNG", n2: "Hiddify", n3: "Happ Proxy", n4: "NapsternetV", n5: "Foxray", n6: "NekoBox", n7: "v2rayN" }
 };
 
 const links = {
@@ -105,7 +105,7 @@ function render(l) {
         
         <div class="section-label">${t.w}</div>
         <div class="section-card">
-            <a href="${links.v2_w}" class="item"><div class="arrow">‹</div><div class="name">${t.n1}</div><div class="icon bg-w">💻</div></a>
+            <a href="${links.v2_w}" class="item"><div class="arrow">‹</div><div class="name">${t.n7}</div><div class="icon bg-w">💻</div></a>
             <a href="${links.hi_a}" class="item"><div class="arrow">‹</div><div class="name">${t.n2}</div><div class="icon bg-w">🚀</div></a>
             <a href="${links.ne_w}" class="item"><div class="arrow">‹</div><div class="name">${t.n6}</div><div class="icon bg-w">🐱</div></a>
         </div>
@@ -116,9 +116,13 @@ function render(l) {
         
         <div class="daily-tag">Daily Update</div>
     `;
+    localStorage.setItem('prefLang', l);
 }
 
-render('fa');
+window.onload = () => {
+    const savedLang = localStorage.getItem('prefLang') || 'fa';
+    render(savedLang);
+};
 </script>
 
 </body>
