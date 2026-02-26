@@ -10,49 +10,41 @@
 
         body { margin: 0; padding: 0; background: #000; min-height: 100vh; display: flex; flex-direction: column; align-items: center; font-family: -apple-system, sans-serif; color: white; overflow-x: hidden; }
         
-        .header-nav { position: fixed; top: 20px; width: 100%; display: flex; justify-content: center; z-index: 10000; }
-        .lang-menu { background: rgba(40,40,42,0.9); backdrop-filter: blur(15px); padding: 8px 15px; border-radius: 25px; display: flex; gap: 12px; border: 1px solid rgba(255,255,255,0.1); direction: ltr !important; box-shadow: 0 4px 20px rgba(0,0,0,0.6); }
+        .header-nav { position: sticky; top: 0; width: 100%; display: flex; justify-content: center; z-index: 10000; padding: 20px 0 10px 0; background: rgba(0,0,0,0.8); backdrop-filter: blur(10px); }
+        .lang-menu { background: rgba(40,40,42,0.9); padding: 8px 15px; border-radius: 25px; display: flex; gap: 12px; border: 1px solid rgba(255,255,255,0.1); direction: ltr !important; }
         .lang-btn { cursor: pointer; font-size: 22px; transition: 0.2s; display: flex; align-items: center; }
-        .lang-btn svg { width: 24px; height: 24px; border-radius: 50%; object-fit: cover; }
-        .lang-btn:active { transform: scale(0.9); }
+        .lang-btn svg { width: 24px; height: 24px; border-radius: 50%; }
 
-        .container { width: 100%; max-width: 450px; margin: 0 auto; padding: 110px 16px 40px 16px; box-sizing: border-box; animation: fadeInUp 0.6s ease; }
-        .header { font-size: 26px; font-weight: 800; margin-bottom: 25px; text-align: center; color: #fff; }
-        .section-label { font-size: 13px; color: #8e8e93; margin: 0 5px 8px 0; text-align: right; font-weight: 700; text-transform: uppercase; }
-        .section-card { background-color: rgba(28,28,30,0.8); backdrop-filter: blur(10px); border-radius: 22px; overflow: hidden; margin-bottom: 20px; border: 1px solid rgba(255,255,255,0.08); box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+        .container { width: 100%; max-width: 450px; margin: 0 auto; padding: 10px 16px 40px 16px; box-sizing: border-box; animation: fadeInUp 0.6s ease; }
         
-        .item { display: flex; align-items: center; padding: 16px 18px; text-decoration: none; color: white; border-bottom: 0.5px solid rgba(255,255,255,0.05); transition: 0.2s; -webkit-tap-highlight-color: transparent; }
+        .header { font-size: 26px; font-weight: 800; margin-bottom: 25px; text-align: center; }
+        .section-label { font-size: 13px; color: #8e8e93; margin: 0 5px 8px 5px; font-weight: 700; text-align: inherit; }
+        
+        .section-card { background-color: #1c1c1e; border-radius: 22px; overflow: hidden; margin-bottom: 20px; border: 1px solid rgba(255,255,255,0.08); }
+        
+        .item { display: flex; align-items: center; padding: 16px 18px; text-decoration: none; color: white; border-bottom: 0.5px solid rgba(255,255,255,0.05); }
         .item:active { background-color: rgba(255,255,255,0.1); }
         .item:last-child { border-bottom: none; }
         
         .icon { width: 38px; height: 38px; border-radius: 10px; display: flex; justify-content: center; align-items: center; font-size: 20px; flex-shrink: 0; }
-        .bg-a { background: linear-gradient(135deg, #2ecc71, #27ae60); } 
-        .bg-i { background: linear-gradient(135deg, #007aff, #0056b3); } 
-        .bg-w { background: linear-gradient(135deg, #5856d6, #4240a6); } 
-        .bg-b { background: #3a3a3c; }
+        .bg-a { background: #34c759; } .bg-i { background: #007aff; } .bg-w { background: #5856d6; } .bg-b { background: #3a3a3c; }
         
-        .name { flex-grow: 1; font-size: 17px; font-weight: 600; text-align: right; margin-right: 14px; }
-        .arrow { color: #48484a; font-size: 14px; font-weight: bold; }
+        .name { flex-grow: 1; font-size: 17px; font-weight: 600; margin: 0 14px; text-align: inherit; }
+        .arrow { color: #48484a; font-size: 14px; }
         
-        body.ltr .header, body.ltr .section-label, body.ltr .name { text-align: left; }
-        body.ltr .name { margin-right: 0; margin-left: 14px; }
-        body.ltr .item { flex-direction: row-reverse; }
-        body.ltr .arrow { transform: scaleX(-1); }
-        
-        .daily-tag { text-align: center; font-size: 11px; color: #444; margin-top: 30px; font-weight: bold; }
+        body.rtl { direction: rtl; }
+        body.ltr { direction: ltr; }
+        body.rtl .arrow { transform: rotate(0deg); }
+        body.ltr .arrow { transform: rotate(180deg); }
 
         @media (orientation: landscape) and (max-height: 500px) {
-            .header-nav { position: absolute; top: 15px; }
-            .container { max-width: 95%; display: grid; grid-template-columns: 1fr 1fr; gap: 15px; padding-top: 80px; }
-            .header { grid-column: span 2; font-size: 20px; margin-bottom: 10px; }
-            .section-card:last-of-type { grid-column: span 2; max-width: 280px; margin: 10px auto; }
-            .item { padding: 12px 15px; }
-            .icon { width: 32px; height: 32px; font-size: 18px; }
-            .name { font-size: 15px; }
+            .container { max-width: 95%; display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+            .header { grid-column: span 2; font-size: 22px; }
+            .back-card { grid-column: span 2; max-width: 300px; margin: 0 auto; width: 100%; }
         }
     </style>
 </head>
-<body class="rtl" dir="rtl">
+<body class="rtl">
 
 <div class="header-nav">
     <div class="lang-menu">
@@ -70,20 +62,18 @@
 
 <script>
 const langData = {
-    fa: { h: "مرکز دریافت برنامه", a: "اندروید", i: "آیفون (iOS)", w: "ویندوز", b: "بازگشت به خانه", n1: "v2rayNG", n2: "هیدی‌فای", n3: "هپ پروکسی", n4: "نپسترنت", n5: "فوکس‌ری", n6: "نکوباکس", n7: "v2rayN" },
-    en: { h: "Download Center", a: "ANDROID", i: "IPHONE (iOS)", w: "WINDOWS", b: "Back Home", n1: "v2rayNG", n2: "Hiddify Next", n3: "Happ Proxy", n4: "NapsternetV", n5: "Foxray", n6: "NekoBox", n7: "v2rayN" },
-    ru: { h: "Центр загрузки", a: "ANDROID", i: "IPHONE (iOS)", w: "WINDOWS", b: "На главную", n1: "v2rayNG", n2: "Hiddify Next", n3: "Happ Proxy", n4: "NapsternetV", n5: "Foxray", n6: "NekoBox", n7: "v2rayN" },
-    zh: { h: "下载中心", a: "安卓系统", i: "苹果手机", w: "窗口系统", b: "返回", n1: "v2rayNG", n2: "Hiddify 客户端", n3: "Happ 代理", n4: "NapsternetV", n5: "Foxray", n6: "NekoBox", n7: "v2rayN" },
-    ja: { h: "ダウンロード", a: "アンドロイド", i: "アイフォン", w: "ウィンドウズ", b: "戻る", n1: "v2rayNG", n2: "Hiddify", n3: "Happ Proxy", n4: "NapsternetV", n5: "フォクスレイ", n6: "NekoBox", n7: "v2rayN" }
+    fa: { h: "مرکز دریافت برنامه", a: "اندروید", i: "آیفون", w: "ویندوز", b: "بازگشت به خانه", hid: "هیدی‌فای" },
+    en: { h: "Download Center", a: "ANDROID", i: "IPHONE", w: "WINDOWS", b: "Back Home", hid: "Hiddify Next" },
+    ru: { h: "Центр загрузки", a: "ANDROID", i: "IPHONE", w: "WINDOWS", b: "На главную", hid: "Hiddify Next" },
+    zh: { h: "下载中心", a: "安卓系统", i: "苹果手机", w: "窗口系统", b: "返回首页", hid: "Hiddify 客户端" },
+    ja: { h: "ダウンロード", a: "アンドロイド", i: "アイフォン", w: "ウィンドウズ", b: "ホームに戻る", hid: "Hiddify" }
 };
 
 const links = {
     v2_a: "https://github.com/2dust/v2rayNG/releases",
-    hi_a: "https://github.com/hiddify/hiddify-next/releases",
+    hi_all: "https://github.com/hiddify/hiddify-next/releases",
     ha_a: "https://play.google.com/store/apps/details?id=com.happproxy",
-    na_a: "https://play.google.com/store/apps/details?id=com.napsternetlabs.napsternetv",
     ha_i: "https://apps.apple.com/app/happ-proxy/id6475221983",
-    hi_i: "https://apps.apple.com/app/hiddify-proxy/id6473774447",
     fo_i: "https://apps.apple.com/app/foxray/id6448898396",
     na_i: "https://apps.apple.com/app/napsternetv/id1629465476",
     v2_w: "https://github.com/2dust/v2rayN/releases",
@@ -92,32 +82,41 @@ const links = {
 
 function render(l) {
     const t = langData[l];
-    document.body.className = l === 'fa' ? 'rtl' : 'ltr';
-    document.body.dir = l === 'fa' ? 'rtl' : 'ltr';
+    document.body.className = (l === 'fa') ? 'rtl' : 'ltr';
+    
     document.getElementById('main-content').innerHTML = `
         <div class="header">${t.h}</div>
+        
         <div class="section-label">${t.a}</div>
         <div class="section-card">
-            <a href="${links.v2_a}" class="item"><div class="arrow">❯</div><div class="name">${t.n1}</div><div class="icon bg-a">📡</div></a>
-            <a href="${links.hi_a}" class="item"><div class="arrow">❯</div><div class="name">${t.n2}</div><div class="icon bg-a">🚀</div></a>
-            <a href="${links.ha_a}" class="item"><div class="arrow">❯</div><div class="name">${t.n3}</div><div class="icon bg-a">☘️</div></a>
+            <a href="${links.v2_a}" class="item"><div class="icon bg-a">📡</div><div class="name">v2rayNG</div><div class="arrow">❮</div></a>
+            <a href="${links.hi_all}" class="item"><div class="icon bg-a">🚀</div><div class="name">${t.hid}</div><div class="arrow">❮</div></a>
+            <a href="${links.ha_a}" class="item"><div class="icon bg-a">☘️</div><div class="name">Happ Proxy</div><div class="arrow">❮</div></a>
         </div>
+
         <div class="section-label">${t.i}</div>
         <div class="section-card">
-            <a href="${links.ha_i}" class="item"><div class="arrow">❯</div><div class="name">${t.n3}</div><div class="icon bg-i">☘️</div></a>
-            <a href="${links.fo_i}" class="item"><div class="arrow">❯</div><div class="name">${t.n5}</div><div class="icon bg-i">🦊</div></a>
-            <a href="${links.na_i}" class="item"><div class="arrow">❯</div><div class="name">${t.n4}</div><div class="icon bg-i">🎧</div></a>
+            <a href="${links.hi_all}" class="item"><div class="icon bg-i">🚀</div><div class="name">${t.hid}</div><div class="arrow">❮</div></a>
+            <a href="${links.ha_i}" class="item"><div class="icon bg-i">☘️</div><div class="name">Happ Proxy</div><div class="arrow">❮</div></a>
+            <a href="${links.fo_i}" class="item"><div class="icon bg-i">🦊</div><div class="name">Foxray</div><div class="arrow">❮</div></a>
         </div>
+
         <div class="section-label">${t.w}</div>
         <div class="section-card">
-            <a href="${links.v2_w}" class="item"><div class="arrow">❯</div><div class="name">${t.n7}</div><div class="icon bg-w">💻</div></a>
-            <a href="${links.ne_w}" class="item"><div class="arrow">❯</div><div class="name">${t.n6}</div><div class="icon bg-w">🐱</div></a>
+            <a href="${links.hi_all}" class="item"><div class="icon bg-w">🚀</div><div class="name">${t.hid}</div><div class="arrow">❮</div></a>
+            <a href="${links.v2_w}" class="item"><div class="icon bg-w">💻</div><div class="name">v2rayN</div><div class="arrow">❮</div></a>
+            <a href="${links.ne_w}" class="item"><div class="icon bg-w">🐱</div><div class="name">NekoBox</div><div class="arrow">❮</div></a>
         </div>
-        <div class="section-card"><a href="index.html" class="item"><div class="arrow">❯</div><div class="name">${t.b}</div><div class="icon bg-b">🔙</div></a></div>
-        <div class="daily-tag">Daily Update</div>
+
+        <div class="section-card back-card">
+            <a href="index.html" class="item"><div class="icon bg-b">🔙</div><div class="name">${t.b}</div><div class="arrow">❮</div></a>
+        </div>
+        
+        <div style="text-align: center; font-size: 10px; color: #444; margin-top: 20px;">Daily Update</div>
     `;
     localStorage.setItem('prefLang', l);
 }
+
 window.onload = () => { render(localStorage.getItem('prefLang') || 'fa'); };
 </script>
 </body>
