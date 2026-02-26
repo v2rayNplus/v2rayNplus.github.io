@@ -10,18 +10,15 @@
 
         body { margin: 0; padding: 0; background: #000; min-height: 100vh; display: flex; flex-direction: column; align-items: center; font-family: -apple-system, sans-serif; color: white; overflow-x: hidden; }
         
-        /* منوی پرچم‌ها - دقیقا مطابق با صفحه اول */
-        .header-nav { position: fixed; top: 20px; width: 100%; display: flex; justify-content: center; z-index: 10000; transition: 0.3s; }
-        .lang-menu { background: rgba(40,40,42,0.8); backdrop-filter: blur(15px); padding: 8px 15px; border-radius: 25px; display: flex; gap: 12px; border: 1px solid rgba(255,255,255,0.1); direction: ltr !important; box-shadow: 0 4px 15px rgba(0,0,0,0.5); }
+        .header-nav { position: fixed; top: 20px; width: 100%; display: flex; justify-content: center; z-index: 10000; }
+        .lang-menu { background: rgba(40,40,42,0.9); backdrop-filter: blur(15px); padding: 8px 15px; border-radius: 25px; display: flex; gap: 12px; border: 1px solid rgba(255,255,255,0.1); direction: ltr !important; box-shadow: 0 4px 20px rgba(0,0,0,0.6); }
         .lang-btn { cursor: pointer; font-size: 22px; transition: 0.2s; display: flex; align-items: center; }
         .lang-btn svg { width: 24px; height: 24px; border-radius: 50%; object-fit: cover; }
         .lang-btn:active { transform: scale(0.9); }
 
         .container { width: 100%; max-width: 450px; margin: 0 auto; padding: 110px 16px 40px 16px; box-sizing: border-box; animation: fadeInUp 0.6s ease; }
-        
         .header { font-size: 26px; font-weight: 800; margin-bottom: 25px; text-align: center; color: #fff; }
         .section-label { font-size: 13px; color: #8e8e93; margin: 0 5px 8px 0; text-align: right; font-weight: 700; text-transform: uppercase; }
-        
         .section-card { background-color: rgba(28,28,30,0.8); backdrop-filter: blur(10px); border-radius: 22px; overflow: hidden; margin-bottom: 20px; border: 1px solid rgba(255,255,255,0.08); box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
         
         .item { display: flex; align-items: center; padding: 16px 18px; text-decoration: none; color: white; border-bottom: 0.5px solid rgba(255,255,255,0.05); transition: 0.2s; -webkit-tap-highlight-color: transparent; }
@@ -44,14 +41,11 @@
         
         .daily-tag { text-align: center; font-size: 11px; color: #444; margin-top: 30px; font-weight: bold; }
 
-        /* --- فیکس نهایی حالت مانیتوری (افقی) --- */
         @media (orientation: landscape) and (max-height: 500px) {
-            .header-nav { top: 10px; transform: scale(0.9); } /* کوچک‌تر کردن منو در حالت افقی */
-            .container { max-width: 95%; display: grid; grid-template-columns: 1fr 1fr; gap: 15px; padding-top: 75px; }
+            .header-nav { position: absolute; top: 15px; }
+            .container { max-width: 95%; display: grid; grid-template-columns: 1fr 1fr; gap: 15px; padding-top: 80px; }
             .header { grid-column: span 2; font-size: 20px; margin-bottom: 10px; }
-            .section-label { margin-top: 5px; font-size: 11px; }
-            .section-card { margin-bottom: 10px; }
-            .section-card:last-of-type { grid-column: span 2; max-width: 320px; margin: 10px auto; }
+            .section-card:last-of-type { grid-column: span 2; max-width: 280px; margin: 10px auto; }
             .item { padding: 12px 15px; }
             .icon { width: 32px; height: 32px; font-size: 18px; }
             .name { font-size: 15px; }
@@ -78,7 +72,7 @@
 const langData = {
     fa: { h: "مرکز دریافت برنامه", a: "اندروید", i: "آیفون (iOS)", w: "ویندوز", b: "بازگشت به خانه", n1: "v2rayNG", n2: "هیدی‌فای", n3: "هپ پروکسی", n4: "نپسترنت", n5: "فوکس‌ری", n6: "نکوباکس", n7: "v2rayN" },
     en: { h: "Download Center", a: "ANDROID", i: "IPHONE (iOS)", w: "WINDOWS", b: "Back Home", n1: "v2rayNG", n2: "Hiddify Next", n3: "Happ Proxy", n4: "NapsternetV", n5: "Foxray", n6: "NekoBox", n7: "v2rayN" },
-    ru: { h: "Скачать", a: "АНДРОИД", i: "АЙФОН", w: "ВИНДОВС", b: "Назад", n1: "v2rayNG", n2: "Хидифай", n3: "Хэп Проکسی", n4: "Напسترнет", n5: "Фоکسрей", n6: "НекоБокс", n7: "v2rayN" },
+    ru: { h: "Центр загрузки", a: "ANDROID", i: "IPHONE (iOS)", w: "WINDOWS", b: "На главную", n1: "v2rayNG", n2: "Hiddify Next", n3: "Happ Proxy", n4: "NapsternetV", n5: "Foxray", n6: "NekoBox", n7: "v2rayN" },
     zh: { h: "下载中心", a: "安卓系统", i: "苹果手机", w: "窗口系统", b: "返回", n1: "v2rayNG", n2: "Hiddify 客户端", n3: "Happ 代理", n4: "NapsternetV", n5: "Foxray", n6: "NekoBox", n7: "v2rayN" },
     ja: { h: "ダウンロード", a: "アンドロイド", i: "アイフォン", w: "ウィンドウズ", b: "戻る", n1: "v2rayNG", n2: "Hiddify", n3: "Happ Proxy", n4: "NapsternetV", n5: "フォクスレイ", n6: "NekoBox", n7: "v2rayN" }
 };
