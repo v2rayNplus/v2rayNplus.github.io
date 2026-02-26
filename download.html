@@ -8,7 +8,7 @@
         :root { --ios-blue: #007aff; }
         @keyframes fadeInUp { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
         
-        body { margin: 0; padding: 0; background: #000; min-height: 100vh; display: flex; flex-direction: column; align-items: center; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; color: white; overflow-x: hidden; transition: 0.3s; }
+        body { margin: 0; padding: 0; background: #000; min-height: 100vh; display: flex; flex-direction: column; align-items: center; font-family: -apple-system, sans-serif; color: white; overflow-x: hidden; }
         
         .header-nav { margin-top: 25px; margin-bottom: 10px; width: 100%; display: flex; justify-content: center; position: sticky; top: 0; z-index: 100; }
         .lang-menu { background: rgba(40,40,42,0.8); backdrop-filter: blur(10px); padding: 8px 15px; border-radius: 25px; display: flex; gap: 12px; border: 1px solid rgba(255,255,255,0.1); direction: ltr !important; }
@@ -17,28 +17,24 @@
         .container { width: 90%; max-width: 400px; padding: 10px 0 50px 0; animation: fadeInUp 0.5s ease; }
         
         h1 { font-size: 28px; margin: 10px 0 30px 0; text-align: center; font-weight: 700; }
-        .section-title { font-size: 13px; color: #8e8e93; margin: 25px 0 12px 10px; text-transform: uppercase; font-weight: 600; text-align: inherit; }
+        .section-title { font-size: 13px; color: #8e8e93; margin: 25px 0 12px 10px; text-transform: uppercase; font-weight: 600; text-align: start; }
         
-        .download-list { background: #1c1c1e; border-radius: 25px; overflow: hidden; border: 1px solid rgba(255,255,255,0.05); box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
-        .dl-item { display: flex; align-items: center; padding: 15px; text-decoration: none; color: white; border-bottom: 1px solid rgba(255,255,255,0.05); transition: 0.2s; -webkit-tap-highlight-color: transparent; }
+        .download-list { background: #1c1c1e; border-radius: 25px; overflow: hidden; border: 1px solid rgba(255,255,255,0.05); box-shadow: 0 10px 30px rgba(0,0,0,0.5); margin-bottom: 20px; }
+        
+        /* چیدمان ثابت و حرفه‌ای برای تمام زبان‌ها */
+        .dl-item { display: flex; align-items: center; padding: 15px; text-decoration: none; color: white; border-bottom: 1px solid rgba(255,255,255,0.05); transition: 0.2s; -webkit-tap-highlight-color: transparent; direction: ltr !important; }
         .dl-item:last-child { border-bottom: none; }
         .dl-item:active { background: #2c2c2e; }
         
-        .icon { width: 40px; height: 40px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 22px; flex-shrink: 0; }
-        .info { flex: 1; padding: 0 15px; }
-        .app-name { font-size: 17px; font-weight: 500; text-align: inherit; }
-        .arrow { color: #3a3a3c; font-size: 20px; font-weight: bold; transition: 0.3s; }
-
-        /* مدیریت جهت‌ها برای زبان‌های مختلف */
-        [dir="rtl"] .arrow { transform: rotate(180deg); }
-        [dir="ltr"] .arrow { transform: rotate(0deg); }
+        .icon { width: 44px; height: 44px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 24px; flex-shrink: 0; margin-right: 15px; }
+        .info { flex: 1; }
+        .app-name { font-size: 17px; font-weight: 600; color: white; text-align: left; }
+        .arrow { color: #3a3a3c; font-size: 18px; font-weight: bold; margin-left: 10px; }
 
         .daily { text-align: center; color: #444; font-size: 11px; margin-top: 40px; font-weight: 500; }
 
-        @media (orientation: landscape) and (max-height: 500px) {
-            .container { max-width: 600px; display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
-            h1, .daily { grid-column: span 2; }
-        }
+        [dir="rtl"] h1, [dir="rtl"] .section-title { text-align: right; }
+        [dir="ltr"] h1, [dir="ltr"] .section-title { text-align: left; }
     </style>
 </head>
 <body>
@@ -61,12 +57,12 @@
         <a href="https://github.com/2dust/v2rayNG/releases" class="dl-item">
             <div class="icon" style="background: #2ecc71;">🤖</div>
             <div class="info"><div class="app-name">v2rayNG</div></div>
-            <div class="arrow">‹</div>
+            <div class="arrow">›</div>
         </a>
         <a href="https://github.com/hiddify/hiddify-next/releases" class="dl-item">
             <div class="icon" style="background: #5856d6;">🚀</div>
             <div class="info"><div class="app-name">Hiddify Next</div></div>
-            <div class="arrow">‹</div>
+            <div class="arrow">›</div>
         </a>
     </div>
 
@@ -75,12 +71,12 @@
         <a href="https://apps.apple.com/app/foxray/id6448898396" class="dl-item">
             <div class="icon" style="background: #ff9500;">🦊</div>
             <div class="info"><div class="app-name">Foxray</div></div>
-            <div class="arrow">‹</div>
+            <div class="arrow">›</div>
         </a>
         <a href="https://apps.apple.com/app/napsternetv/id1621294124" class="dl-item">
             <div class="icon" style="background: #007aff;">🎧</div>
             <div class="info"><div class="app-name">NapsternetV</div></div>
-            <div class="arrow">‹</div>
+            <div class="arrow">›</div>
         </a>
     </div>
 
@@ -89,7 +85,7 @@
         <a href="https://github.com/2dust/v2rayN/releases" class="dl-item">
             <div class="icon" style="background: #00a4ef;">💻</div>
             <div class="info"><div class="app-name">v2rayN</div></div>
-            <div class="arrow">‹</div>
+            <div class="arrow">›</div>
         </a>
     </div>
     
@@ -112,11 +108,7 @@ function changeLang(l) {
     document.getElementById('s2').innerText = d.s2;
     document.getElementById('s3').innerText = d.s3;
     
-    // تنظیم جهت صفحه
-    const direction = (l === 'fa') ? 'rtl' : 'ltr';
-    document.documentElement.setAttribute('dir', direction);
-    document.body.setAttribute('dir', direction);
-    
+    document.body.dir = (l === 'fa') ? 'rtl' : 'ltr';
     localStorage.setItem('prefLang', l);
 }
 
