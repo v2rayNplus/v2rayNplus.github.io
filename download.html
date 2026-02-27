@@ -12,32 +12,32 @@
             font-family: -apple-system, system-ui, sans-serif;
             display: flex; flex-direction: column; align-items: center; min-height: 100vh;
         }
-        /* منوی زبان فشرده */
         .nav-bar { width: 100%; display: flex; justify-content: center; padding: 10px 0; background: #000; position: sticky; top: 0; z-index: 1000; }
         .lang-box { background: #2c2c2e; padding: 6px 15px; border-radius: 20px; display: flex; gap: 12px; border: 1px solid rgba(255,255,255,0.1); }
         .flag { cursor: pointer; font-size: 20px; }
 
-        .container { width: 100%; max-width: 450px; padding: 0 16px 30px 16px; display: flex; flex-direction: column; gap: 12px; }
+        /* اصلاح چرخش: استفاده از Grid برای وسط‌چین ماندن در هر حالتی */
+        .container { 
+            width: 100%; max-width: 450px; padding: 0 16px 30px 16px; 
+            display: flex; flex-direction: column; gap: 10px;
+        }
         
-        /* اصلاح فاصله تیتر */
-        .header-title { font-size: 22px; font-weight: 800; text-align: center; margin: 5px 0 10px 0; color: var(--text); }
-        
-        .label { font-size: 12px; color: var(--sub); font-weight: 700; margin-bottom: 4px; margin-right: 8px; text-transform: uppercase; }
-        .card-list { background: var(--card); border-radius: 20px; overflow: hidden; border: 1px solid rgba(255,255,255,0.05); margin-bottom: 5px; }
-        
+        .header-title { font-size: 20px; font-weight: 800; text-align: center; margin: 5px 0 10px 0; }
+        .label { font-size: 11px; color: var(--sub); font-weight: 700; margin-bottom: 4px; padding: 0 10px; }
+        .card-list { background: var(--card); border-radius: 20px; overflow: hidden; border: 1px solid rgba(255,255,255,0.05); }
         .btn-item { display: flex; align-items: center; padding: 12px 16px; text-decoration: none; color: var(--text); border-bottom: 1px solid rgba(255,255,255,0.05); }
-        .btn-item:active { background: rgba(255,255,255,0.1); }
         .btn-item:last-child { border-bottom: none; }
+        .btn-item:active { background: rgba(255,255,255,0.1); }
 
         .icon-emoji { width: 34px; height: 34px; border-radius: 10px; flex-shrink: 0; display: flex; justify-content: center; align-items: center; font-size: 20px; background: #2c2c2e; }
         .item-name { flex-grow: 1; font-size: 15px; font-weight: 600; margin: 0 12px; }
         .chevron { color: #48484a; font-size: 14px; }
 
+        /* استایل مخصوص حالت افقی برای جلوگیری از چسبیدن به بغل */
         @media (orientation: landscape) {
-            .container { max-width: 90%; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-            .header-title, .back-section { grid-column: span 2; }
-            .back-section { width: 260px; margin: 0 auto; }
+            .container { max-width: 500px; margin: 0 auto; }
         }
+
         body.ltr { direction: ltr; text-align: left; }
         body.rtl { direction: rtl; text-align: right; }
         body.ltr .chevron { transform: scaleX(-1); }
@@ -99,16 +99,14 @@ function changeLang(lang) {
             <div class="card-list">
                 <a href="https://github.com/2dust/v2rayN/releases" class="btn-item"><div class="icon-emoji">💻</div><div class="item-name">v2rayN</div><div class="chevron">❯</div></a>
                 <a href="https://github.com/hiddify/hiddify-next/releases" class="btn-item"><div class="icon-emoji">🚀</div><div class="item-name">${t.hid}</div><div class="chevron">❯</div></a>
-                <a href="https://github.com/SagerNet/nekoray/releases" class="btn-item"><div class="icon-emoji">🐱</div><div class="item-name">${t.neko}</div><div class="chevron">❯</div></a>
+                <a href="https://github.com/MatsuriDayo/nekoray/releases" class="btn-item"><div class="icon-emoji">🐱</div><div class="item-name">${t.neko}</div><div class="chevron">❯</div></a>
             </div>
         </div>
 
-        <div class="back-section">
-            <div class="card-list">
-                <a href="index.html" class="btn-item" style="justify-content:center;">
-                    <div class="item-name" style="text-align:center; margin:0;">${t.back}</div>
-                </a>
-            </div>
+        <div class="card-list" style="margin-top:10px;">
+            <a href="index.html" class="btn-item" style="justify-content:center;">
+                <div class="item-name" style="text-align:center; margin:0;">${t.back}</div>
+            </a>
         </div>
         
         <div class="daily">Daily Update</div>
