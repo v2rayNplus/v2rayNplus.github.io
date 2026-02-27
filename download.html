@@ -38,11 +38,14 @@
             .header-title { margin-top: 0; }
         }
 
-        /* استایل‌های هوشمند جهت متن */
         body.ltr { direction: ltr !important; text-align: left !important; }
         body.rtl { direction: rtl !important; text-align: right !important; }
         body.ltr .chevron { transform: scaleX(-1); }
-        .daily { text-align: center; color: #333; font-size: 10px; margin-top: 15px; font-weight: bold; }
+        
+        /* بخش پایینی صفحه */
+        .footer-info { text-align: center; margin-top: 20px; }
+        .version-text { color: #222; font-size: 8px; font-weight: bold; margin-bottom: 2px; letter-spacing: 1px; }
+        .daily { color: #333; font-size: 10px; font-weight: bold; }
     </style>
 </head>
 <body class="rtl">
@@ -63,14 +66,13 @@
 const translations = {
     fa: { title: "مرکز دانلود", android: "اندروید", ios: "آیفون (iOS)", win: "ویندوز", back: "بازگشت به خانه", hid: "هیدی‌فای", nap: "نپسترنت", fox: "فوکس‌ری", neko: "نکوباکس", str: "استرایسند" },
     en: { title: "Download Center", android: "ANDROID", ios: "iOS / IPHONE", win: "WINDOWS", back: "Back Home", hid: "Hiddify", nap: "NapsternetV", fox: "Foxray", neko: "NekoBox", str: "Streisand" },
-    ru: { title: "Центр загрузки", android: "АНДРОИД", ios: "АЙФОН (iOS)", win: "ВИНДОВС", back: "На главную", hid: "Хиддифай", nap: "Напстернет", fox: "Фоксрей", neko: "Некобокс", str: "Страйзанд" },
+    ru: { title: "Центр загрузки", android: "АНДРОИД", ios: "АЙФОН (iOS)", win: "ВИНДОВС", back: "На главную", hid: "Хиддифай", nap: "Напстернет", fox: "Фоксрей", neko: "Некобоکس", str: "Страйзанд" },
     zh: { title: "下载中心", android: "安卓系统", ios: "苹果手机", win: "电脑视窗", back: "返回首页", hid: "Hiddify 客户端", nap: "NapsternetV", fox: "Foxray", neko: "NekoBox", str: "Streisand" },
     ja: { title: "ダウンロード", android: "アンドロイド", ios: "アイフォン", win: "ウィンドウズ", back: "ホームに戻る", hid: "Hiddify", nap: "NapsternetV", fox: "Foxray", neko: "NekoBox", str: "Streisand" }
 };
 
 function changeLang(lang) {
     const t = translations[lang];
-    // لاتی‌اش اینه: فقط برای فارسی RTL باش، بقیه زبان‌ها LTR تا حروف قاطی نشن
     const dir = (lang === 'fa') ? 'rtl' : 'ltr';
     document.body.className = dir;
     document.body.dir = dir;
@@ -92,7 +94,7 @@ function changeLang(lang) {
             <div class="card-list">
                 <a href="https://apps.apple.com/app/streisand/id6450534064" class="btn-item"><div class="icon-emoji">🎻</div><div class="item-name">${t.str}</div><div class="chevron">❯</div></a>
                 <a href="https://apps.apple.com/app/hiddify-proxy/id6473774447" class="btn-item"><div class="icon-emoji">🚀</div><div class="item-name">${t.hid}</div><div class="chevron">❯</div></a>
-                <a href="https://apps.apple.com/app/foxray/id6448898396" class="btn-item"><div class="icon-emoji">🦊</div><div class="item-name">${t.fox}</div><div class="chevron">❯</div></a>
+                <a href="https://apps.apple.com/app/foxray/id6448898396" class="btn-item"><div class="icon-emoji"> foxes</div><div class="item-name">${t.fox}</div><div class="chevron">❯</div></a>
                 <a href="https://apps.apple.com/app/napsternetv/id1629465476" class="btn-item"><div class="icon-emoji">🎧</div><div class="item-name">${t.nap}</div><div class="chevron">❯</div></a>
             </div>
         </div>
@@ -112,7 +114,10 @@ function changeLang(lang) {
             </a>
         </div>
         
-        <div class="daily">Daily Update</div>
+        <div class="footer-info">
+            <div class="version-text">v2.1.0-PLUS</div>
+            <div class="daily">Daily Update</div>
+        </div>
     `;
     localStorage.setItem('prefLang', lang);
 }
