@@ -16,7 +16,6 @@
         .lang-box { background: #2c2c2e; padding: 6px 15px; border-radius: 20px; display: flex; gap: 12px; border: 1px solid rgba(255,255,255,0.1); }
         .flag { cursor: pointer; font-size: 20px; }
 
-        /* ظرف اصلی: طبق خواسته شما به rotate دست نزدم */
         .container { 
             width: 100%; max-width: 450px; padding: 0 16px 30px 16px; 
             display: flex; flex-direction: column; gap: 8px; margin: 0 auto;
@@ -31,7 +30,7 @@
         .btn-item:active { background: rgba(255,255,255,0.1); }
 
         .icon-emoji { width: 34px; height: 34px; border-radius: 10px; flex-shrink: 0; display: flex; justify-content: center; align-items: center; font-size: 20px; background: #2c2c2e; }
-        .item-name { flex-grow: 1; font-size: 15px; font-weight: 600; margin: 0 12px; }
+        .item-name { flex-grow: 1; font-size: 15px; font-weight: 600; margin: 0 12px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
         .chevron { color: #48484a; font-size: 14px; }
 
         @media (orientation: landscape) {
@@ -39,9 +38,9 @@
             .header-title { margin-top: 0; }
         }
 
-        /* استایل‌های جهت متن */
-        body.ltr { direction: ltr; text-align: left; }
-        body.rtl { direction: rtl; text-align: right; }
+        /* استایل‌های هوشمند جهت متن */
+        body.ltr { direction: ltr !important; text-align: left !important; }
+        body.rtl { direction: rtl !important; text-align: right !important; }
         body.ltr .chevron { transform: scaleX(-1); }
         .daily { text-align: center; color: #333; font-size: 10px; margin-top: 15px; font-weight: bold; }
     </style>
@@ -64,14 +63,14 @@
 const translations = {
     fa: { title: "مرکز دانلود", android: "اندروید", ios: "آیفون (iOS)", win: "ویندوز", back: "بازگشت به خانه", hid: "هیدی‌فای", nap: "نپسترنت", fox: "فوکس‌ری", neko: "نکوباکس", str: "استرایسند" },
     en: { title: "Download Center", android: "ANDROID", ios: "iOS / IPHONE", win: "WINDOWS", back: "Back Home", hid: "Hiddify", nap: "NapsternetV", fox: "Foxray", neko: "NekoBox", str: "Streisand" },
-    ru: { title: "Центр загрузки", android: "АНДРОИД", ios: "АЙФОН (iOS)", win: "ВИНДОВС", back: "На главную", hid: "Хиддифай", nap: "Напسترنت", fox: "Фоксрей", neko: "Некобокс", str: "Страйзаند" },
+    ru: { title: "Центр загрузки", android: "АНДРОИД", ios: "АЙФОН (iOS)", win: "ВИНДОВС", back: "На главную", hid: "Хиддифай", nap: "Напстернет", fox: "Фоксрей", neko: "Некобокс", str: "Страйзанд" },
     zh: { title: "下载中心", android: "安卓系统", ios: "苹果手机", win: "电脑视窗", back: "返回首页", hid: "Hiddify 客户端", nap: "NapsternetV", fox: "Foxray", neko: "NekoBox", str: "Streisand" },
     ja: { title: "ダウンロード", android: "アンドロイド", ios: "アイフォン", win: "ウィンドウズ", back: "ホームに戻る", hid: "Hiddify", nap: "NapsternetV", fox: "Foxray", neko: "NekoBox", str: "Streisand" }
 };
 
 function changeLang(lang) {
     const t = translations[lang];
-    // فقط برای فارسی راست‌چین، بقیه زبان‌ها چپ‌چین برای جلوگیری از بهم‌ریختگی
+    // لاتی‌اش اینه: فقط برای فارسی RTL باش، بقیه زبان‌ها LTR تا حروف قاطی نشن
     const dir = (lang === 'fa') ? 'rtl' : 'ltr';
     document.body.className = dir;
     document.body.dir = dir;
@@ -91,7 +90,7 @@ function changeLang(lang) {
         <div class="section">
             <span class="label">${t.ios}</span>
             <div class="card-list">
-                <a href="https://apps.apple.com/app/streisand/id6450534064" class="btn-item"><div class="icon-emoji">Violin</div><div class="item-name">${t.str}</div><div class="chevron">❯</div></a>
+                <a href="https://apps.apple.com/app/streisand/id6450534064" class="btn-item"><div class="icon-emoji">🎻</div><div class="item-name">${t.str}</div><div class="chevron">❯</div></a>
                 <a href="https://apps.apple.com/app/hiddify-proxy/id6473774447" class="btn-item"><div class="icon-emoji">🚀</div><div class="item-name">${t.hid}</div><div class="chevron">❯</div></a>
                 <a href="https://apps.apple.com/app/foxray/id6448898396" class="btn-item"><div class="icon-emoji">🦊</div><div class="item-name">${t.fox}</div><div class="chevron">❯</div></a>
                 <a href="https://apps.apple.com/app/napsternetv/id1629465476" class="btn-item"><div class="icon-emoji">🎧</div><div class="item-name">${t.nap}</div><div class="chevron">❯</div></a>
