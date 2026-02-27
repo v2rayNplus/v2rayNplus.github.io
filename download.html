@@ -15,38 +15,57 @@
         .nav-bar { width: 100%; display: flex; justify-content: center; padding: 10px 0; background: #000; position: sticky; top: 0; z-index: 1000; }
         .lang-box { background: #2c2c2e; padding: 6px 15px; border-radius: 20px; display: flex; gap: 12px; border: 1px solid rgba(255,255,255,0.1); }
         .flag { cursor: pointer; font-size: 20px; }
-        .container { width: 100%; max-width: 450px; padding: 0 16px 30px 16px; display: flex; flex-direction: column; gap: 8px; margin: 0 auto; }
+
+        .container { 
+            width: 100%; max-width: 450px; padding: 0 16px 30px 16px; 
+            display: flex; flex-direction: column; gap: 8px; margin: 0 auto;
+        }
+        
         .header-title { font-size: 20px; font-weight: 800; text-align: center; margin: 5px 0 10px 0; }
         .label { font-size: 11px; color: var(--sub); font-weight: 700; margin-bottom: 3px; padding: 0 10px; }
         .card-list { background: var(--card); border-radius: 20px; overflow: hidden; border: 1px solid rgba(255,255,255,0.05); }
+        
         .btn-item { display: flex; align-items: center; padding: 12px 16px; text-decoration: none; color: var(--text); border-bottom: 1px solid rgba(255,255,255,0.05); }
         .btn-item:last-child { border-bottom: none; }
         .btn-item:active { background: rgba(255,255,255,0.1); }
+
         .icon-emoji { width: 34px; height: 34px; border-radius: 10px; flex-shrink: 0; display: flex; justify-content: center; align-items: center; font-size: 20px; background: #2c2c2e; }
-        .item-name { flex-grow: 1; font-size: 15px; font-weight: 600; margin: 0 12px; }
+        .item-name { flex-grow: 1; font-size: 15px; font-weight: 600; margin: 0 12px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
         .chevron { color: #48484a; font-size: 14px; }
+
+        @media (orientation: landscape) {
+            .container { max-width: 500px; }
+            .header-title { margin-top: 0; }
+        }
+
         body.ltr { direction: ltr !important; text-align: left !important; }
         body.rtl { direction: rtl !important; text-align: right !important; }
         body.ltr .chevron { transform: scaleX(-1); }
+        
         .footer-info { text-align: center; margin-top: 20px; padding-bottom: 20px; }
-        .version-text { color: #222; font-size: 8px; font-weight: bold; margin-bottom: 2px; }
+        .version-text { color: #222; font-size: 8px; font-weight: bold; margin-bottom: 2px; letter-spacing: 1px; }
         .daily { color: #333; font-size: 10px; font-weight: bold; }
     </style>
 </head>
 <body class="rtl">
-<div class="nav-bar"><div class="lang-box">
-    <div class="flag" onclick="changeLang('zh')">🇨🇳</div>
-    <div class="flag" onclick="changeLang('ja')">🇯🇵</div>
-    <div class="flag" onclick="changeLang('ru')">🇷🇺</div>
-    <div class="flag" onclick="changeLang('en')">🇺🇸</div>
-    <div class="flag" onclick="changeLang('fa')">🇮🇷</div>
-</div></div>
+
+<div class="nav-bar">
+    <div class="lang-box">
+        <div class="flag" onclick="changeLang('zh')">🇨🇳</div>
+        <div class="flag" onclick="changeLang('ja')">🇯🇵</div>
+        <div class="flag" onclick="changeLang('ru')">🇷🇺</div>
+        <div class="flag" onclick="changeLang('en')">🇺🇸</div>
+        <div class="flag" onclick="changeLang('fa')">🇮🇷</div>
+    </div>
+</div>
+
 <div id="app" class="container"></div>
+
 <script>
 const translations = {
     fa: { title: "مرکز دانلود", android: "اندروید", ios: "آیفون (iOS)", win: "ویندوز", back: "بازگشت به خانه", hid: "هیدی‌فای", nap: "نپسترنت", fox: "فوکس‌ری", neko: "نکوباکس", str: "استرایسند" },
     en: { title: "Download Center", android: "ANDROID", ios: "iOS / IPHONE", win: "WINDOWS", back: "Back Home", hid: "Hiddify", nap: "NapsternetV", fox: "Foxray", neko: "NekoBox", str: "Streisand" },
-    ru: { title: "Центр загрузки", android: "АНДРОИД", ios: "АЙФОН (iOS)", win: "ВИНДОВС", back: "На главную", hid: "Хидدیфай", nap: "Напسترنت", fox: "Фоксрей", neko: "Некобокс", str: "Страйзанд" },
+    ru: { title: "Центر загрузки", android: "АНДРОИД", ios: "АЙФОН (iOS)", win: "ВИНДОВС", back: "На главную", hid: "Хиддифай", nap: "Напстернет", fox: "Фоксрей", neko: "Некобокс", str: "Страйзаند" },
     zh: { title: "下载中心", android: "安卓系统", ios: "苹果手机", win: "电脑视窗", back: "返回首页", hid: "Hiddify 客户端", nap: "NapsternetV", fox: "Foxray", neko: "NekoBox", str: "Streisand" },
     ja: { title: "ダウンロード", android: "アンドロイド", ios: "アイフォン", win: "ウィンドウズ", back: "ホームに戻る", hid: "Hiddify", nap: "NapsternetV", fox: "Foxray", neko: "NekoBox", str: "Streisand" }
 };
@@ -101,6 +120,7 @@ function changeLang(lang) {
     `;
     localStorage.setItem('prefLang', lang);
 }
+
 window.onload = () => { changeLang(localStorage.getItem('prefLang') || 'fa'); };
 </script>
 </body>
