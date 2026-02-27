@@ -14,7 +14,7 @@
         .lang-menu { background: rgba(40,40,42,0.8); backdrop-filter: blur(10px); padding: 8px 15px; border-radius: 25px; display: flex; gap: 12px; border: 1px solid rgba(255,255,255,0.1); direction: ltr !important; }
         .lang-btn { cursor: pointer; font-size: 22px; transition: 0.2s; }
 
-        .container { flex: 1; display: flex; justify-content: center; align-items: center; width: 100%; padding-bottom: 120px; } 
+        .container { flex: 1; display: flex; justify-content: center; align-items: center; width: 100%; padding-bottom: 80px; } 
         .card { background: #1c1c1e; padding: 30px 20px; border-radius: 35px; border: 1px solid rgba(255,255,255,0.1); text-align: center; max-width: 350px; width: 90%; animation: fadeInUp 0.6s ease; box-shadow: 0 15px 35px rgba(0,0,0,0.8); }
         
         h1 { font-size: 28px; margin: 0; font-weight: 700; }
@@ -32,7 +32,11 @@
 
         .btn:nth-child(3) { animation-delay: 0.1s; } .btn:nth-child(4) { animation-delay: 0.2s; } .btn:nth-child(5) { animation-delay: 0.3s; } .btn:nth-child(6) { animation-delay: 0.4s; } .btn:nth-child(7) { animation-delay: 0.5s; } .btn:nth-child(8) { animation-delay: 0.6s; }
 
-        .daily { font-size: 10px; color: #444; margin-top: 15px; }
+        /* استایل ورژن و فوتر */
+        .footer-info { margin-top: 15px; }
+        .version-text { color: #222; font-size: 8px; font-weight: bold; margin-bottom: 2px; letter-spacing: 1px; }
+        .daily { font-size: 10px; color: #444; font-weight: bold; }
+        
         #toast { position: fixed; bottom: 30px; background: var(--ios-green); color: black; padding: 10px 20px; border-radius: 20px; font-weight: bold; display: none; z-index: 2000; }
 
         .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.9); backdrop-filter: blur(8px); display: none; justify-content: center; align-items: center; z-index: 3000; padding: 20px; }
@@ -43,7 +47,7 @@
         @media (orientation: landscape) and (max-height: 500px) {
             .header-nav { margin-top: 10px; } .container { padding-bottom: 20px; }
             .card { padding: 15px 20px; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; max-width: 600px; }
-            h1, .subtitle, .daily { grid-column: span 2; } .btn { margin: 0; height: 45px; font-size: 13px; }
+            h1, .subtitle, .footer-info { grid-column: span 2; } .btn { margin: 0; height: 45px; font-size: 13px; }
         }
     </style>
 </head>
@@ -79,7 +83,11 @@
         <a href="https://t.me/v2rayNplus" target="_blank" class="btn btn-free"><span id="t3">کانال کانفیگ‌های رایگان</span></a>
         <a href="https://t.me/v2rayNplus_GP" target="_blank" rel="noopener noreferrer" class="btn btn-group"><span id="t4">گروه رفع اشکال</span></a>
         <a href="download.html" class="btn btn-dl"><span id="t5">دانلود کلاینت</span></a>
-        <div class="daily">Daily Update</div>
+        
+        <div class="footer-info">
+            <div class="version-text">v2.1.0-PLUS</div>
+            <div class="daily">Daily Update</div>
+        </div>
     </div>
 </div>
 
@@ -90,37 +98,4 @@ const tr = {
     en: {s:"VIP SERVICE", t1:"Buy Private Config", t2:"Connect to Hiddify", t3:"Free Configs Channel", t4:"Support Group", t5:"Download Client", t6:"Copy Free Configs", d:"Copied! ✅", mt:"Attention My Dear", md:"Make sure you have Hiddify installed. If not, go to the download section and install it based on your device model.", mb:"Got it!"},
     ru: {s:"VIP СЕРВИС", t1:"Купить VIP Конфиг", t2:"Подключение-Hiddify", t3:"Бесплатные каналы", t4:"Центр помощи", t5:"Скачать клиент", t6:"Копировать конфиги", d:"Скопировано! ✅", mt:"Внимание!", md:"Убедитесь, что у вас установлен Hiddify. Если нет, перейдите в раздел загрузки.", mb:"Понятно!"},
     zh: {s:"VIP服务", t1:"购买专用配置", t2: "连接-Hiddify", t3:"免费频道", t4:"帮助中心", t5:"下载客户端", t6:"复制配置", d:"已复制! ✅", mt:"请注意!", md:"确保您已安装 Hiddify。如果没有，请前往下载部分。", mb:"好的!"},
-    ja: {s:"VIPサービス", t1:"VIP設定の購入", t2:"接続-Hiddify", t3:"無料チャンネル", t4:"ヘルプセンター", t5:"ダウンロード", t6:"設定をコピー", d:"コピーしました! ✅", mt:"注意！", md:"Hiddifyがインストールされていることを確認してください。ない場合はダウンロードセクションへ。", mb:"了解！"}
-};
-let cur = 'fa';
-
-function showHiddy() { document.getElementById('hiddyModal').style.display = 'flex'; }
-function confirmHiddy() { document.getElementById('hiddyModal').style.display = 'none'; window.location.href = subLink; }
-
-function changeLang(l) {
-    cur = l; const d = tr[l];
-    if(!d) return;
-    document.getElementById('subtitle').innerText = d.s;
-    document.getElementById('mTitle').innerText = d.mt;
-    document.getElementById('mDesc').innerText = d.md;
-    document.getElementById('mBtn').innerText = d.mb;
-    ['t1','t2','t3','t4','t5','t6'].forEach(id => {
-        let el = document.getElementById(id);
-        if(el) el.innerText = d[id];
-    });
-    document.body.dir = (l === 'fa') ? 'rtl' : 'ltr';
-}
-
-async function copyConfigs() {
-    try {
-        const r = await fetch("https://raw.githubusercontent.com/v2rayNplus/v2rayNplus.github.io/main/configs.txt");
-        const t = await r.text();
-        await navigator.clipboard.writeText(t);
-        const s = document.getElementById('toast');
-        s.innerText = tr[cur].d; s.style.display = 'block';
-        setTimeout(() => s.style.display = 'none', 2000);
-    } catch (e) { alert("Error!"); }
-}
-</script>
-</body>
-</html>
+    ja: {s:"VIPサービス",
