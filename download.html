@@ -16,15 +16,18 @@
         .lang-box { background: #2c2c2e; padding: 6px 15px; border-radius: 20px; display: flex; gap: 12px; border: 1px solid rgba(255,255,255,0.1); }
         .flag { cursor: pointer; font-size: 20px; }
 
-        /* اصلاح چرخش: استفاده از Grid برای وسط‌چین ماندن در هر حالتی */
+        /* ظرف اصلی: در حالت افقی هم وسط می‌ماند */
         .container { 
             width: 100%; max-width: 450px; padding: 0 16px 30px 16px; 
-            display: flex; flex-direction: column; gap: 10px;
+            display: flex; flex-direction: column; gap: 8px; margin: 0 auto;
         }
         
+        /* کاهش فاصله تیتر برای جلوگیری از اشغال کادر */
         .header-title { font-size: 20px; font-weight: 800; text-align: center; margin: 5px 0 10px 0; }
-        .label { font-size: 11px; color: var(--sub); font-weight: 700; margin-bottom: 4px; padding: 0 10px; }
+        
+        .label { font-size: 11px; color: var(--sub); font-weight: 700; margin-bottom: 3px; padding: 0 10px; }
         .card-list { background: var(--card); border-radius: 20px; overflow: hidden; border: 1px solid rgba(255,255,255,0.05); }
+        
         .btn-item { display: flex; align-items: center; padding: 12px 16px; text-decoration: none; color: var(--text); border-bottom: 1px solid rgba(255,255,255,0.05); }
         .btn-item:last-child { border-bottom: none; }
         .btn-item:active { background: rgba(255,255,255,0.1); }
@@ -33,9 +36,10 @@
         .item-name { flex-grow: 1; font-size: 15px; font-weight: 600; margin: 0 12px; }
         .chevron { color: #48484a; font-size: 14px; }
 
-        /* استایل مخصوص حالت افقی برای جلوگیری از چسبیدن به بغل */
+        /* اصلاح لایه لایه برای چرخش گوشی */
         @media (orientation: landscape) {
-            .container { max-width: 500px; margin: 0 auto; }
+            .container { max-width: 500px; }
+            .header-title { margin-top: 0; }
         }
 
         body.ltr { direction: ltr; text-align: left; }
@@ -62,7 +66,7 @@
 const translations = {
     fa: { title: "مرکز دانلود", android: "اندروید", ios: "آیفون (iOS)", win: "ویندوز", back: "بازگشت به خانه", hid: "هیدی‌فای", nap: "نپسترنت", fox: "فوکس‌ری", neko: "نکوباکس", str: "استرایسند" },
     en: { title: "Download Center", android: "ANDROID", ios: "iOS / IPHONE", win: "WINDOWS", back: "Back Home", hid: "Hiddify", nap: "NapsternetV", fox: "Foxray", neko: "NekoBox", str: "Streisand" },
-    ru: { title: "Центр загрузки", android: "АНДРОИД", ios: "АЙФОН (iOS)", win: "ВИНДОВС", back: "На главную", hid: "Хиддифай", nap: "Напстернет", fox: "Фоксрей", neko: "Некобокс", str: "Страйзанд" },
+    ru: { title: "Центр загрузки", android: "АНДРОИД", ios: "АЙФОН (iOS)", win: "ВИНДОВС", back: "На главную", hid: "Хидدیфай", nap: "Напسترнет", fox: "Фоксрей", neko: "Некобокс", str: "Страйзанд" },
     zh: { title: "下载中心", android: "安卓系统", ios: "苹果手机", win: "电脑视窗", back: "返回首页", hid: "Hiddify 客户端", nap: "NapsternetV", fox: "Foxray", neko: "NekoBox", str: "Streisand" },
     ja: { title: "ダウンロード", android: "アンドロイド", ios: "アイフォン", win: "ウィンドウズ", back: "ホームに戻る", hid: "Hiddify", nap: "NapsternetV", fox: "Foxray", neko: "NekoBox", str: "Streisand" }
 };
@@ -75,7 +79,7 @@ function changeLang(lang) {
     document.getElementById('app').innerHTML = `
         <div class="header-title">${t.title}</div>
         
-        <div>
+        <div class="section">
             <span class="label">${t.android}</span>
             <div class="card-list">
                 <a href="https://github.com/2dust/v2rayNG/releases" class="btn-item"><div class="icon-emoji">📡</div><div class="item-name">v2rayNG</div><div class="chevron">❯</div></a>
@@ -84,7 +88,7 @@ function changeLang(lang) {
             </div>
         </div>
 
-        <div>
+        <div class="section">
             <span class="label">${t.ios}</span>
             <div class="card-list">
                 <a href="https://apps.apple.com/app/streisand/id6450534064" class="btn-item"><div class="icon-emoji">🎻</div><div class="item-name">${t.str}</div><div class="chevron">❯</div></a>
@@ -94,7 +98,7 @@ function changeLang(lang) {
             </div>
         </div>
 
-        <div>
+        <div class="section">
             <span class="label">${t.win}</span>
             <div class="card-list">
                 <a href="https://github.com/2dust/v2rayN/releases" class="btn-item"><div class="icon-emoji">💻</div><div class="item-name">v2rayN</div><div class="chevron">❯</div></a>
