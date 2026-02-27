@@ -9,41 +9,37 @@
         * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
         body { 
             margin: 0; padding: 0; background: var(--bg); color: var(--text);
-            font-family: -apple-system, "Segoe UI", "Roboto", sans-serif;
+            font-family: -apple-system, system-ui, sans-serif;
             display: flex; flex-direction: column; align-items: center; min-height: 100vh;
         }
         .nav-bar { width: 100%; display: flex; justify-content: center; padding: 10px 0; background: #000; position: sticky; top: 0; z-index: 1000; }
         .lang-box { background: #2c2c2e; padding: 6px 15px; border-radius: 20px; display: flex; gap: 12px; border: 1px solid rgba(255,255,255,0.1); }
-        .flag { cursor: pointer; font-size: 20px; transition: 0.2s; }
-        .flag:hover { transform: scale(1.2); }
+        .flag { cursor: pointer; font-size: 20px; }
 
+        /* ظرف اصلی: طبق خواسته شما به rotate دست نزدم */
         .container { 
             width: 100%; max-width: 450px; padding: 0 16px 30px 16px; 
-            display: flex; flex-direction: column; gap: 12px; margin: 0 auto;
+            display: flex; flex-direction: column; gap: 8px; margin: 0 auto;
         }
         
-        /* تیتر فشرده برای باز شدن فضا */
-        .header-title { font-size: 20px; font-weight: 800; text-align: center; margin: 5px 0; }
-        
-        .label { font-size: 12px; color: var(--sub); font-weight: 700; margin-bottom: 4px; padding: 0 5px; }
+        .header-title { font-size: 20px; font-weight: 800; text-align: center; margin: 5px 0 10px 0; }
+        .label { font-size: 11px; color: var(--sub); font-weight: 700; margin-bottom: 3px; padding: 0 10px; }
         .card-list { background: var(--card); border-radius: 20px; overflow: hidden; border: 1px solid rgba(255,255,255,0.05); }
         
         .btn-item { display: flex; align-items: center; padding: 12px 16px; text-decoration: none; color: var(--text); border-bottom: 1px solid rgba(255,255,255,0.05); }
         .btn-item:last-child { border-bottom: none; }
         .btn-item:active { background: rgba(255,255,255,0.1); }
 
-        .icon-box { width: 36px; height: 36px; border-radius: 10px; flex-shrink: 0; display: flex; justify-content: center; align-items: center; background: #2c2c2e; }
-        .icon-box img { width: 24px; height: 24px; object-fit: contain; }
+        .icon-emoji { width: 34px; height: 34px; border-radius: 10px; flex-shrink: 0; display: flex; justify-content: center; align-items: center; font-size: 20px; background: #2c2c2e; }
         .item-name { flex-grow: 1; font-size: 15px; font-weight: 600; margin: 0 12px; }
         .chevron { color: #48484a; font-size: 14px; }
 
-        /* اصلاح چیدمان در حالت افقی (Rotate) */
         @media (orientation: landscape) {
-            .container { max-width: 600px; display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
-            .header-title, .back-btn-box { grid-column: span 2; }
-            .back-btn-box { width: 280px; margin: 0 auto; }
+            .container { max-width: 500px; }
+            .header-title { margin-top: 0; }
         }
 
+        /* استایل‌های جهت متن */
         body.ltr { direction: ltr; text-align: left; }
         body.rtl { direction: rtl; text-align: right; }
         body.ltr .chevron { transform: scaleX(-1); }
@@ -68,53 +64,53 @@
 const translations = {
     fa: { title: "مرکز دانلود", android: "اندروید", ios: "آیفون (iOS)", win: "ویندوز", back: "بازگشت به خانه", hid: "هیدی‌فای", nap: "نپسترنت", fox: "فوکس‌ری", neko: "نکوباکس", str: "استرایسند" },
     en: { title: "Download Center", android: "ANDROID", ios: "iOS / IPHONE", win: "WINDOWS", back: "Back Home", hid: "Hiddify", nap: "NapsternetV", fox: "Foxray", neko: "NekoBox", str: "Streisand" },
-    ru: { title: "Центр загрузки", android: "АНДРОИД", ios: "АЙФОН (iOS)", win: "ВИНДОВС", back: "На главную", hid: "Хиддифай", nap: "Напстернет", fox: "Фоксрей", neko: "Некобокс", str: "Страйзаند" },
+    ru: { title: "Центр загрузки", android: "АНДРОИД", ios: "АЙФОН (iOS)", win: "ВИНДОВС", back: "На главную", hid: "Хиддифай", nap: "Напسترنت", fox: "Фоксрей", neko: "Некобокс", str: "Страйзаند" },
     zh: { title: "下载中心", android: "安卓系统", ios: "苹果手机", win: "电脑视窗", back: "返回首页", hid: "Hiddify 客户端", nap: "NapsternetV", fox: "Foxray", neko: "NekoBox", str: "Streisand" },
-    ja: { title: "ダウンロード", android: "アンドロید", ios: "アイフォン", win: "ウィンドウズ", back: "ホームに戻る", hid: "Hiddify", nap: "NapsternetV", fox: "Foxray", neko: "NekoBox", str: "Streisand" }
+    ja: { title: "ダウンロード", android: "アンドロイド", ios: "アイフォン", win: "ウィンドウズ", back: "ホームに戻る", hid: "Hiddify", nap: "NapsternetV", fox: "Foxray", neko: "NekoBox", str: "Streisand" }
 };
 
 function changeLang(lang) {
     const t = translations[lang];
-    document.body.className = (lang === 'fa') ? 'rtl' : 'ltr';
-    document.body.dir = (lang === 'fa') ? 'rtl' : 'ltr';
+    // فقط برای فارسی راست‌چین، بقیه زبان‌ها چپ‌چین برای جلوگیری از بهم‌ریختگی
+    const dir = (lang === 'fa') ? 'rtl' : 'ltr';
+    document.body.className = dir;
+    document.body.dir = dir;
 
     document.getElementById('app').innerHTML = `
         <div class="header-title">${t.title}</div>
         
-        <div>
+        <div class="section">
             <span class="label">${t.android}</span>
             <div class="card-list">
-                <a href="https://github.com/2dust/v2rayNG/releases" class="btn-item"><div class="icon-box">📡</div><div class="item-name">v2rayNG</div><div class="chevron">❯</div></a>
-                <a href="https://github.com/hiddify/hiddify-next/releases" class="btn-item"><div class="icon-box">🚀</div><div class="item-name">${t.hid}</div><div class="chevron">❯</div></a>
-                <a href="https://play.google.com/store/apps/details?id=com.napsternetlabs.napsternetv" class="btn-item"><div class="icon-box">🎧</div><div class="item-name">${t.nap}</div><div class="chevron">❯</div></a>
+                <a href="https://github.com/2dust/v2rayNG/releases" class="btn-item"><div class="icon-emoji">📡</div><div class="item-name">v2rayNG</div><div class="chevron">❯</div></a>
+                <a href="https://github.com/hiddify/hiddify-next/releases" class="btn-item"><div class="icon-emoji">🚀</div><div class="item-name">${t.hid}</div><div class="chevron">❯</div></a>
+                <a href="https://play.google.com/store/apps/details?id=com.napsternetlabs.napsternetv" class="btn-item"><div class="icon-emoji">🎧</div><div class="item-name">${t.nap}</div><div class="chevron">❯</div></a>
             </div>
         </div>
 
-        <div>
+        <div class="section">
             <span class="label">${t.ios}</span>
             <div class="card-list">
-                <a href="https://apps.apple.com/app/streisand/id6450534064" class="btn-item"><div class="icon-box">🎻</div><div class="item-name">${t.str}</div><div class="chevron">❯</div></a>
-                <a href="https://apps.apple.com/app/hiddify-proxy/id6473774447" class="btn-item"><div class="icon-box">🚀</div><div class="item-name">${t.hid}</div><div class="chevron">❯</div></a>
+                <a href="https://apps.apple.com/app/streisand/id6450534064" class="btn-item"><div class="icon-emoji">Violin</div><div class="item-name">${t.str}</div><div class="chevron">❯</div></a>
+                <a href="https://apps.apple.com/app/hiddify-proxy/id6473774447" class="btn-item"><div class="icon-emoji">🚀</div><div class="item-name">${t.hid}</div><div class="chevron">❯</div></a>
                 <a href="https://apps.apple.com/app/foxray/id6448898396" class="btn-item"><div class="icon-emoji">🦊</div><div class="item-name">${t.fox}</div><div class="chevron">❯</div></a>
-                <a href="https://apps.apple.com/app/napsternetv/id1629465476" class="btn-item"><div class="icon-box">🎧</div><div class="item-name">${t.nap}</div><div class="chevron">❯</div></a>
+                <a href="https://apps.apple.com/app/napsternetv/id1629465476" class="btn-item"><div class="icon-emoji">🎧</div><div class="item-name">${t.nap}</div><div class="chevron">❯</div></a>
             </div>
         </div>
 
-        <div>
+        <div class="section">
             <span class="label">${t.win}</span>
             <div class="card-list">
-                <a href="https://github.com/2dust/v2rayN/releases" class="btn-item"><div class="icon-box">💻</div><div class="item-name">v2rayN</div><div class="chevron">❯</div></a>
-                <a href="https://github.com/hiddify/hiddify-next/releases" class="btn-item"><div class="icon-box">🚀</div><div class="item-name">${t.hid}</div><div class="chevron">❯</div></a>
-                <a href="https://github.com/MatsuriDayo/nekoray/releases" class="btn-item"><div class="icon-box">🐱</div><div class="item-name">${t.neko}</div><div class="chevron">❯</div></a>
+                <a href="https://github.com/2dust/v2rayN/releases" class="btn-item"><div class="icon-emoji">💻</div><div class="item-name">v2rayN</div><div class="chevron">❯</div></a>
+                <a href="https://github.com/hiddify/hiddify-next/releases" class="btn-item"><div class="icon-emoji">🚀</div><div class="item-name">${t.hid}</div><div class="chevron">❯</div></a>
+                <a href="https://github.com/MatsuriDayo/nekoray/releases" class="btn-item"><div class="icon-emoji">🐱</div><div class="item-name">${t.neko}</div><div class="chevron">❯</div></a>
             </div>
         </div>
 
-        <div class="back-btn-box">
-            <div class="card-list">
-                <a href="index.html" class="btn-item" style="justify-content:center;">
-                    <div class="item-name" style="text-align:center; margin:0;">${t.back}</div>
-                </a>
-            </div>
+        <div class="card-list" style="margin-top:10px;">
+            <a href="index.html" class="btn-item" style="justify-content:center;">
+                <div class="item-name" style="text-align:center; margin:0;">${t.back}</div>
+            </a>
         </div>
         
         <div class="daily">Daily Update</div>
