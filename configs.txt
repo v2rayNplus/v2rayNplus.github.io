@@ -1,3 +1,4 @@
+socks://Og@85.133.193.146:8085#https://t.me/v2raynplus | Host address:127.0.0.1 |Port:18000
 vless://6202b230-417c-4d8e-b624-0f71afa9c75d@86.38.214.238:2096?security=tls&encryption=none&insecure=1&host=sni.jpmj.dev&fp=chrome&type=ws&allowInsecure=1&sni=sni.jpmj.dev#https://t.me/v2raynplus |MiXED🔋Psiphon |30 apr 1
 vless://6202b230-417c-4d8e-b624-0f71afa9c75d@86.38.214.43:443?security=tls&encryption=none&insecure=1&host=sni.111000.cc.cd&fp=chrome&type=ws&allowInsecure=1&sni=sni.111000.cc.cd#https://t.me/v2raynplus |MiXED🔋Psiphon |30 apr 2
 vless://cf07f677-9f7b-4669-9541-109477c8ae1f@snapp.ir:2086?path=%2F&security=&encryption=none&host=connect.pardisvps.ir&type=ws#https://t.me/v2raynplus |MiXED🔋Psiphon |30 apr 3
