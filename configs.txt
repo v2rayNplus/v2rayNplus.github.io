@@ -1,3 +1,4 @@
+trojan://EuA65lgMwx@ali.p40.site:27674/?type=ws&path=%2F&host=&security=none#https://t.me/v2raynplus |MiXED🔋Psiphon |1May |tr
 vless://206de0ba-cd5d-45ec-aa6d-560056d553bf@snapp.ir:80?path=%2F&security=&encryption=none&host=iranfuture.musicritmic.ir&type=ws#https://t.me/v2raynplus |MiXED🔋Psiphon |1May
 vless://telegram-%40dickiriptorbot@react.dev:443?mode=auto&path=%2F%40dickiriptorbot&security=tls&alpn=h2%2Chttp%2F1.1&encryption=none&insecure=1&host=pycharmapi.vercel.app&fp=chrome&type=xhttp&allowInsecure=1&sni=react.dev#https://t.me/v2raynplus |MiXED🔋Psiphon |1May
 socks://Og@85.133.193.146:8085#https://t.me/v2raynplus | Host address:127.0.0.1 |Port:18000
