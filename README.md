@@ -1,3 +1,4 @@
+.
 # v2rayNplus.github.io
 
 
