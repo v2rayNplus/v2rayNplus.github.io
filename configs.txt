@@ -7,7 +7,6 @@ vless://cbfffbcc-b1df-4aca-9913-4e20b52d2fea@snapp.ir:2082?path=%2Fdiznutts&secu
 vless://7afa324b-33e5-45cb-a729-bd45e498dd4c@arvancloud.ir:80?path=%40TunizoNET&security=none&encryption=none&host=ri.amirenzohost.ir&type=ws#https%3A%2F%2Ft.me%2Fv2raynplus%20%7CMiXED%F0%9F%94%8BPsiphon%20%7C5May%7C7
 vless://c829b9ff-e32a-467b-b740-421980a5bde2@arvancloud.ir:2095?path=%2Fstream&security=none&encryption=none&host=hosting.linuweb.ir&type=ws#https%3A%2F%2Ft.me%2Fv2raynplus%20%7CMiXED%F0%9F%94%8BPsiphon%20%7C5May%7C8
 vless://9f8cb5f8-53e2-4983-8a4e-a7a4e2baf70f@snapp.ir:8080?path=%2F&security=none&encryption=none&host=api.morvaridvps.ir&type=ws#https%3A%2F%2Ft.me%2Fv2raynplus%20%7CMiXED%F0%9F%94%8BPsiphon%20%7C5May%7C9
-
 vless://78be9a65-9e6f-4b83-b382-e0aed1562a56@Ikco.ir:8080?path=%2Fcdn&security=&encryption=none&host=cp.movizdl.ir&type=ws#https://t.me/v2raynplus |MiXED🔋Psiphon |4May|1
 vless://9305bb48-f3ce-450b-a90a-c1ff4f382a99@trex.nahidapp.com:443?path=%2Fvless-ws&security=tls&encryption=none&insecure=0&host=trex.nahidapp.com&fp=chrome&type=ws&allowInsecure=0&sni=trex.nahidapp.com#https://t.me/v2raynplus |MiXED🔋Psiphon |4May|2
 vless://66d862e6-7535-4fed-991f-62ec1a2fc730@line2.gymplusplus.com:80?path=%2F&security=&encryption=none&type=ws#https://t.me/v2raynplus |MiXED🔋Psiphon |4May|3
