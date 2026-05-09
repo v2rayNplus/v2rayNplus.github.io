@@ -1,3 +1,7 @@
+vless://57f6b3fc-c103-42f8-baad-d23c3ee9180a@Snapp.ir:80?path=%2F&security=none&encryption=none&host=down.speedtell.ir&type=ws#https://t.me/v2raynplus |MiXED🔋Psiphon |9May|1
+socks://Og@130.185.75.82:9595#https://t.me/v2raynplus |MiXED🔋Psiphon |9May|2
+socks://Og@62.220.126.92:30871#https://t.me/v2raynplus |MiXED🔋Psiphon |9May|3
+socks://Og@62.220.126.56:30170#https://t.me/v2raynplus |MiXED🔋Psiphon |9May|4
 socks://Og@62.220.126.56:27969#https://t.me/v2raynplus |MiXED🔋Psiphon |7May|1
 socks://Og@62.220.126.56:27288#https://t.me/v2raynplus |MiXED🔋Psiphon |7May|2
 socks://Og@62.220.126.56:29739#https://t.me/v2raynplus |MiXED🔋Psiphon |7May|3
