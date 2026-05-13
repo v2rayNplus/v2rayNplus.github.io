@@ -1,31 +1,17 @@
 vless://478cc26d-16b3-4fdd-be64-60d5a58c1622@172.64.147.210:80?path=%2F&security=none&encryption=none&host=tt.andishehparenting.com&type=ws#https://t.me/v2raynplus |MiXED🔋Psiphon |13May|1.5
-
 vless://478cc26d-16b3-4fdd-be64-60d5a58c1622@172.64.146.153:80?path=%2F&security=none&encryption=none&host=tt.andishehparenting.com&type=ws#https://t.me/v2raynplus |MiXED🔋Psiphon |13May|2
-
 vless://6202b230-417c-4d8e-b624-0f71afa9c75d@104.16.58.115:443?path=%2F%3Fhttps%3A%2F%2Ft.me%2Fwangcai2%F0%9F%87%A8%F0%9F%87%B3%3D&security=tls&encryption=none&insecure=0&host=sni.latonyamadeline.ndjp.net&type=ws&allowInsecure=0&sni=sni.latonyamadeline.ndjp.net#https://t.me/v2raynplus |MiXED🔋Psiphon |13May|3
-
 vless://478cc26d-16b3-4fdd-be64-60d5a58c1622@172.64.146.1:80?path=%2F&security=none&encryption=none&host=tt.andishehparenting.com&type=ws#https://t.me/v2raynplus |MiXED🔋Psiphon |13May|4
-
 vless://6202b230-417c-4d8e-b624-0f71afa9c75d@104.18.16.56:8443?path=%2F%3FTelegram%F0%9F%87%A8%F0%9F%87%B3%2B%40WangCai2&security=tls&encryption=none&insecure=0&host=sni.111000.v6.navy&type=ws&allowInsecure=0&sni=sni.111000.v6.navy#https://t.me/v2raynplus |MiXED🔋Psiphon |13May|5
-
 vless://6202b230-417c-4d8e-b624-0f71afa9c75d@5.10.247.43:443?path=%2F%3Fhttps%253A%252F%252Ft.me%252Fwangcai2%25F0%259F%2587%25A8%25F0%259F%2587%25B3%3D&security=tls&encryption=none&insecure=0&host=sni.111000.cc.cd&type=ws&allowInsecure=0&sni=sni.111000.cc.cd#https://t.me/v2raynplus |MiXED🔋Psiphon |13May|6
-
 vless://478cc26d-16b3-4fdd-be64-60d5a58c1622@172.64.147.2:80?path=%2F&security=none&encryption=none&host=tt.andishehparenting.com&type=ws#https://t.me/v2raynplus |MiXED🔋Psiphon |13May|7
-
 vless://6202b230-417c-4d8e-b624-0f71afa9c75d@5.10.247.138:2096?security=tls&encryption=none&insecure=0&host=sni.111000.indevs.in&type=ws&allowInsecure=0&sni=sni.111000.indevs.in#https://t.me/v2raynplus |MiXED🔋Psiphon |13May|8
-
 vless://bafacd98-136a-4530-838d-4e5c51838dac@92.243.74.4:8443?path=%2Fplay%2Fupload%2Fmovie%2Fjuzibaipiao&security=tls&encryption=none&insecure=0&host=juzi8186.qea.ccwu.cc&fp=firefox&type=ws&allowInsecure=0&sni=juzi8186.qea.ccwu.cc#https://t.me/v2raynplus |MiXED🔋Psiphon |13May|9
-
 trojan://6202b230-417c-4d8e-b624-0f71afa9c75d@172.64.152.23:443?path=%2F&security=tls&alpn=http%2F1.1&insecure=1&host=sni.111000.dynv6.net&type=ws&allowInsecure=1&sni=sni.111000.dynv6.net#https://t.me/v2raynplus |MiXED🔋Psiphon |13May|10
-
 trojan://6202b230-417c-4d8e-b624-0f71afa9c75d@172.64.146.129:443?path=%2F%3Fproxyip%3Dip.111000.de5.net%3A443&security=tls&alpn=http%2F1.1&insecure=1&host=sni.111000.dynv6.net&fp=chrome&type=ws&allowInsecure=1&sni=sni.111000.dynv6.net#https://t.me/v2raynplus |MiXED🔋Psiphon |13May|11
-
 vless://6202b230-417c-4d8e-b624-0f71afa9c75d@104.18.13.149:8443?path=%2F%3FTelegram%F0%9F%87%A8%F0%9F%87%B3%2B%40WangCai2&security=tls&encryption=none&insecure=1&host=sni.111000.dynv6.net&type=ws&allowInsecure=1&sni=sni.111000.dynv6.net#https://t.me/v2raynplus |MiXED🔋Psiphon |13May|12
-
 trojan://8r%3C%5B9%27l6hAO%238ZQi@89.124.78.251:8443?path=%2FtrTelegram%F0%9F%87%A8%F0%9F%87%B3%2B%40WangCai2&security=tls&insecure=0&host=Koma-YT.PAGeS.Dev&type=ws&allowInsecure=0&sni=Koma-YT.PAGeS.Dev#https://t.me/v2raynplus |MiXED🔋Psiphon |13May|13
-
 vless://6202b230-417c-4d8e-b624-0f71afa9c75d@216.205.52.138:2096?path=%2F&security=tls&encryption=none&insecure=1&host=sni.111000.indevs.in&type=ws&allowInsecure=1&sni=sni.111000.indevs.in#https://t.me/v2raynplus |MiXED🔋Psiphon |13May|14
-
 vless://b818576e-951a-4a9c-879a-d32611b977ad@104.18.44.159:2096?path=%2Ffp%3Dchrome&security=tls&encryption=none&insecure=0&host=cocobaby.pages.dev&type=ws&allowInsecure=0&sni=cocobaby.pages.dev#https://t.me/v2raynplus |MiXED🔋Psiphon |13May|15
 vless://3550812b-4dfe-4815-9792-457218ac75b5@ultranecctestusa.fqservershop.com:51395?type=tcp&security=none#https://t.me/v2raynplus |MiXED🔋Psiphon |13May|1🇮🇷
 vless://f98904c7-fae5-4fb9-886f-96add8d987f5@arb2.nazincup.ir:2082?path=%2Fapi&security=none&encryption=none&host=arb2.nazincup.ir&type=ws#https://t.me/v2raynplus
@@ -71,25 +57,15 @@ vless://30e35bd7-6ce7-4c0c-8fbd-cec03071852f@faraaa.darakio.ir:80?path=%2F&secur
 vless://dae2ddc6-a892-495f-a001-181cec56ad12@snapp.ir:2052?path=%2F&security=none&encryption=none&host=p1.razstar.ir&type=ws#https://t.me/v2raynplus |MiXED🔋Psiphon |7May|7
 vless://0d84cdbd-c0fb-47c6-ab5d-a25587df2a4a@185.143.233.5:80?path=%2Fxray&security=none&encryption=none&host=bot.vipiranian.de&type=ws#https://t.me/v2raynplus |MiXED🔋Psiphon |7May|8
 vless://66d862e6-7535-4fed-991f-62ec1a2fc730@line2.gymplusplus.com:80?path=%2F&security=&encryption=none&type=ws#https://t.me/v2raynplus |MiXED🔋Psiphon |4May|1
-
 vless://9305bb48-f3ce-450b-a90a-c1ff4f382a99@trex.nahidapp.com:443?path=%2Fvless-ws&security=tls&encryption=none&insecure=0&host=trex.nahidapp.com&fp=chrome&type=ws&allowInsecure=0&sni=trex.nahidapp.com#https://t.me/v2raynplus |MiXED🔋Psiphon |4May|2
-
 vless://78be9a65-9e6f-4b83-b382-e0aed1562a56@Ikco.ir:8080?path=%2Fcdn&security=&encryption=none&host=cp.movizdl.ir&type=ws#https://t.me/v2raynplus |MiXED🔋Psiphon |4May|3
-
 vless://d9a67f7b-4bea-44ad-9a4a-cae56dd4377e@arvancloud.ir:80?path=%2F&security=&encryption=none&host=t1.tunnellinuweb.ir&type=ws#https://t.me/v2raynplus |MiXED🔋Psiphon |4May|4
-
 vless://881b94e7-b5e8-4a07-a34f-670368b853cf@s3.vahshat.xyz:80?path=%2Fws&security=none&encryption=none&host=v2.greentab.ir&type=ws#https://t.me/v2raynplus |MiXED🔋Psiphon |4May|5
-
 vless://a7c263f7-15b1-7140-39a0-4a75b7e40fcd@tr2.masterdadeh.ir:80?type=ws&host=&security=none&sni=185.226.94.185&alpn=&path=/&headerType=http#https://t.me/v2raynplus |MiXED🔋Psiphon |4May|6
-
 vless://49caa3b0-26a1-4df2-a25d-fe2cef0de66d@trex.nahidapp.com:443?path=%2Fvless-ws&security=tls&encryption=none&insecure=0&host=trex.nahidapp.com&fp=chrome&type=ws&allowInsecure=0&sni=trex.nahidapp.com#https://t.me/v2raynplus |MiXED🔋Psiphon |4May|7
-
 vless://cd5bdbdf-43dc-48a2-91e4-52c1e371ca80@arvancloud.ir:80?path=%40TunizoNET&security=none&encryption=none&host=ri.amirenzohost.ir&type=ws#https://t.me/v2raynplus |MiXED🔋Psiphon |4May|8
-
 vless://8a0c2a31-c7eb-491c-aa58-098fb414fb1e@Ikco.ir:8080?path=%2Fcdn&security=none&encryption=none&host=cp.movizdl.ir&type=ws#https://t.me/v2raynplus |MiXED🔋Psiphon |4May|9
-
 vless://bc6dd5e1-5e3a-408d-a936-f6d64bac65c1@varzesh3.com:2082?path=%2F&security=none&encryption=none&host=snappp.khanumjan.ir&type=ws#https://t.me/v2raynplus |MiXED🔋Psiphon |5May|10
-
 vless://4522a3f7-c12e-430c-b428-d59dcb5de811@hostioko.online:443?path=%2FW8IFdbZXc92UUldb1MBYzCwQif0uaX9DL3o%3Fed%3D2560&security=tls&alpn=http%2F1.1&encryption=none&insecure=0&host=hostioko.online&fp=chrome&type=ws&allowInsecure=0&sni=hostioko.online#https://t.me/v2raynplus |MiXED🔋Psiphon |5May|11
 ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTo3ZTczMWVjMy1mOGUxLTQzZjYtOTJjZi0zOTc4ZDE0NzA1YzQ=@111.248.70.44:50099#Taiwan
 ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpSRkszOENnN0FQbmVTQjVjV0RjcGJt@switcher-nick-croquet.freesocks.work:443#Ukraine
