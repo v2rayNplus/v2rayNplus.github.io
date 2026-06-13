@@ -1,4 +1,5 @@
 vless://cabbfe13-038b-4dbb-9c45-5079c829abfa@167.82.0.1:80?path=%2F&security=&encryption=none&host=max-gb1.global.ssl.fastly.net&fp=chrome&type=ws#%40v2rayNplus%20%7C%20Update%20%7C10%20Jun%202026%20%7C%20%D8%A8%DB%8C%D8%B3%D8%AA%D9%85%20%D8%AE%D8%B1%D8%AF%D8%A7%D8%AF%20%7C
+ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpXNzRYRkFMTEx1dzZtNUlB@20.50.123.173:443#%40v2rayNplus%F0%9F%87%AC%F0%9F%87%A7%F0%9F%A6%85
 ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpXNzRYRkFMTEx1dzZtNUlB@51.105.29.64:443#https%3A%2F%2Ft.me%2Fv2rayNplus%20%7C%F0%9F%87%AC%F0%9F%87%A7
 ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpXNzRYRkFMTEx1dzZtNUlB@20.117.161.38:443#https%3A%2F%2Ft.me%2Fv2rayNplus%20%7C%F0%9F%87%AC%F0%9F%87%A7
 vless://9bccefee-13d9-4005-8cc4-c3fe3af87ed6@38.180.104.124:49709?path=%2F&security=&encryption=none&type=ws#https%3A%2F%2Ft.me%2Fv2rayNplus%20%7C%F0%9F%87%B9%F0%9F%87%B7
