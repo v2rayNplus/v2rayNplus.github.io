@@ -1,4 +1,41 @@
 vless://a0b067ac-162d-4237-956d-10b8b471d3f5@54.37.75.187:443?security=reality&encryption=none&pbk=DHsthrDRMCGcOyJd4xTce_4CCSAJZGwxCdfNrkB_Pgs&host=v2rayNplus--v2rayNplus--v2rayNplus&headerType=none&fp=chrome&type=tcp&flow=xtls-rprx-vision&sni=www.speedtest.net&sid=479826bdfc3eb86e#%F0%9F%8D%81%40v2rayNplus%F0%9F%8D%81%20%7C%20Update%20%7C08%20Aug%202026%20%7C%20%20%D9%87%D9%81%D8%AF%D9%87%D9%85%20%D9%85%D8%B1%D8%AF%D8%A7%D8%AF%20%7CDaily%20Update%20%7C%F0%9F%8C%A4%EF%B8%8F
+vless://fbb74aa8-b89a-4f20-9504-6b25aadf6681@132.243.223.88:443?security=reality&encryption=none&pbk=bZpzmeWiEJyJQy0W2hHc34Nr6BuFXj1UDd80Cbwh1Fk&host=v2rayNplus--v2rayNplus--v2rayNplus&headerType=none&fp=chrome&type=tcp&flow=xtls-rprx-vision&sni=fin2.freeinternat.com&sid=ff776ff77be48b88#@v2rayNplus | 🇫🇮
+
+vless://d67af820-f54c-48ab-862c-19086357f276@node5.get-tres.ru:443?security=reality&encryption=none&pbk=dhLgVSqPBDrdbhyTS2j60LWZDGEZh-smkcjUNSic-WI&host=v2rayNplus--v2rayNplus--v2rayNplus&headerType=none&fp=firefox&type=tcp&flow=xtls-rprx-vision&sni=telegraf.lv&sid=e5f67890#@v2rayNplus | 🇱🇻
+
+vless://06d44c57-8e1a-41f4-b9c4-65d35869e078@45.155.68.164:13868?security=reality&encryption=none&pbk=xbCFPD2Gk3HP6EwfFT_0W3D_-biFaz10wlPc2h3y6QQ&host=v2rayNplus--v2rayNplus--v2rayNplus&headerType=none&fp=firefox&type=tcp&flow=xtls-rprx-vision&sni=yoox.com&sid=e852dc#@v2rayNplus | 🇮🇹
+
+trojan://humanity@185.225.68.232:443?path=%2Fassignment&security=tls&insecure=0&host=www.calmlunch.com&type=ws&allowInsecure=0&sni=www.calmlunch.com#@v2rayNplus | 🇫🇷
+
+vless://1e973bda-3a02-4431-9df8-83595f6f65d8@194.150.166.12:443?security=reality&encryption=none&pbk=b75SrHI--As9QxOVfRIPkGmGfXjs53CGAjbws2K99Rs&host=v2rayNplus--v2rayNplus--v2rayNplus&headerType=none&fp=chrome&type=tcp&flow=xtls-rprx-vision&sni=www.avito.ru#@v2rayNplus | 🇬🇧
+
+ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTo3ZTczMWVjMy1mOGUxLTQzZjYtOTJjZi0zOTc4ZDE0NzA1YzQ@r3mrcg001286ek2.cybervena.com:50099#@v2rayNplus | 🇹🇼
+
+vless://2f956d32-8a67-4bc9-8995-e1621ad20ddc@31.76.76.26:443?path=%2F&security=&encryption=none&type=ws#@v2rayNplus | 🌐
+
+vless://d65cc14c-f53f-4fe2-b262-97856601319c@169.40.42.52:443?security=reality&encryption=none&pbk=e2RLf57Li_-MDZGE9ss1BWPgP54mqRb5PfXhW2jcVVg&host=v2rayNplus--v2rayNplus--v2rayNplus&headerType=none&fp=ios&type=tcp&flow=xtls-rprx-vision&sni=yahoo.com&sid=c39cc7310a#@v2rayNplus | 🇺🇸
+
+ss://YWVzLTI1Ni1nY206UGNPRTUybHlHTzZNRlJtNi9tNWhmdUMzTnBOb2NrRHZjbk5ZZ3ExOE5pND0@79.175.134.49:39880#@v2rayNplus | 🇮🇷
+
+ss://bnVsbDpudWxs@51.222.12.127:445#@v2rayNplus | 🇨🇦
+
+vless://b98d4c6e-6770-4a31-8256-a4750cdea0e7@66.175.217.170:443?security=reality&encryption=none&pbk=0i_xAxYgSNx5NMpK2lOaWGS-CvAiD_LneYPO0MF0owo&host=v2rayNplus--v2rayNplus--v2rayNplus&headerType=none&fp=chrome&type=tcp&flow=xtls-rprx-vision&sni=www.amazon.com&sid=1a#@v2rayNplus | 🇺🇸
+
+ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpnd3ptcm5qcnNlcC9QelcvM3lZYzRqRTRSRzQxYUV3SkF0aGxiVHVwQmp3PQ@sec2.masterdpibypass.com:12892#@v2rayNplus | 🇸🇬
+
+trojan://AE62539071@54.95.128.248:443?security=tls&insecure=0&host=v2rayNplus--v2rayNplus--v2rayNplus&headerType=none&type=tcp&allowInsecure=0&sni=engaged-ram.rooster465.autos#@v2rayNplus | 🇯🇵
+
+vless://1ee1f28d-4975-4d7c-95c7-76172c20eed5@185.143.233.238:2086?path=%2F&security=&encryption=none&host=parsi.parsi.sbs&type=ws#@v2rayNplus | 🇮🇷
+
+vless://d2733ae6-44e7-4b14-8c2d-3f5bef74cdec@144.31.157.104:20017?security=&encryption=none&host=play.google.com&headerType=http&type=tcp#@v2rayNplus | 🇩🇪
+
+ss://YWVzLTEyOC1nY206U3lTV0RhUDhybTFORUswd2RMZG9hVjVDbGtTakZEZnc@antony.athforce.ir:51058#@v2rayNplus | 🇫🇷
+
+vmess://eyJhZGQiOiIyMDIuNDcuODkuMTMzIiwiYWlkIjoiMCIsImFscG4iOiIiLCJmcCI6IiIsImhvc3QiOiIiLCJpZCI6IjNhMDM2MTNiLWJiYWMtNGEyMi1iZWU2LTJjOWE3NTFhMjc2MSIsImluc2VjdXJlIjoiMCIsIm5ldCI6IndzIiwicGF0aCI6Ii9ka2ZqaDIyMiIsInBjcyI6IiIsInBvcnQiOiI1MzU0OCIsInBzIjoiQHYycmF5TnBsdXMgfCDwn4yQIiwic2N5IjoiYXV0byIsInNuaSI6IiIsInRscyI6IiIsInR5cGUiOiItLS0iLCJ2IjoiMiIsInZjbiI6IiJ9
+
+vmess://eyJhZGQiOiJ3d3cudHJ1ZS50aCIsImFpZCI6IjAiLCJhbHBuIjoiIiwiZnAiOiIiLCJob3N0IjoiZDdwdTVtenI5YzRiMC5jbG91ZGZyb250Lm5ldCIsImlkIjoiYTE1MGQ1NTQtZTk2Mi00NjMyLTgyOWYtZWU1ODNhZGEzZjk1IiwiaW5zZWN1cmUiOiIwIiwibmV0Ijoid3MiLCJwYXRoIjoiL2h0dW4iLCJwY3MiOiIiLCJwb3J0IjoiODAiLCJwcyI6IkB2MnJheU5wbHVzIHwg8J+MkCIsInNjeSI6ImF1dG8iLCJzbmkiOiIiLCJ0bHMiOiIiLCJ0eXBlIjoiLS0tIiwidiI6IjIiLCJ2Y24iOiIifQ==
+
+trojan://7d8e6db4-96cc-4710-afc0-619edde2d7a1@t11.qifei.app:55682?security=tls&insecure=0&host=v2rayNplus--v2rayNplus--v2rayNplus&headerType=none&type=tcp&allowInsecure=0&sni=t11.qifei.app#@v2rayNplus | 🇯🇵
 vless://463a26c2-eba8-0065-89c4-ee5c1373ccbe@84.32.102.235:443?security=reality&encryption=none&pbk=Q6sZPc96fGUJvHsOjwpAc57V16CajEfhkHHhuv-_Bg4&host=v2rayNplus--v2rayNplus--v2rayNplus&headerType=none&fp=firefox&type=tcp&flow=xtls-rprx-vision&sni=dnlch.mostserv.xyz&sid=0f3adaccbda5e56b#@v2rayNplus | 🇱🇹
 
 vless://d67af820-f54c-48ab-862c-19086357f276@node5.get-tres.ru:443?security=reality&encryption=none&pbk=dhLgVSqPBDrdbhyTS2j60LWZDGEZh-smkcjUNSic-WI&host=v2rayNplus--v2rayNplus--v2rayNplus&headerType=none&fp=firefox&type=tcp&flow=xtls-rprx-vision&sni=telegraf.lv&sid=e5f67890#@v2rayNplus | 🇱🇻
