@@ -13,6 +13,72 @@ vless://67eb6b17-7797-4ded-bf52-423c4c5f6cbd@lists.soloramtin.cyou:443?security=
 vless://9f0285ee-20ca-4953-bcdb-86a920652923@204.216.216.23:10086?security=&encryption=none&host=v2rayNplus--v2rayNplus--v2rayNplus--&headerType=none&type=tcp#[v2rayNplus] 🇮🇹 
 vless://b5ca5ab3-8cbc-4ac3-89da-9cd360589ecb@162.35.231.68:443?security=reality&encryption=none&pbk=6z3YcVP0f2pK3iANKIkBUZOgNeErDjxY83mHZG5jrnI&host=v2rayNplus--v2rayNplus--v2rayNplus&headerType=none&type=tcp&flow=xtls-rprx-vision&sni=savesafe.co&sid=f63805c3ecc7a483#[v2rayNplus] 🇮🇹 IT
 vmess://eyJhZGQiOiI2Ni4xNjMuMTE3LjU4IiwiYWlkIjoiMCIsImFscG4iOiIiLCJmcCI6IiIsImhvc3QiOiJ2MnJheU5wbHVzLS12MnJheU5wbHVzLS12MnJheU5wbHVzLS0iLCJpZCI6IjA0NjIxYmFlLWFiMzYtMTFlYy1iOTA5LTAyNDJhYzEyMDAwMiIsImluc2VjdXJlIjoiMCIsIm5ldCI6InRjcCIsInBhdGgiOiIiLCJwY3MiOiIiLCJwb3J0IjoiMjIzMjQiLCJwcyI6Ilt2MnJheU5wbHVzXSDwn4es8J+HpyBHQi0xNTc0Iiwic2N5IjoiYXV0byIsInNuaSI6IiIsInRscyI6IiIsInR5cGUiOiJub25lIiwidiI6IjIiLCJ2Y24iOiIifQ==
+ss://YWVzLTI1Ni1nY206ZDk5YzQyMjE5OWU2MmI2Yg@195.58.48.97:40119#[v2rayNplus] 🇷🇺 RU-40119
+
+ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpDSm1UQ0N4N0x0dWQ@nl1.levikogjgfdd.ir:8388#[v2rayNplus] 🇳🇱 NL-8388
+
+ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpDSm1UQ0N4N0x0dWQ@108.181.58.239:8388#[v2rayNplus] 🇳🇱 NL-8388
+
+vless://f82332b2-dc8c-eac4-ac12-f276e37e278a@45.155.70.123:8443?security=reality&encryption=none&pbk=0AVsyS7udTbxKRdSyQ2rtFC63icDQOVWq8FvAhhU-WY&host=v2rayNplus--v2rayNplus--v2rayNplus--&headerType=none&fp=firefox&type=tcp&sni=s1.test.anti-zapret.com&sid=58fbcddfaae3ade9#[v2rayNplus] 🇩🇪 DE8443
+
+ss://YWVzLTI1Ni1nY206ODFhMjA0MjkxNjVkZjg3ZQ@195.133.23.200:50110#[v2rayNplus] 🇷🇺 RU-50110
+
+ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpyS0U1T2NoSHFUcmthbXp4@94.245.92.85:443#[v2rayNplus] 🇮🇪 IE-443
+
+ss://YWVzLTI1Ni1nY206ZDFmYTJmNGI5OGEzOGJjOA@62.76.234.92:10901#[v2rayNplus] 🇮🇹 IT-10901
+
+ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpjVEFPYndnNE9XV1hrWkpRczBaZGdD@31.76.82.131:34260#[v2rayNplus] 🇺🇸 US-34260
+
+ss://YWVzLTI1Ni1nY206WEtGS2wyclVMaklwNzQ@185.226.172.8:8008#[v2rayNplus] 🇩🇪 DE-8008
+
+ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpHNXA2d3c0bzY3SEI@108.181.0.177:8388#[v2rayNplus] 🇺🇸 US-8388
+
+ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTp3d3pWbjJabkhmcVlhNmw4RVdoM2VZ@switcher-nick-croquet.freesocks.work:443#[v2rayNplus] 🇳🇱 NL-443
+
+ss://YWVzLTI1Ni1nY206NVFDZUlLVVpVRXA0bVI5Wg@194.233.94.119:80#[v2rayNplus] 🇸🇬 SG-80
+
+ss://YWVzLTI1Ni1nY206TUJXZDlNSDBKTWgyRzVvZA@194.87.10.112:8388#[v2rayNplus] 🇸🇬 SG-8388
+
+ss://YWVzLTI1Ni1nY206c0ZTMzQxZWNlYUlpU20yZA@154.53.63.33:443#[v2rayNplus] 🇺🇸 US-443
+
+ss://YWVzLTI1Ni1nY206cmpWNFd5UDl0czVlRUdzcg@general-live-13877.holphappyeveryday.com:31352#[v2rayNplus] 🇲🇴 MO-31352
+
+ss://YWVzLTI1Ni1nY206cmpWNFd5UDl0czVlRUdzcg@general-live-13877.holphappyeveryday.com:33308#[v2rayNplus] 🇲🇾 MY-33308
+
+ss://YWVzLTI1Ni1nY206SGk5d2sxNFZudHpHcTdrcQ@154.12.242.150:80#[v2rayNplus] 🇺🇸 US-80
+
+ss://YWVzLTI1Ni1nY206SGk5d2sxNFZudHpHcTdrcQ@154.12.242.150:443#[v2rayNplus] 🇺🇸 US-443
+
+ss://YWVzLTI1Ni1nY206cmpWNFd5UDl0czVlRUdzcg@general-live-13877.holphappyeveryday.com:21381#[v2rayNplus] 🇸🇬 SG-21381
+
+ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpxSXRHOFN1ZVlRY1A@140.174.184.5:8388#[v2rayNplus] 🇪🇸 ES-8388
+
+ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTo3ZTczMWVjMy1mOGUxLTQzZjYtOTJjZi0zOTc4ZDE0NzA1YzQ@61.231.22.178:50099#[v2rayNplus] 🇹🇼 TW-50099
+
+ss://YWVzLTI1Ni1nY206cmpWNFd5UDl0czVlRUdzcg@general-live-13877.holphappyeveryday.com:43233#[v2rayNplus] 🇹🇭 TH-43233
+
+ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpiSU9vaTVUdUltRzJLY2N4VjctamNBN0Nleit2dW4tY19F@104.156.233.234:27116#[v2rayNplus] 🇦🇺 AU-27116
+
+ss://YWVzLTI1Ni1nY206WTZSOXBBdHZ4eHptR0M@51.222.155.113:5601#[v2rayNplus] 🇨🇦 CA-5601
+
+ss://YWVzLTI1Ni1nY206M2VPRmVOc3NkZTdQWVlNdg@84.247.155.196:80#[v2rayNplus] 🇯🇵 JP-80
+
+ss://YWVzLTI1Ni1nY206a1JLWkUzWmhFQ3dhd3kxTg@94.72.127.55:443#[v2rayNplus] 🇺🇸 US-443
+
+ss://YWVzLTI1Ni1nY206a1JLWkUzWmhFQ3dhd3kxTg@94.72.127.55:80#[v2rayNplus] 🇺🇸 US-80
+
+ss://YWVzLTI1Ni1nY206c0ZTMzQxZWNlYUlpU20yZA@154.53.63.33:80#[v2rayNplus] 🇺🇸 US-80
+
+ss://YWVzLTI1Ni1nY206NzI1NTMzMjBhZTZiY2M4Zg@212.192.15.246:20990#[v2rayNplus] 🇭🇰 HK-20990
+
+ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTo5dHFoTWRJclRrZ1E0NlB2aHlBdE1I@switcher-nick-croquet.freesocks.work:443#[v2rayNplus] 🇳🇱 NL-443
+
+ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpSRkszOENnN0FQbmVTQjVjV0RjcGJt@switcher-nick-croquet.freesocks.work:443#[v2rayNplus] 🇳🇱 NL-443
+
+ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTo3ZTczMWVjMy1mOGUxLTQzZjYtOTJjZi0zOTc4ZDE0NzA1YzQ@r3mrcg001286ek2.cybervena.com:50099#[v2rayNplus] 🇹🇼 TW-50099
+
+ss://YWVzLTI1Ni1nY206aXR6dnBuQDMyMQ@51.83.192.80:8388#[v2rayNplus] 🇫🇷 FR-8388
+
 vless://7ee53e03-96ed-4121-9da2-62f3d3374506@185.185.69.26:2200?path=%2Fv1&security=&encryption=none&host=rzd.ru&type=ws#%5Bv2rayNplus%5D%20%F0%9F%87%B7%F0%9F%87%BA%20RU-34335
 vless://a8e3155b-ceb1-4fcb-bc0c-2e77ec005401@api.noneok.com:443?mode=gun&security=reality&encryption=none&pbk=S8O8R938N960cpQfIIDXsJTxeGAkbVv6PlIqP0-d30w&type=grpc&serviceName=api.v1.StreamService&sni=api.noneok.com&sid=1ea59febb8d4fc8e#%5Bv2rayNplus%5D%20%F0%9F%87%A9%F0%9F%87%AA%20DE-21774
 vless://7ee53e03-96ed-4121-9da2-62f3d3374506@185.185.69.26:4100?path=%2Fv1&security=none&encryption=none&host=live.ok.ru&type=ws#%5Bv2rayNplus%5D%20%F0%9F%87%B7%F0%9F%87%BA%20RU-34337
