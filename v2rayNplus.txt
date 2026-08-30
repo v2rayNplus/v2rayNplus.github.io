@@ -1,4 +1,36 @@
 vless://a0b067ac-162d-4237-956d-10b8b471d3f5@54.37.75.187:443?security=reality&encryption=none&pbk=DHsthrDRMCGcOyJd4xTce_4CCSAJZGwxCdfNrkB_Pgs&host=v2rayNplus--v2rayNplus--v2rayNplus&headerType=none&fp=chrome&type=tcp&flow=xtls-rprx-vision&sni=www.speedtest.net&sid=479826bdfc3eb86e#%D8%B3%D8%A7%D8%A8%20%D8%A8%DA%AF%D8%A7%20%D8%B1%D9%81%D8%AA%20%D9%88%20%D8%A8%DA%A9%D8%A7%D9%BE%20%D9%87%D9%85%20%D9%86%D8%AF%D8%A7%D8%B4%D8%AA%D9%85....%DA%86%D9%86%D8%AF%20%D8%B1%D9%88%D8%B2%20%D8%B2%D9%85%D8%A7%D9%86%20%D8%A8%D8%AF%DB%8C%D9%86%20%D9%85%D8%AC%D8%AF%D8%AF%20%D8%AF%D8%B1%D8%B3%D8%AA%20%D9%85%DB%8C%D8%B4%D9%87%F0%9F%8E%AF
+
+socks://Og@78.110.121.34:10808#Iran [V2rayNplus] 🇮🇷
+socks://Og@94.184.11.199:4040#Iran [V2rayNplus] 🇮🇷
+socks://Og@37.152.189.3:10808#Iran [V2rayNplus] 🇮🇷
+socks://Og@217.114.40.114:10808#Iran [V2rayNplus] 🇮🇷
+socks://Og@193.134.101.191:2085#Iran [V2rayNplus] 🇮🇷
+socks://Og@185.79.96.94:1070#Iran [V2rayNplus] 🇮🇷
+socks://Og@62.60.146.250:3001#Iran [V2rayNplus] 🇮🇷
+socks://Og@87.107.109.74:10809#Iran [V2rayNplus] 🇮🇷
+socks://Og@185.83.182.122:1081#Iran [V2rayNplus] 🇮🇷
+socks://Og@5.160.226.179:10808#Iran [V2rayNplus] 🇮🇷
+socks://Og@146.19.212.85:1083#Iran [V2rayNplus] 🇮🇷
+socks://Og@80.191.243.212:1080#Iran [V2rayNplus] 🇮🇷
+socks://Og@188.121.103.177:1083#Iran [V2rayNplus] 🇮🇷
+socks://Og@89.42.138.172:1101#Iran [V2rayNplus] 🇮🇷
+socks://Og@195.234.80.140:8081#Iran [V2rayNplus] 🇮🇷
+socks://Og@94.184.4.63:18000#Iran [V2rayNplus] 🇮🇷
+socks://Og@185.19.201.201:1080#Iran [V2rayNplus] 🇮🇷
+socks://Og@5.160.226.204:10810#Iran [V2rayNplus] 🇮🇷
+socks://Og@92.42.207.117:65000#Iran [V2rayNplus] 🇮🇷
+socks://Og@78.109.200.189:9910#Iran [V2rayNplus] 🇮🇷
+socks://Og@134.255.202.249:10808#Iran [V2rayNplus] 🇮🇷
+socks://Og@87.236.38.11:1081#Iran [V2rayNplus] 🇮🇷
+socks://Og@89.35.156.203:1080#Iran [V2rayNplus] 🇮🇷
+socks://Og@37.148.50.206:10808#Iran [V2rayNplus] 🇮🇷
+socks://Og@91.216.217.201:10808#Iran [V2rayNplus] 🇮🇷
+socks://Og@185.8.173.203:1234#Iran [V2rayNplus] 🇮🇷
+socks://Og@62.60.161.12:1082#Iran [V2rayNplus] 🇮🇷
+socks://Og@130.185.77.128:9050#Iran [V2rayNplus] 🇮🇷
+socks://Og@81.29.249.82:5071#Iran [V2rayNplus] 🇮🇷
+socks://Og@87.107.54.155:10808#Iran [V2rayNplus] 🇮🇷
+socks://Og@78.109.200.168:9910#Iran [V2rayNplus] 🇮🇷
 vless://6be20c6b-f7c1-4f47-86b2-18f10c8e96b9@alman2.pythonsaz.ir:1824?security=reality&encryption=none&pbk=JIv_D-Lpo1cosiCUgu-qzGSJwOCGciyXSZ8ucNn6aBo&host=token.safebrowsing.apple&headerType=none&fp=chrome&type=tcp&sni=amp-api-edge.apps.apple.com&sid=8390ee7a5996648b#Germany%20%5BV2rayNplus%5D%20%F0%9F%87%A9%F0%9F%87%AA
 vless://6be20c6b-f7c1-4f47-86b2-18f10c8e96b9@alman2.pythonsaz.ir:61169?security=&encryption=none&host=amp-api-edge.apps.apple.com&headerType=http&type=tcp#Germany%20%5BV2rayNplus%5D%20%F0%9F%87%A9%F0%9F%87%AA
 vless://34eb8260-d0aa-4d3d-8e30-8447fc57a60b@91.99.81.222:443?security=reality&encryption=none&pbk=dYsy51W78tzZf26ql7Fh0Db65VlRSjGp6EH9nsAIRgo&host=--v2rayNplus--v2rayNplus--v2rayNplus--&headerType=none&fp=chrome&spx=%2FrsmSAHNzlGxYTp3&type=tcp&flow=xtls-rprx-vision&sni=amp-api-edge.apps.apple.com&sid=16d9cabe#Germany%20%5BV2rayNplus%5D%20%F0%9F%87%A9%F0%9F%87%AA
